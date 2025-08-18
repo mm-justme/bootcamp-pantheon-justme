@@ -1,0 +1,9 @@
+uuid: ca32f674-7a65-4719-9710-a4b1609cc38d
+langcode: en
+status: true
+dependencies: {  }
+name: Indicators
+vid: indicators
+description: null
+weight: 0
+new_revision: false

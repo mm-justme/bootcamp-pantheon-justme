@@ -1,0 +1,25 @@
+uuid: 89fede9a-3abd-40ff-a719-55bf57fe53f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu-services
+  module:
+    - system
+  theme:
+    - olivero
+id: olivero_footermenuservices
+theme: olivero
+region: footer_top
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer-menu-services'
+settings:
+  id: 'system_menu_block:footer-menu-services'
+  label: Services
+  label_display: visible
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

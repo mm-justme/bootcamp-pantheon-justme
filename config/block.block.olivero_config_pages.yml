@@ -1,0 +1,22 @@
+uuid: 062f8570-2a2f-4020-bbca-4915a7c4d261
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+  theme:
+    - olivero
+id: olivero_config_pages
+theme: olivero
+region: footer_top
+weight: 0
+provider: null
+plugin: config_pages_block
+settings:
+  id: config_pages_block
+  label: Contacts
+  label_display: visible
+  provider: config_pages
+  config_page_type: contacts_cp
+  config_page_view_mode: full
+visibility: {  }

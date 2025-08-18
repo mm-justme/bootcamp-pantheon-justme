@@ -1,0 +1,35 @@
+uuid: e9770f21-214b-4813-a202-53681112eb2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.indicators.field_description
+    - field.field.taxonomy_term.indicators.field_icon
+    - taxonomy.vocabulary.indicators
+  module:
+    - image
+id: taxonomy_term.indicators.default
+targetEntityType: taxonomy_term
+bundle: indicators
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  description: true

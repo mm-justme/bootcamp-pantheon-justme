@@ -1,0 +1,19 @@
+uuid: e4e4aeff-38e3-4062-a2b6-9b229a29b29c
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.contacts_cp
+    - field.storage.config_pages.field_email
+id: config_pages.contacts_cp.field_email
+field_name: field_email
+entity_type: config_pages
+bundle: contacts_cp
+label: email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

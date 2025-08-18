@@ -1,0 +1,40 @@
+uuid: 0f6b4c9d-9216-4fcf-be34-b3577cd25f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.contacts_cp
+    - field.field.config_pages.contacts_cp.field_email
+    - field.field.config_pages.contacts_cp.field_location
+    - field.field.config_pages.contacts_cp.field_phone
+id: config_pages.contacts_cp.default
+targetEntityType: config_pages
+bundle: contacts_cp
+mode: default
+content:
+  field_email:
+    type: email_default
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_location:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true

@@ -1,0 +1,17 @@
+uuid: ea25f395-64a3-42b8-a93a-4ea260677548
+langcode: en
+status: true
+dependencies: {  }
+id: contacts_cp
+label: 'contacts cp'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''

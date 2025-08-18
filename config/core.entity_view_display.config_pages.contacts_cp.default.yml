@@ -1,0 +1,38 @@
+uuid: b39ef259-0eba-490a-8263-305aa682465d
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.contacts_cp
+    - field.field.config_pages.contacts_cp.field_email
+    - field.field.config_pages.contacts_cp.field_location
+    - field.field.config_pages.contacts_cp.field_phone
+id: config_pages.contacts_cp.default
+targetEntityType: config_pages
+bundle: contacts_cp
+mode: default
+content:
+  field_email:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_location:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_phone:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

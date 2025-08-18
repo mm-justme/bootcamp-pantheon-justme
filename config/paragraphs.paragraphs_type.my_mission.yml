@@ -1,0 +1,10 @@
+uuid: b0c4ead0-4679-417d-94c3-594381c89523
+langcode: en
+status: true
+dependencies: {  }
+id: my_mission
+label: 'My Mission'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

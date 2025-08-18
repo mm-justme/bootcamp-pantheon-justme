@@ -1,0 +1,29 @@
+uuid: 98a207bd-58a9-49c2-9d57-5b7a22c8b3f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_indicators
+    - paragraphs.paragraphs_type.hero_section
+    - taxonomy.vocabulary.indicators
+id: paragraph.hero_section.field_indicators
+field_name: field_indicators
+entity_type: paragraph
+bundle: hero_section
+label: Indicators
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      indicators: indicators
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
