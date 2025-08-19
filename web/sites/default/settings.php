@@ -39,4 +39,19 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
   require $ddev_settings;
 }
 
+/**
+ * Custom file paths for Pantheon.
+ */
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  // Public files directory.
+  $settings['file_public_path'] = 'sites/default/files';
+
+  // Private files directory.
+  $settings['file_private_path'] = 'private';
+
+  // Temporary files directory.
+  $settings['file_temp_path'] = 'tmp';
+}
+
+
 $settings['config_sync_directory'] = '../config';
