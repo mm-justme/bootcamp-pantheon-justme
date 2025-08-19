@@ -33,25 +33,15 @@ if (file_exists($local_settings)) {
   include $local_settings;
 }
 
+$pantheon_local_settings = __DIR__ . "/settings.pantheon.local.php";
+if (file_exists($pantheon_local_settings)) {
+  include $pantheon_local_settings;
+}
+
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = __DIR__ . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
   require $ddev_settings;
 }
-
-/**
- * Custom file paths for Pantheon.
- */
-if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
-  // Public files directory.
-  $settings['file_public_path'] = 'sites/default/files';
-
-  // Private files directory.
-  $settings['file_private_path'] = 'private';
-
-  // Temporary files directory.
-  $settings['file_temp_path'] = 'tmp';
-}
-
 
 $settings['config_sync_directory'] = '../config';
