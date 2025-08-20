@@ -1,0 +1,55 @@
+uuid: 4a7d9776-2e70-4424-92fb-5cc801ef20e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.case_studies.field_book_link
+    - field.field.paragraph.case_studies.field_case_items
+    - field.field.paragraph.case_studies.field_subtitle
+    - field.field.paragraph.case_studies.field_title
+    - paragraphs.paragraphs_type.case_studies
+  module:
+    - link
+    - viewsreference
+id: paragraph.case_studies.default
+targetEntityType: paragraph
+bundle: case_studies
+mode: default
+content:
+  field_book_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_case_items:
+    type: viewsreference_formatter
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_subtitle:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,30 @@
+uuid: b3e49bd8-9fec-42e1-b796-4bfe49e87da6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_case_items
+    - paragraphs.paragraphs_type.case_studies
+  module:
+    - viewsreference
+id: paragraph.case_studies.field_case_items
+field_name: field_case_items
+entity_type: paragraph
+bundle: case_studies
+label: case-items
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  plugin_types:
+    block: block
+  preselect_views:
+    case_studies: case_studies
+  enabled_settings: {  }
+field_type: viewsreference
