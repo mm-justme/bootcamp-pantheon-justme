@@ -1,0 +1,26 @@
+uuid: 1e585bf7-3ab9-4dea-8860-7d335019a23a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.case_studies.field_body
+    - field.field.node.case_studies.field_photo
+    - field.field.node.case_studies.field_title_additional
+    - node.type.case_studies
+  module:
+    - user
+id: node.case_studies.teaser
+targetEntityType: node
+bundle: case_studies
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_body: true
+  field_photo: true
+  field_title_additional: true

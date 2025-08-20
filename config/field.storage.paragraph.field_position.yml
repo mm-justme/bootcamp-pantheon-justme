@@ -1,0 +1,30 @@
+uuid: 4b8b3b32-6980-4fa1-a90c-ec9cb9906b32
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_position
+field_name: field_position
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: start
+      label: start
+    -
+      value: center
+      label: center
+    -
+      value: end
+      label: end
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

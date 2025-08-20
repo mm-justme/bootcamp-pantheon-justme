@@ -1,0 +1,66 @@
+uuid: 83ce23c1-f10c-4d3b-b5f9-b890a92203e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.about.field_background_image
+    - field.field.paragraph.about.field_body
+    - field.field.paragraph.about.field_book_link
+    - field.field.paragraph.about.field_person_img
+    - field.field.paragraph.about.field_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.about
+  module:
+    - image
+    - link
+    - text
+id: paragraph.about.default
+targetEntityType: paragraph
+bundle: about
+mode: default
+content:
+  field_background_image:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_body:
+    type: text_textarea_with_summary
+    weight: 1
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_book_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: /about
+      placeholder_title: 'More about me'
+    third_party_settings: {  }
+  field_person_img:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

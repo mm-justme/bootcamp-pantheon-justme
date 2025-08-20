@@ -1,0 +1,57 @@
+uuid: 01ed44b6-3978-455f-8841-02291e99f6da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grid.field_book_link
+    - field.field.paragraph.grid.field_items
+    - field.field.paragraph.grid.field_subtitle
+    - field.field.paragraph.grid.field_title
+    - paragraphs.paragraphs_type.grid
+  module:
+    - link
+    - paragraphs
+id: paragraph.grid.default
+targetEntityType: paragraph
+bundle: grid
+mode: default
+content:
+  field_book_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_items:
+    type: entity_reference_paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

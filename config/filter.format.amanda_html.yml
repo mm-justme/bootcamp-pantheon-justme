@@ -1,0 +1,42 @@
+uuid: 5e5ec499-00af-4258-a456-432b1564ec9b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Amanda HTML'
+format: amanda_html
+weight: 0
+filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<br> <p class="lead eyebrow"> <h2> <h3 class="heading-accent"> <h4> <strong> <em> <u> <blockquote> <a href> <ul> <ol reversed start> <li> <hr> <img src alt height width>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72

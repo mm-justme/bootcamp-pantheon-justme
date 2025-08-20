@@ -1,20 +1,18 @@
-uuid: 32ba91f0-bbbf-4e31-ade2-cc2fe552e43b
+uuid: 1b842cdc-bb3c-4cac-a8fd-3511d2114ca6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_section
-    - node.type.landing_page
+    - field.storage.paragraph.field_achivments_item
+    - paragraphs.paragraphs_type.achivments
     - paragraphs.paragraphs_type.achivments_item
-    - paragraphs.paragraphs_type.grid_card
-    - paragraphs.paragraphs_type.hero_section
   module:
     - entity_reference_revisions
-id: node.landing_page.field_section
-field_name: field_section
-entity_type: node
-bundle: landing_page
-label: Section
+id: paragraph.achivments.field_achivments_item
+field_name: field_achivments_item
+entity_type: paragraph
+bundle: achivments
+label: 'Achivments item'
 description: ''
 required: false
 translatable: false
@@ -24,30 +22,28 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      hero_section: hero_section
-      grid_card: grid_card
       achivments_item: achivments_item
-    negate: 1
+    negate: 0
     target_bundles_drag_drop:
       about:
-        weight: 8
+        weight: 7
         enabled: false
       achivments:
-        weight: 9
+        weight: 8
         enabled: false
       achivments_item:
         weight: 10
         enabled: true
       grid:
-        weight: 6
+        weight: 9
         enabled: false
       grid_card:
-        weight: 5
-        enabled: true
+        weight: 10
+        enabled: false
       hero_section:
-        weight: 3
-        enabled: true
+        weight: 11
+        enabled: false
       my_mission:
-        weight: 4
+        weight: 12
         enabled: false
 field_type: entity_reference_revisions

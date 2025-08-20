@@ -1,0 +1,37 @@
+uuid: 9d27e6d3-c7e4-4ce7-abb3-6e5bc69e9062
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.achivments.field_achivments_item
+    - field.field.paragraph.achivments.field_bg_image
+    - paragraphs.paragraphs_type.achivments
+  module:
+    - entity_reference_revisions
+    - image
+id: paragraph.achivments.default
+targetEntityType: paragraph
+bundle: achivments
+mode: default
+content:
+  field_achivments_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_bg_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

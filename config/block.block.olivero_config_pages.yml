@@ -9,7 +9,7 @@ dependencies:
 id: olivero_config_pages
 theme: olivero
 region: footer_top
-weight: 0
+weight: -4
 provider: null
 plugin: config_pages_block
 settings:

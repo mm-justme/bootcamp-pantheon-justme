@@ -1,0 +1,29 @@
+uuid: 5d4c34de-4db0-4610-be29-22eccdf44e1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.achivments_item.field_subtitle
+    - field.field.paragraph.achivments_item.field_title
+    - paragraphs.paragraphs_type.achivments_item
+id: paragraph.achivments_item.default
+targetEntityType: paragraph
+bundle: achivments_item
+mode: default
+content:
+  field_subtitle:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

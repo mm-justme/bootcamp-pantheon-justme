@@ -1,0 +1,40 @@
+uuid: c47046e7-6fcd-4c3c-bf94-cf6d726426de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.achivments.field_achivments_item
+    - field.field.paragraph.achivments.field_bg_image
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.achivments
+  module:
+    - image
+    - paragraphs
+id: paragraph.achivments.default
+targetEntityType: paragraph
+bundle: achivments
+mode: default
+content:
+  field_achivments_item:
+    type: entity_reference_paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_bg_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

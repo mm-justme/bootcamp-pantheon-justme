@@ -1,0 +1,24 @@
+uuid: 8d449a3f-205f-4599-8efa-a97cecd6bfd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles
+  module:
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__articles_footer_article_view
+theme: olivero
+region: footer_top
+weight: -5
+provider: null
+plugin: 'views_block:articles-footer_article_view'
+settings:
+  id: 'views_block:articles-footer_article_view'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility: {  }

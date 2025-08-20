@@ -1,0 +1,26 @@
+uuid: 15f5c94e-01e4-44b7-bad3-461153e04f7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - filter.format.amanda_html
+    - paragraphs.paragraphs_type.about
+  module:
+    - text
+id: paragraph.about.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: about
+label: Body
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - amanda_html
+field_type: text_with_summary

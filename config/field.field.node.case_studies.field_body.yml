@@ -1,0 +1,26 @@
+uuid: c92b7ed2-97c3-4cb6-a5d0-5d7bd9210c42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - filter.format.amanda_html
+    - node.type.case_studies
+  module:
+    - text
+id: node.case_studies.field_body
+field_name: field_body
+entity_type: node
+bundle: case_studies
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - amanda_html
+field_type: text_with_summary

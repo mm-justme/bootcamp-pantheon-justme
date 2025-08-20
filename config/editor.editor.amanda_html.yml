@@ -1,0 +1,57 @@
+uuid: fa6e77e9-95f8-4fc6-a679-b2928b67a8e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.amanda_html
+  module:
+    - ckeditor5
+format: amanda_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - undo
+      - redo
+      - heading
+      - bold
+      - italic
+      - underline
+      - bulletedList
+      - numberedList
+      - link
+      - blockQuote
+      - horizontalLine
+      - removeFormat
+      - style
+      - specialCharacters
+      - sourceEditing
+      - drupalInsertImage
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+    ckeditor5_imageResize:
+      allow_resize: true
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Lead paragraph'
+          element: '<p class="lead">'
+        -
+          label: 'Accent subheading'
+          element: '<h3 class="heading-accent">'
+        -
+          label: 'Eyebrow / Overline'
+          element: '<p class="eyebrow">'
+image_upload:
+  status: false

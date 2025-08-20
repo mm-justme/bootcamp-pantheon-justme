@@ -1,0 +1,10 @@
+uuid: 54a09194-709b-4b52-88b5-dd3d6169ef3d
+langcode: en
+status: true
+dependencies: {  }
+id: achivments_item
+label: 'Achivments item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

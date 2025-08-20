@@ -1,0 +1,21 @@
+uuid: 882bd2ba-1aa9-4ce6-b04f-4330017a3d17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_position
+    - paragraphs.paragraphs_type.grid_card
+  module:
+    - options
+id: paragraph.grid_card.field_position
+field_name: field_position
+entity_type: paragraph
+bundle: grid_card
+label: position
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

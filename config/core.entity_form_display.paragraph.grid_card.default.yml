@@ -1,0 +1,70 @@
+uuid: 00393b18-7035-47e5-a8bb-47b0f2817e45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grid_card.field_background_image
+    - field.field.paragraph.grid_card.field_book_link
+    - field.field.paragraph.grid_card.field_person_img
+    - field.field.paragraph.grid_card.field_position
+    - field.field.paragraph.grid_card.field_subtitle
+    - field.field.paragraph.grid_card.field_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.grid_card
+  module:
+    - image
+    - link
+id: paragraph.grid_card.default
+targetEntityType: paragraph
+bundle: grid_card
+mode: default
+content:
+  field_background_image:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_book_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_person_img:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_position:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
