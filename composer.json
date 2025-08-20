@@ -27,7 +27,8 @@
         "drupal/token": "^1.15",
         "drupal/token_filter": "^2.2",
         "drupal/config_pages": "^2.18",
-        "drupal/admin_toolbar": "^3.6"
+        "drupal/admin_toolbar": "^3.6",
+        "drupal/viewsreference": "^2.0@beta"
     },
     "require-dev": {
         "drupal/core-dev": "^11"
