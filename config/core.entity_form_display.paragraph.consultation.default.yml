@@ -1,0 +1,43 @@
+uuid: 4339288d-e103-45a1-91b1-c8b4b9e764a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.consultation.field_consultation_link
+    - field.field.paragraph.consultation.field_subtitle
+    - field.field.paragraph.consultation.field_title
+    - paragraphs.paragraphs_type.consultation
+  module:
+    - link
+id: paragraph.consultation.default
+targetEntityType: paragraph
+bundle: consultation
+mode: default
+content:
+  field_consultation_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

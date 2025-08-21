@@ -1,0 +1,8 @@
+uuid: d4c75d2f-57d9-44a7-890e-238221db3513
+langcode: en
+status: true
+dependencies: {  }
+id: block_rich_content
+label: 'Block Rich content'
+revision: false
+description: null

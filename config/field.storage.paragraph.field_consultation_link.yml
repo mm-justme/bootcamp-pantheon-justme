@@ -1,0 +1,19 @@
+uuid: 208bd91c-801c-4342-bb68-2ce9f7efb28e
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_consultation_link
+field_name: field_consultation_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

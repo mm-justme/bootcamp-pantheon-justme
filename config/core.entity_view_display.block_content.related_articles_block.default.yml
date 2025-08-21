@@ -1,0 +1,24 @@
+uuid: 4a4fbcf9-9702-4534-ac98-1c76c6cce9d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.related_articles_block
+    - field.field.block_content.related_articles_block.field_related_articles
+  module:
+    - viewsreference
+id: block_content.related_articles_block.default
+targetEntityType: block_content
+bundle: related_articles_block
+mode: default
+content:
+  field_related_articles:
+    type: viewsreference_formatter
+    label: above
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

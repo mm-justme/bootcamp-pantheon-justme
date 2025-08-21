@@ -1,0 +1,8 @@
+uuid: 140c8283-f02f-47d3-b721-a21b980ec604
+langcode: en
+status: true
+dependencies: {  }
+id: comments_block
+label: 'Comments block'
+revision: false
+description: null

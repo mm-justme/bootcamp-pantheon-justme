@@ -1,0 +1,19 @@
+uuid: cfb93bfe-3a69-49ef-8435-48a205c9991e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_role_subtitle
+    - paragraphs.paragraphs_type.client_reviews
+id: paragraph.client_reviews.field_role_subtitle
+field_name: field_role_subtitle
+entity_type: paragraph
+bundle: client_reviews
+label: 'Role / Subtitle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

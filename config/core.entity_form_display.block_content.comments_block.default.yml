@@ -1,0 +1,49 @@
+uuid: 11c171cc-11ba-4e7f-9385-6d2c0b922b6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comments_block
+    - field.field.block_content.comments_block.field_author
+    - field.field.block_content.comments_block.field_comment
+    - field.field.block_content.comments_block.field_link
+  module:
+    - link
+id: block_content.comments_block.default
+targetEntityType: block_content
+bundle: comments_block
+mode: default
+content:
+  field_author:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_comment:
+    type: string_textarea
+    weight: 28
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 29
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

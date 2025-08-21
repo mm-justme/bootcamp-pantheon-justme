@@ -1,0 +1,29 @@
+uuid: 7ea5187f-81b6-4621-9842-65de9941f7e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_design_tags
+    - node.type.posts
+    - taxonomy.vocabulary.design
+id: node.posts.field_design_tags
+field_name: field_design_tags
+entity_type: node
+bundle: posts
+label: design_tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      design: design
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

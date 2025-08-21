@@ -1,0 +1,35 @@
+uuid: 53ae1e4f-453f-4013-a09b-292fa1697b94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_posts
+    - paragraphs.paragraphs_type.latest_posts
+    - views.view.posts
+  module:
+    - viewsreference
+id: paragraph.latest_posts.field_posts
+field_name: field_posts
+entity_type: paragraph
+bundle: latest_posts
+label: Posts
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: b3b7b72c-5ce6-402d-a96e-90636ded7b4d
+    display_id: post_view_block
+    data: 'a:6:{s:5:"pager";N;s:6:"header";N;s:8:"argument";N;s:6:"offset";N;s:5:"limit";N;s:5:"title";N;}'
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  plugin_types:
+    block: block
+  preselect_views:
+    posts: posts
+  enabled_settings: {  }
+field_type: viewsreference

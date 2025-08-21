@@ -1,0 +1,19 @@
+uuid: 2951abb9-de6c-4276-852f-cb7d020a1c10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subtitle
+    - paragraphs.paragraphs_type.consultation
+id: paragraph.consultation.field_subtitle
+field_name: field_subtitle
+entity_type: paragraph
+bundle: consultation
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

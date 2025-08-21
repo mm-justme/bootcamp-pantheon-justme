@@ -1,0 +1,62 @@
+uuid: 3f0124c8-6cd3-4b97-811a-97f65738ec0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.client_reviews.field_additional_image
+    - field.field.paragraph.client_reviews.field_author
+    - field.field.paragraph.client_reviews.field_quote
+    - field.field.paragraph.client_reviews.field_role_subtitle
+    - field.field.paragraph.client_reviews.field_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.client_reviews
+  module:
+    - image
+id: paragraph.client_reviews.default
+targetEntityType: paragraph
+bundle: client_reviews
+mode: default
+content:
+  field_additional_image:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_author:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quote:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_role_subtitle:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Client Reviews'
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,10 @@
+uuid: 45e819f0-24a8-4ea5-9e3d-70864498900b
+langcode: en
+status: true
+dependencies: {  }
+id: latest_posts
+label: 'Latest Posts'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

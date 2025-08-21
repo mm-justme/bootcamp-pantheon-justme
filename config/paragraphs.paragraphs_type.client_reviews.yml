@@ -1,0 +1,10 @@
+uuid: defc0a04-846b-461d-bca1-22b212346af0
+langcode: en
+status: true
+dependencies: {  }
+id: client_reviews
+label: 'Client Reviews'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
