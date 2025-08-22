@@ -4,10 +4,23 @@ status: true
 dependencies:
   config:
     - block_content.type.block_rich_content
+    - field.field.block_content.block_rich_content.field_body
+  module:
+    - text
 id: block_content.block_rich_content.default
 targetEntityType: block_content
 bundle: block_rich_content
 mode: default
-content: {  }
+content:
+  field_body:
+    type: text_textarea_with_summary
+    weight: 26
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
 hidden:
   info: true
