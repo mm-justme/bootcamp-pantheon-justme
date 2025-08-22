@@ -1,0 +1,27 @@
+uuid: d9215654-c23d-42be-b6d0-32284ac75bea
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_media
+    - field.field.block_content.block_media.field_images
+    - image.style.post_lightbox_large
+  module:
+    - image
+id: block_content.block_media.default
+targetEntityType: block_content
+bundle: block_media
+mode: default
+content:
+  field_images:
+    type: image
+    label: hidden
+    settings:
+      image_link: file
+      image_style: post_lightbox_large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
