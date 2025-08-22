@@ -18,7 +18,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p class="lead eyebrow"> <h2> <h3 class="heading-accent"> <h4> <strong> <em> <u> <blockquote> <a href> <ul> <ol reversed start> <li> <hr> <img src alt height width>'
+      allowed_html: '<br> <p class="lead eyebrow"> <h2> <h3 class="heading-accent"> <h4> <strong> <em> <u> <blockquote> <a href> <ul> <ol reversed start> <li> <hr> <img src alt height width data-entity-uuid data-entity-type>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_image_secure:

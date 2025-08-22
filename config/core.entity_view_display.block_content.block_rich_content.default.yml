@@ -4,9 +4,19 @@ status: true
 dependencies:
   config:
     - block_content.type.block_rich_content
+    - field.field.block_content.block_rich_content.field_body
+  module:
+    - text
 id: block_content.block_rich_content.default
 targetEntityType: block_content
 bundle: block_rich_content
 mode: default
-content: {  }
+content:
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden: {  }
