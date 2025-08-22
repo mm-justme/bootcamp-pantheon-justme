@@ -1,0 +1,24 @@
+uuid: 0861923f-c0ce-44d4-b681-7f6e891c5d45
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_comments
+    - field.storage.block_content.field_quota
+    - filter.format.amanda_html
+  module:
+    - text
+id: block_content.block_comments.field_quota
+field_name: field_quota
+entity_type: block_content
+bundle: block_comments
+label: Quota
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - amanda_html
+field_type: text_long
