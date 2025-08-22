@@ -1,8 +1,0 @@
-uuid: 4f03dc3e-74ae-4b02-a808-cb485538948a
-langcode: en
-status: true
-dependencies: {  }
-id: block_media
-label: 'Block Media'
-revision: false
-description: null

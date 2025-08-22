@@ -4,34 +4,10 @@ status: true
 dependencies:
   config:
     - block_content.type.block_rich_content
-    - field.field.block_content.block_rich_content.body
-    - field.field.block_content.block_rich_content.field_images
-    - image.style.thumbnail
-  module:
-    - image
-    - text
 id: block_content.block_rich_content.default
 targetEntityType: block_content
 bundle: block_rich_content
 mode: default
-content:
-  body:
-    type: text_textarea_with_summary
-    weight: 1
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
-  field_images:
-    type: image_image
-    weight: 28
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
+content: {  }
 hidden:
   info: true

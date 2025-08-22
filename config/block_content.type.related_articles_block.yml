@@ -1,8 +1,0 @@
-uuid: 56c3f1be-af8f-4a0c-b36f-1a89754142e8
-langcode: en
-status: true
-dependencies: {  }
-id: related_articles_block
-label: 'Related Articles block'
-revision: false
-description: null
