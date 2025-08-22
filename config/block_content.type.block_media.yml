@@ -1,0 +1,8 @@
+uuid: 9ea919a5-de7e-42ba-8a69-8175b1f3b604
+langcode: en
+status: true
+dependencies: {  }
+id: block_media
+label: 'Block Media'
+revision: false
+description: null
