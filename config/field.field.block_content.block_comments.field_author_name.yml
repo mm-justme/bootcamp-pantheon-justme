@@ -1,0 +1,19 @@
+uuid: f8688a8d-546c-4a8d-960d-587716e7df8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_comments
+    - field.storage.block_content.field_author_name
+id: block_content.block_comments.field_author_name
+field_name: field_author_name
+entity_type: block_content
+bundle: block_comments
+label: 'Author name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

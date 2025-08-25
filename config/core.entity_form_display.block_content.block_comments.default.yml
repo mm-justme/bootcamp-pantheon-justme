@@ -1,0 +1,69 @@
+uuid: 8ac4ce83-b8a4-45f2-859b-0d6125c83cdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_comments
+    - field.field.block_content.block_comments.field_author_name
+    - field.field.block_content.block_comments.field_author_photo
+    - field.field.block_content.block_comments.field_link
+    - field.field.block_content.block_comments.field_media_links
+    - field.field.block_content.block_comments.field_quota
+    - image.style.thumbnail
+  module:
+    - image
+    - link
+    - social_media_links_field
+    - text
+id: block_content.block_comments.default
+targetEntityType: block_content
+bundle: block_comments
+mode: default
+content:
+  field_author_name:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_author_photo:
+    type: image_image
+    weight: 28
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 29
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_media_links:
+    type: social_media_links_field_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_quota:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

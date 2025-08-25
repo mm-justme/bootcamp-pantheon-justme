@@ -1,0 +1,69 @@
+uuid: 84575f86-811f-4f8b-8496-614fd1f347bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_comments
+    - field.field.block_content.block_comments.field_author_name
+    - field.field.block_content.block_comments.field_author_photo
+    - field.field.block_content.block_comments.field_link
+    - field.field.block_content.block_comments.field_media_links
+    - field.field.block_content.block_comments.field_quota
+  module:
+    - image
+    - link
+    - social_media_links_field
+    - text
+id: block_content.block_comments.default
+targetEntityType: block_content
+bundle: block_comments
+mode: default
+content:
+  field_author_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_author_photo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media_links:
+    type: social_media_links_field_default
+    label: above
+    settings:
+      appearance: {  }
+      link_attributes: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_quota:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
