@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.block_comments
+    - block_content.type.block_media
     - block_content.type.block_rich_content
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_main_photo
@@ -155,7 +156,7 @@ third_party_settings:
             configuration:
               id: 'inline_block:block_rich_content'
               label: 'Embracing Diversity in Design'
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping: {  }
               view_mode: full
@@ -178,6 +179,21 @@ third_party_settings:
               block_revision_id: 17
               block_serialized: null
             weight: 6
+            additional: {  }
+          a3a36c93-5ad1-4547-ae88-85d9698f4ccf:
+            uuid: a3a36c93-5ad1-4547-ae88-85d9698f4ccf
+            region: first
+            configuration:
+              id: 'inline_block:block_media'
+              label: Media
+              label_display: '0'
+              provider: layout_builder
+              context_mapping: {  }
+              view_mode: full
+              block_id: 18
+              block_revision_id: 18
+              block_serialized: null
+            weight: 7
             additional: {  }
         third_party_settings: {  }
       -
