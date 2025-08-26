@@ -1,7 +1,9 @@
 uuid: 5e5ec499-00af-4258-a456-432b1564ec9b
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - media
 name: 'Amanda HTML'
 format: amanda_html
 weight: 0
@@ -18,7 +20,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p class="lead eyebrow"> <h2> <h3 class="heading-accent"> <h4> <strong> <em> <u> <blockquote> <a href> <ul> <ol reversed start> <li> <hr> <img src alt height width data-entity-uuid data-entity-type>'
+      allowed_html: '<br> <p class="lead eyebrow"> <h2> <h3 class="heading-accent"> <h4> <strong> <em> <u> <blockquote> <a href> <ul> <ol reversed start> <li> <hr> <img src alt height width data-entity-uuid data-entity-type> <drupal-media data-entity-type data-entity-uuid alt>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_image_secure:
@@ -40,3 +42,12 @@ filters:
     weight: 0
     settings:
       filter_url_length: 72
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes: {  }
+      allowed_media_types: {  }

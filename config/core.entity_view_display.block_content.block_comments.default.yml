@@ -21,7 +21,7 @@ mode: default
 content:
   field_author_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -29,7 +29,7 @@ content:
     region: content
   field_author_photo:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
@@ -40,7 +40,7 @@ content:
     region: content
   field_link:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -52,7 +52,7 @@ content:
     region: content
   field_media_links:
     type: social_media_links_field_default
-    label: above
+    label: hidden
     settings:
       appearance: {  }
       link_attributes: {  }
@@ -61,7 +61,7 @@ content:
     region: content
   field_quota:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 0
