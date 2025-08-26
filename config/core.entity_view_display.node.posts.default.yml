@@ -155,7 +155,7 @@ third_party_settings:
             configuration:
               id: 'inline_block:block_rich_content'
               label: 'Embracing Diversity in Design'
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping: {  }
               view_mode: full
