@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_main_photo
+    - field.field.node.posts.layout_builder__layout
     - image.style.thumbnail
     - node.type.posts
   module:
@@ -84,4 +85,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  layout_builder__layout: true
