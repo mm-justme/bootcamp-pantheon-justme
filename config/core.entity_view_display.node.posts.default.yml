@@ -3,243 +3,30 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.block_comments
-    - block_content.type.block_media
-    - block_content.type.block_rich_content
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_main_photo
     - field.field.node.posts.layout_builder__layout
     - node.type.posts
-    - views.view.articles
-    - views.view.posts
   module:
-    - addtoany
-    - image
     - layout_builder
     - layout_discovery
     - user
-    - views
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
-      -
-        layout_id: layout_twocol_section
-        layout_settings:
-          label: main/sidebar
-          context_mapping: {  }
-          column_widths: 67-33
-        components:
-          cfc4c0c5-1fb1-4e11-ba2e-e2f7d76f807c:
-            uuid: cfc4c0c5-1fb1-4e11-ba2e-e2f7d76f807c
-            region: second
-            configuration:
-              id: 'views_block:articles-block_1'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: null
-            weight: 0
-            additional: {  }
-          c2ef946e-8483-4d11-b121-9fbd65d2971c:
-            uuid: c2ef946e-8483-4d11-b121-9fbd65d2971c
-            region: first
-            configuration:
-              id: 'field_block:node:posts:title'
-              label: Title
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          d60234cf-c69a-41c8-a58c-b2e1a82ccec2:
-            uuid: d60234cf-c69a-41c8-a58c-b2e1a82ccec2
-            region: first
-            configuration:
-              id: 'field_block:node:posts:uid'
-              label: 'Authored by'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          683f5fb1-96ed-45c2-8c60-89867d0d543a:
-            uuid: 683f5fb1-96ed-45c2-8c60-89867d0d543a
-            region: first
-            configuration:
-              id: 'field_block:node:posts:created'
-              label: 'Authored on'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: timestamp
-                label: above
-                settings:
-                  date_format: olivero_medium
-                  custom_date_format: ''
-                  timezone: ''
-                  tooltip:
-                    date_format: olivero_medium
-                    custom_date_format: ''
-                  time_diff:
-                    enabled: false
-                    future_format: '@interval hence'
-                    past_format: '@interval ago'
-                    granularity: 2
-                    refresh: 60
-                    description: ''
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          2224e14c-7425-4963-aac3-0fd336487c54:
-            uuid: 2224e14c-7425-4963-aac3-0fd336487c54
-            region: first
-            configuration:
-              id: 'field_block:node:posts:field_main_photo'
-              label: 'Main Photo'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: image
-                label: hidden
-                settings:
-                  image_link: ''
-                  image_style: post_lightbox_large
-                  image_loading:
-                    attribute: lazy
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          135b51d1-481a-4bf5-8b5a-87c757141823:
-            uuid: 135b51d1-481a-4bf5-8b5a-87c757141823
-            region: first
-            configuration:
-              id: addtoany_block
-              label: 'AddToAny share buttons'
-              label_display: '0'
-              provider: addtoany
-              context_mapping: {  }
-              buttons_size: null
-              addtoany_html: ''
-              link_url: ''
-              link_title: ''
-            weight: 4
-            additional: {  }
-          1ba4f7e3-f97c-4876-afd6-b569188cdd5f:
-            uuid: 1ba4f7e3-f97c-4876-afd6-b569188cdd5f
-            region: first
-            configuration:
-              id: 'inline_block:block_rich_content'
-              label: Main
-              label_display: '0'
-              provider: layout_builder
-              context_mapping: {  }
-              view_mode: full
-              block_id: 16
-              block_revision_id: 16
-              block_serialized: null
-            weight: 5
-            additional: {  }
-          b66e8ac3-f32c-4b8b-acce-eca4b710c015:
-            uuid: b66e8ac3-f32c-4b8b-acce-eca4b710c015
-            region: first
-            configuration:
-              id: 'inline_block:block_comments'
-              label: Comment
-              label_display: '0'
-              provider: layout_builder
-              context_mapping: {  }
-              view_mode: full
-              block_id: 17
-              block_revision_id: 17
-              block_serialized: null
-            weight: 6
-            additional: {  }
-          a3a36c93-5ad1-4547-ae88-85d9698f4ccf:
-            uuid: a3a36c93-5ad1-4547-ae88-85d9698f4ccf
-            region: first
-            configuration:
-              id: 'inline_block:block_media'
-              label: Media
-              label_display: '0'
-              provider: layout_builder
-              context_mapping: {  }
-              view_mode: full
-              block_id: 18
-              block_revision_id: 18
-              block_serialized: null
-            weight: 7
-            additional: {  }
-        third_party_settings: {  }
       -
         layout_id: layout_onecol
         layout_settings:
-          label: 'related posts'
-          context_mapping: {  }
-        components:
-          f46427f1-7791-447b-9ab3-744f2ddf371e:
-            uuid: f46427f1-7791-447b-9ab3-744f2ddf371e
-            region: content
-            configuration:
-              id: 'views_block:posts-related_posts'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: null
-            weight: 0
-            additional: {  }
+          label: ''
+        components: {  }
         third_party_settings: {  }
 id: node.posts.default
 targetEntityType: node
 bundle: posts
 mode: default
 content:
-  field_design_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 103
-    region: first
-  field_main_photo:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 102
-    region: first
   field_title:
     type: string
     label: above
@@ -255,4 +42,6 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_design_tags: true
+  field_main_photo: true
   layout_builder__layout: true

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_main_photo
+    - field.field.node.posts.layout_builder__layout
     - node.type.posts
   module:
     - image
@@ -29,4 +30,5 @@ content:
 hidden:
   addtoany: true
   field_design_tags: true
+  layout_builder__layout: true
   links: true
