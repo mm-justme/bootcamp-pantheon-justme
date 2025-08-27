@@ -22,7 +22,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: true
+    allow_custom: false
     sections:
       -
         layout_id: layout_twocol_section
@@ -119,14 +119,14 @@ third_party_settings:
             configuration:
               id: 'field_block:node:posts:field_main_photo'
               label: 'Main Photo'
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
                 type: image
-                label: above
+                label: hidden
                 settings:
                   image_link: ''
                   image_style: post_lightbox_large
@@ -155,7 +155,7 @@ third_party_settings:
             region: first
             configuration:
               id: 'inline_block:block_rich_content'
-              label: 'Embracing Diversity in Design'
+              label: Main
               label_display: '0'
               provider: layout_builder
               context_mapping: {  }
