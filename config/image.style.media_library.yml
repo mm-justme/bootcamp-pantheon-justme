@@ -24,3 +24,11 @@ effects:
     weight: 2
     data:
       extension: webp
+  1beadc97-7ff8-42c9-a5f9-bdefbbc22d58:
+    uuid: 1beadc97-7ff8-42c9-a5f9-bdefbbc22d58
+    id: image_scale
+    weight: 3
+    data:
+      width: 1600
+      height: null
+      upscale: false

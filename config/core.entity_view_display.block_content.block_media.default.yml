@@ -4,25 +4,20 @@ status: true
 dependencies:
   config:
     - block_content.type.block_media
-    - field.field.block_content.block_media.field_images
-    - image.style.post_lightbox_large
-  module:
-    - image
+    - field.field.block_content.block_media.field_media
 id: block_content.block_media.default
 targetEntityType: block_content
 bundle: block_media
 mode: default
 content:
-  field_images:
-    type: image
+  field_media:
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: file
-      image_style: post_lightbox_large
-      image_loading:
-        attribute: lazy
+      view_mode: media_library
+      link: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   addtoany: true
