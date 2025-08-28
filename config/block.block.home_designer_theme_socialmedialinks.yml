@@ -1,13 +1,13 @@
-uuid: 7a806565-5971-4fb8-8931-421a27bb2fbd
+uuid: a37068f0-d243-4490-802e-dfe812da018c
 langcode: en
 status: true
 dependencies:
   module:
     - social_media_links
   theme:
-    - justme_sass
-id: justme_sass_socialmedialinks
-theme: justme_sass
+    - home_designer_theme
+id: home_designer_theme_socialmedialinks
+theme: home_designer_theme
 region: footer_first
 weight: 3
 provider: null

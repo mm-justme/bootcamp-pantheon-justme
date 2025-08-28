@@ -1,4 +1,4 @@
-uuid: 8d1d7735-44cb-4574-a505-b278e61fc88a
+uuid: 99766de9-5a89-4dc2-a3f8-611d9f16bc14
 langcode: en
 status: true
 dependencies:
@@ -7,9 +7,9 @@ dependencies:
   module:
     - system
   theme:
-    - justme_sass
-id: justme_sass_footermenu
-theme: justme_sass
+    - home_designer_theme
+id: home_designer_theme_footermenu
+theme: home_designer_theme
 region: footer_first
 weight: 1
 provider: null

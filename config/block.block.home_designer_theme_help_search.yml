@@ -1,4 +1,4 @@
-uuid: 60601274-1507-4aa4-89b7-10a7993808b6
+uuid: 70547b89-52e0-439b-abd4-1508b256d0bc
 langcode: en
 status: true
 dependencies:
@@ -6,14 +6,14 @@ dependencies:
     - search
     - system
   theme:
-    - justme_sass
+    - home_designer_theme
   enforced:
     config:
       - search.page.help_search
 _core:
   default_config_hash: 2ToeZLvlHKTeFY74gpgu1PejLoFyCECLO_gw6rAZwqw
-id: justme_sass_help_search
-theme: justme_sass
+id: home_designer_theme_help_search
+theme: home_designer_theme
 region: none
 weight: -3
 provider: null

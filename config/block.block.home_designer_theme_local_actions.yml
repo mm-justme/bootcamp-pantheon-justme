@@ -1,13 +1,13 @@
-uuid: de524910-7df0-44c1-8dd3-d039bf09850d
+uuid: 2980162a-83e7-484b-8de7-dac82f713438
 langcode: en
 status: true
 dependencies:
   theme:
-    - justme_sass
+    - home_designer_theme
 _core:
   default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
-id: justme_sass_local_actions
-theme: justme_sass
+id: home_designer_theme_local_actions
+theme: home_designer_theme
 region: none
 weight: -2
 provider: null

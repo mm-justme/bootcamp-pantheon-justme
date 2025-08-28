@@ -1,15 +1,15 @@
-uuid: 1c2394bd-716a-42e7-88f0-6e1add1846dc
+uuid: 441a0ee9-f551-407e-b59e-4f40462a901a
 langcode: en
 status: false
 dependencies:
   module:
     - help
   theme:
-    - justme_sass
+    - home_designer_theme
 _core:
   default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
-id: justme_sass_help
-theme: justme_sass
+id: home_designer_theme_help
+theme: home_designer_theme
 region: none
 weight: 1
 provider: null
