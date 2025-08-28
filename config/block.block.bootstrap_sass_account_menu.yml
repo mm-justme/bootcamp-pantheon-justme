@@ -1,0 +1,27 @@
+uuid: 027c1f0b-da6b-4daa-8d5f-3a889f933f25
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - jsutme_sass
+_core:
+  default_config_hash: FQsPcFKsiSWspFXpgNwDHoUnfICNX7rVumlB4f2W-hI
+id: bootstrap_sass_account_menu
+theme: jsutme_sass
+region: header
+weight: -7
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

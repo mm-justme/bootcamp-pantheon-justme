@@ -1,0 +1,22 @@
+uuid: 527a4696-7c32-4a83-bb92-a9a41189f9ee
+langcode: en
+status: true
+dependencies:
+  theme:
+    - jsutme_sass
+_core:
+  default_config_hash: uym01fsz0m2LpE_VFE6fxOpzfJdKs_hRpQpuqGZBsgA
+id: bootstrap_sass_secondary_local_tasks
+theme: jsutme_sass
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

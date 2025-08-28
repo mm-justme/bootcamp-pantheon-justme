@@ -1,0 +1,20 @@
+uuid: de524910-7df0-44c1-8dd3-d039bf09850d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - justme_sass
+_core:
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
+id: justme_sass_local_actions
+theme: justme_sass
+region: none
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 5c68a267-1cb9-4988-8ea9-d768a974cb0e
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - home_designer_theme
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: home_designer_theme_breadcrumbs
+theme: home_designer_theme
+region: none
+weight: 2
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 9f23f695-64db-482d-b231-8000e81dfe7a
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - jsutme_sass
+_core:
+  default_config_hash: Sjil8EnpgRx-DHVVdkrBtd5gGZ9ZztkZT3WdbErCVqQ
+id: bootstrap_sass_search_form_narrow
+theme: jsutme_sass
+region: header
+weight: -7
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

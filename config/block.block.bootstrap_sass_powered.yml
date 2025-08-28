@@ -1,0 +1,22 @@
+uuid: c78e8416-928d-432c-93c1-e1f7d6a804a7
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - jsutme_sass
+_core:
+  default_config_hash: ViZ19pL_DtdGlP9Cv50sWsQCBRHX04uCQnCg1zmBAlg
+id: bootstrap_sass_powered
+theme: jsutme_sass
+region: header
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

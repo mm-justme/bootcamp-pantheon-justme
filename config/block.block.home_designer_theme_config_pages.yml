@@ -1,0 +1,22 @@
+uuid: 6db0737f-a482-4b73-8246-c10b7bdc7088
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+  theme:
+    - home_designer_theme
+id: home_designer_theme_config_pages
+theme: home_designer_theme
+region: footer_fourth
+weight: 0
+provider: null
+plugin: config_pages_block
+settings:
+  id: config_pages_block
+  label: Contact
+  label_display: visible
+  provider: config_pages
+  config_page_type: contacts_cp
+  config_page_view_mode: full
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: c6a1c2ff-86af-4be2-81fc-5bf112771053
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu-services
+  module:
+    - system
+  theme:
+    - home_designer_theme
+id: home_designer_theme_footermenuservices
+theme: home_designer_theme
+region: footer_second
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-menu-services'
+settings:
+  id: 'system_menu_block:footer-menu-services'
+  label: Services
+  label_display: visible
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,32 @@
+uuid: 70547b89-52e0-439b-abd4-1508b256d0bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - home_designer_theme
+  enforced:
+    config:
+      - search.page.help_search
+_core:
+  default_config_hash: 2ToeZLvlHKTeFY74gpgu1PejLoFyCECLO_gw6rAZwqw
+id: home_designer_theme_help_search
+theme: home_designer_theme
+region: none
+weight: -3
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search help'
+  label_display: visible
+  provider: search
+  page_id: help_search
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /admin/help

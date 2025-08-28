@@ -1,0 +1,22 @@
+uuid: 441a0ee9-f551-407e-b59e-4f40462a901a
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - home_designer_theme
+_core:
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
+id: home_designer_theme_help
+theme: home_designer_theme
+region: none
+weight: 1
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

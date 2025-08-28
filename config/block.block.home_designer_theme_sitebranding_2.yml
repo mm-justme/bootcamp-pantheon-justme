@@ -1,0 +1,23 @@
+uuid: 784fa499-92b2-440e-9066-eebcdfbdd9ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - home_designer_theme
+id: home_designer_theme_sitebranding_2
+theme: home_designer_theme
+region: footer_first
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

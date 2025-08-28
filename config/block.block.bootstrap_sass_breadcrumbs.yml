@@ -1,0 +1,22 @@
+uuid: c01ef123-a176-424c-b2e8-bac0a955a34d
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - jsutme_sass
+_core:
+  default_config_hash: '-QvAD98h5ujI-Oy_ysWGELHo83lQXmTWfhl7HNcJ3XM'
+id: bootstrap_sass_breadcrumbs
+theme: jsutme_sass
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

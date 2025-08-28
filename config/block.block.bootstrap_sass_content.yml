@@ -1,0 +1,22 @@
+uuid: 745521bc-3054-4fcf-a024-96c95c57dadf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - jsutme_sass
+_core:
+  default_config_hash: DeSaEtp8_SJuXUOTmkiitynh6q6yE-RzlYEKlgsIwsQ
+id: bootstrap_sass_content
+theme: jsutme_sass
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: e08a034f-fa39-420b-8b58-d01c2b53727f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - home_designer_theme
+id: home_designer_theme_mainnavigation
+theme: home_designer_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

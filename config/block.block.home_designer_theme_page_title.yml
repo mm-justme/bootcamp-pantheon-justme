@@ -1,0 +1,20 @@
+uuid: 8a5c285e-be2a-4b54-bb16-d0c9628ae7dc
+langcode: en
+status: false
+dependencies:
+  theme:
+    - home_designer_theme
+_core:
+  default_config_hash: fNwDdW063tk_ktzSWzZVeQS9wzvLooVO280BQ9WrsIs
+id: home_designer_theme_page_title
+theme: home_designer_theme
+region: none
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

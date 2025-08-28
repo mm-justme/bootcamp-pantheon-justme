@@ -1,0 +1,23 @@
+uuid: ecdede0a-ea2d-48e5-bb38-6c378f2b36e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - justme_sass
+id: justme_sass_sitebranding_2
+theme: justme_sass
+region: footer_first
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

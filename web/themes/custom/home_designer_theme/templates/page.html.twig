@@ -1,0 +1,29 @@
+{# themes/custom/home_designer_theme/templates/page.html.twig #}
+<div{{ attributes.addClass('page') }}>
+    <header role="banner">
+        {{ page.header }}
+    </header>
+
+    <main role="main">
+        <div class="content">
+            {{ page.content }}
+        </div>
+        {% if page.sidebar %}
+        <div class="sidebar">
+            {{ page.sidebar }}
+        </div>
+        {% endif %}
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-top">
+            {{ page.footer_first }}
+            {{ page.footer_second }}
+            {{ page.footer_third }}
+            {{ page.footer_fourth }}
+        </div>
+        <div class="footer-bottom">
+            {{ page.footer_bottom }}
+        </div>
+    </footer>
+</div>

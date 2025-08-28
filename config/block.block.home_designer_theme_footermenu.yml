@@ -1,0 +1,25 @@
+uuid: 99766de9-5a89-4dc2-a3f8-611d9f16bc14
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu
+  module:
+    - system
+  theme:
+    - home_designer_theme
+id: home_designer_theme_footermenu
+theme: home_designer_theme
+region: footer_first
+weight: 1
+provider: null
+plugin: 'system_menu_block:footer-menu'
+settings:
+  id: 'system_menu_block:footer-menu'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }
