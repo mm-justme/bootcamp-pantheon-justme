@@ -29,7 +29,8 @@
         "drupal/config_pages": "^2.18",
         "drupal/admin_toolbar": "^3.6",
         "drupal/viewsreference": "^2.0@beta",
-        "drupal/addtoany": "^2.0"
+        "drupal/addtoany": "^2.0",
+        "drupal/bootstrap": "^5.0"
     },
     "require-dev": {
         "drupal/core-dev": "^11"

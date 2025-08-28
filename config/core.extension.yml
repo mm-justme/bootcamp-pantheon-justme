@@ -60,4 +60,9 @@ module:
 theme:
   olivero: 0
   claro: 0
+  bootstrap: 0
+  justme_subtheme: 0
+  jsutme_sass: 0
+  bootstrap_subtheme: 0
+  justme_sass: 0
 profile: standard
