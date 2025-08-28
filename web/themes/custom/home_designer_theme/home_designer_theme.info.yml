@@ -1,0 +1,25 @@
+name: home designer theme
+type: theme
+description: 'home designer theme'
+core_version_requirement: ^10.3 || ^11
+base theme: bootstrap
+
+libraries:
+  - home_designer_theme/global-styling
+libraries-override:
+  bootstrap/global-styling: false
+regions:
+  header: Header
+  content: Content
+  sidebar: 'Sidebar'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  footer_bottom: 'Footer Bottom'
+  none: None
+
+# Information added by Drupal.org packaging script on 2025-06-10
+version: '5.0.2'
+project: 'bootstrap'
+datestamp: 1749514451

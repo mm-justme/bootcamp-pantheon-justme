@@ -1,0 +1,25 @@
+uuid: c56e2072-2e92-48cf-969c-c7f6c20eb3de
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:90dfe103-003c-4a12-b8c1-b8d4263f504d'
+  module:
+    - block_content
+  theme:
+    - justme_subtheme
+id: justme_subtheme_copyright2
+theme: justme_subtheme
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:90dfe103-003c-4a12-b8c1-b8d4263f504d'
+settings:
+  id: 'block_content:90dfe103-003c-4a12-b8c1-b8d4263f504d'
+  label: copyright
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

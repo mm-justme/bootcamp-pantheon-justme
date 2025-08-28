@@ -1,0 +1,24 @@
+uuid: 47f850c2-673d-4536-b09b-0cca6cf47b99
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles
+  module:
+    - views
+  theme:
+    - justme_subtheme
+id: justme_subtheme_views_block__articles_footer_article_view
+theme: justme_subtheme
+region: header
+weight: -5
+provider: null
+plugin: 'views_block:articles-footer_article_view'
+settings:
+  id: 'views_block:articles-footer_article_view'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 5129444e-8cb9-4108-918f-8ea544636e85
+langcode: en
+status: true
+dependencies:
+  theme:
+    - home_designer_theme
+_core:
+  default_config_hash: ACjBZI5shAMiiUpsz-inLYVXDqNNXRnSzAWV3kV_8Hw
+id: justme_sass_primary_local_tasks
+theme: home_designer_theme
+region: none
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

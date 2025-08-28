@@ -1,0 +1,23 @@
+uuid: ede8dbf0-0ef4-45a3-96a5-09604639ca76
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - justme_subtheme
+_core:
+  default_config_hash: pbbed0hdqGDF-_QWVVTWRAwgDIotFuAvWH5mWUZu0fA
+id: justme_subtheme_search_form_wide
+theme: justme_subtheme
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

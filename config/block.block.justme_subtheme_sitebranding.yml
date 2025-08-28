@@ -1,0 +1,23 @@
+uuid: c9bd6a3a-a21f-49ed-9500-2f998f422e21
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - justme_subtheme
+id: justme_subtheme_sitebranding
+theme: justme_subtheme
+region: header
+weight: -9
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }
