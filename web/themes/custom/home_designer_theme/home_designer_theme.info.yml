@@ -8,6 +8,8 @@ libraries:
   - home_designer_theme/global-styling
 libraries-override:
   bootstrap/global-styling: false
+ckeditor5-stylesheets:
+  - css/ckeditor5-styles.css
 regions:
   header: Header
   content: Content
