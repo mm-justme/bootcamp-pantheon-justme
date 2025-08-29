@@ -499,14 +499,50 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-.bg-red-500 {
+    h3 {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+    @media (min-width: 64rem) {
+
+  h3 {
+    font-size: 6rem;
+    line-height: 1;
+  }
+}
+.bg-theme_color {
   --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
+  background-color: rgb(183 146 89 / var(--tw-bg-opacity, 1));
 }
-.p-4 {
-  padding: 1rem;
+.font-font_global_1 {
+  font-family: Gilda Display;
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+.font-font_global_2 {
+  font-family: Red Hat Display;
 }
+.font-font_global_3 {
+  font-family: Pinyon Script;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Red Hat Display';
+    src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 300 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Red Hat Display';
+    src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
