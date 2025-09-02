@@ -26,6 +26,7 @@ let gulp = require('gulp'),
       mediaQuery: true,
     }),
   ];
+const tailwindcss = require('tailwindcss');
 
 const paths = {
   scss: {
@@ -100,10 +101,22 @@ function serve() {
     .on('change', browserSync.reload);
 }
 
+function tailwind(){
+  return gulp.src("src/tw.css")
+      .pipe(postcss([
+          tailwindcss(),
+          autoprefixer(),
+              ...postcssProcessors
+      ]))
+      .pipe(gulp.dest("css"))
+      .pipe(browserSync.stream());
+}
+
 const build = gulp.series(styles, gulp.parallel(js, serve));
 
 exports.styles = styles;
 exports.js = js;
 exports.serve = serve;
+exports.tailwind = tailwind;
 
 exports.default = build;
