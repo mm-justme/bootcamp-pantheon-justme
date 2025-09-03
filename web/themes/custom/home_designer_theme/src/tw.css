@@ -23,9 +23,11 @@
         @apply bg-theme-gold font-medium uppercase text-btn py-3 px-4
         hover:bg-theme-gold1;
     }
-
-
+   .menu-links > li > a:hover {
+        @apply text-theme-gold;
+    }
 }
+
 
 
 .flex-center {

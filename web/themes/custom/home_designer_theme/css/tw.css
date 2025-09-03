@@ -598,6 +598,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
 }
+.menu-links > li > a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+}
 .visible {
   visibility: visible;
 }
@@ -807,6 +811,7 @@ video {
 }
 
 
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -906,16 +911,6 @@ video {
 
 .last\:hidden:last-child {
   display: none;
-}
-
-.hover\:text-theme-gold:hover {
-  --tw-text-opacity: 1;
-  color: rgb(183 146 89 / var(--tw-text-opacity, 1));
-}
-
-.last\:hover\:text-theme-white:hover:last-child {
-  --tw-text-opacity: 1;
-  color: rgb(249 249 249 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 48rem) {
