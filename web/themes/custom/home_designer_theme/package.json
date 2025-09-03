@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass scss:css --style=expanded",
-    "watch": "sass --watch scss:css --style=expanded"
+    "watch": "sass --watch scss:css --style=expanded",
+    "tw": "gulp tailwind",
+    "tw:watch": "gulp tailwind --watch",
+    "dev": "gulp",
+    "build:tw": "NODE_ENV=production gulp tailwind"
   },
   "keywords": [
     "SASS",
@@ -24,6 +28,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "browser-sync": "^2.24.7",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "3.9.4",
