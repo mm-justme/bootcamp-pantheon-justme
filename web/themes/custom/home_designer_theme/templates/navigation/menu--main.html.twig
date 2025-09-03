@@ -1,0 +1,31 @@
+{% if items %}
+    <div>
+        <div>
+            <ul class="flex items-center gap-6 ">
+                {% for item in items %}
+                    <li class="hidden text-sm md:block lg:text-mainMenu lg:px-2.5 last:btn last:block">
+                        <a href="{{ item.url }}"
+                           class="hover:text-theme-gold  {{ item.in_active_trail ? 'text-theme-gold1' : '' }}
+                           last:hover:text-theme-white transition-colors">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="absolute left-0 top-full w-full bg-theme-gold md:hidden">
+            <ul class="flex items-center overflow-x-auto">
+                {% for item in items %}
+                    <li class="text-sm last:hidden p-3 min-w-fit">
+                        <a href="{{ item.url }}"
+                           class="text-theme-white">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+{% endif %}

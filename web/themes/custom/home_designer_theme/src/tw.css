@@ -3,11 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply font-family-RH text-lg tracking-normal;
+    }
+
     h3 {
         @apply text-5xl lg:text-8xl font-normal uppercase;
     }
 }
 
+
+@layer components {
+    .slogan-dot {
+        @apply relative after:absolute after:top-0 after:right-0 lg:after:translate-y-[70%]
+        after:bg-theme-white2 after:rounded-full after:w-1.5 after:h-1.5 after:lg:w-2 after:lg:h-2;
+    }
+
+    .btn{
+        @apply bg-theme-gold font-medium uppercase text-btn py-3 px-4
+        hover:bg-theme-gold1;
+    }
+   .menu-links > li > a:hover {
+        @apply text-theme-gold;
+    }
+}
+
+
+
+.flex-center {
+    @apply flex items-center justify-center;
+}
+.scrolldown header{
+    @apply -translate-y-120;
+}
+.scrolled header{
+    @apply bg-theme-bg-green backdrop-blur-[6px] translate-y-0 transition-transform duration-300;
+}
+
+/********FONTS********/
+/*Red Hat Display*/
 @font-face {
     font-family: 'Red Hat Display';
     src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
@@ -23,5 +57,3 @@
     font-style: normal;
     font-display: swap;
 }
-
-

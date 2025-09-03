@@ -1,0 +1,16 @@
+{# Branding: Logo+name+slogan #}
+{% block content %}
+    <a href="{{ path('<front>') }}" rel="home">
+        {% if site_logo %}
+            <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" fetchpriority="high"/>
+        {% endif %}
+
+        {% if site_name and site_slogan %}
+
+            <div class="flex flex-col max-w-48">
+                <span class="text-lg lg:text-siteName font-family-GD uppercase ">{{ site_name }}</span>
+                <span class="text-smallLogo ml-0.5 font-family-RH slogan-dot lg:text-slogan">{{ site_slogan }}</span>
+            </div>
+        {% endif %}
+    </a>
+{% endblock %}
