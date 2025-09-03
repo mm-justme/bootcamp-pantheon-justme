@@ -1,28 +1,66 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-        "templates/**/*.html.twig",
-        "/js/*.js",
+        "./templates/**/*.twig",
+        "./**/*.theme",
+        "./js/**/*.js",
+        "./src/**/*.css"
     ],
     theme: {
+        // автоматично задаємо параметри класу контейнер
+        container: {
+            center: true,
+            padding: '1.5rem',
+        },
         extend: {
+            translate: {
+                '120': '120%',
+                '0':'0%'
+            },
+            // Перевизначення розмірної сітки
+            screens: {
+                '2xl': '1440px',
+            },
+            fontSize: {
+                smallLogo: ['13px', {
+                    lineHeight: '0.5',
+                    letterSpacing: '0.8px',
+                }],
+                siteName: ['22px', {
+                    lineHeight: '1',
+                    letterSpacing: '0',
+                }],
+                slogan: ['15px', {
+                    lineHeight: '1.2',
+                    letterSpacing: '1.2px',
+                }],
+                mainMenu: ['17px', {
+                    lineHeight: '100px',
+                    letterSpacing: '0.5px',
+                }],
+                btn: ['13px', {
+                    lineHeight: '1.2',
+                    letterSpacing: '0.5px',
+                }]
+            },
             colors: {
-                custom_color_4: "#c2a25d",
-                custom_color_5: "#f7f9f9",
-                custom_color_1: "#053426",
-                custom_color_2: "#B79259",
-                custom_color_3: "#79847E",
-                theme_color: "#b79259",
-                slider_text: "rgba(183,146,89,0.7)",
-                black: "#222",
-                text_color: "#111",
+                // палітра
+                'theme-green': "#053426",
+                'theme-bg-green': "rgba(0,35,26,0.85)",
+                'theme-gold': "#B79259",
+                'theme-gray': "#79847E",
+                'theme-gold1': "#c2a25d",
+                'theme-white': "#f9f9f9",
+                'theme-white2': "#f7f9f9",
+                'theme-gold2': "#b79259",
+                'black': "#111",
+                'black2': "#222",
             },
             fontFamily: {
-                def_font_1: "'Open Sans','Open Sans Regular',sans-serif",
-                def_font_2: "'Roboto',sans-serif",
-                font_global_1: "Gilda Display",
-                font_global_2: "Red Hat Display",
-                font_global_3: "Pinyon Script",
+                // Основні шрифти
+                "family-GD": ["Gilda Display"],
+                "family-RH": ["Red Hat Display"],
+                "family-PS": ["Pinyon Script", "cursive"],
             }
         },
     },

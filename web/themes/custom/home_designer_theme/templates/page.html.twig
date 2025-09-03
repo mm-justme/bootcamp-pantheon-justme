@@ -1,19 +1,21 @@
 {# themes/custom/home_designer_theme/templates/page.html.twig #}
-<div{{ attributes.addClass('page') }}>
-    <header role="banner">
-        {{ page.header }}
+<div{{ attributes.addClass('page')}} class="relative">
+    <header role="banner" class="fixed min-h-24 flex-center z-50 top-0 left-0 bg-gray-600 right-0 text-theme-white">
+        <div class="container mx-auto md:px-2">
+            <div class="flex min-h-max justify-between items-center">
+                {{ page.header }}
+            </div>
+        </div>
     </header>
-    <h3 class="bg-theme_color font-font_global_1">Test Tailwind font 1</h3>
-    <h3 class="bg-theme_color font-font_global_2 font-bold">Test Tailwind font 2</h3>
-    <h3 class="bg-theme_color font-font_global_3">Test Tailwind font 3</h3>
-    <main role="main">
+
+    <main role="main" class="mt-24">
         <div class="content">
             {{ page.content }}
         </div>
         {% if page.sidebar %}
-        <div class="sidebar">
-            {{ page.sidebar }}
-        </div>
+            <div class="sidebar">
+                {{ page.sidebar }}
+            </div>
         {% endif %}
     </main>
 
@@ -28,4 +30,5 @@
             {{ page.footer_bottom }}
         </div>
     </footer>
+
 </div>
