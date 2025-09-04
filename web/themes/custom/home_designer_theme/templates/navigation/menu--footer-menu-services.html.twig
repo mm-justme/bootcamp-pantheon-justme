@@ -1,0 +1,14 @@
+{% if title %}
+    {{ title }}
+{% endif %}
+
+{% if items %}
+    <ul class="text-slogan tracking-normal">
+        {% for item in items %}
+            <li class="!mb-4">
+                <a class="hover:text-theme-gold {{ item.in_active_trail ? 'text-theme-gold1' : '' }}"
+                   href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
