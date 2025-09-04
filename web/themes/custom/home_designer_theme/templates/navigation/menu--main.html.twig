@@ -1,12 +1,11 @@
 {% if items %}
     <div>
         <div>
-            <ul class="flex items-center gap-6 ">
+            <ul class="flex items-center gap-6 menu-links">
                 {% for item in items %}
                     <li class="hidden text-sm md:block lg:text-mainMenu lg:px-2.5 last:btn last:block">
                         <a href="{{ item.url }}"
-                           class="hover:text-theme-gold  {{ item.in_active_trail ? 'text-theme-gold1' : '' }}
-                           last:hover:text-theme-white transition-colors">
+                           class="{{ item.in_active_trail ? 'text-theme-gold1' : '' }} transition-colors">
                             {{ item.title }}
                         </a>
                     </li>
