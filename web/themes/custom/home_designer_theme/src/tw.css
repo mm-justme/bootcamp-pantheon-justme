@@ -39,6 +39,9 @@
 .scrolled header{
     @apply bg-theme-bg-green backdrop-blur-[6px] translate-y-0 transition-transform duration-300;
 }
+header {
+  @apply mt-[calc(var(--drupal-displace-offset-top,0px))];
+}
 
 /********FONTS********/
 /*Red Hat Display*/
