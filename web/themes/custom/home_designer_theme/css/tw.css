@@ -629,8 +629,11 @@ video {
 .top-0 {
   top: 0px;
 }
-.top-full {
-  top: 100%;
+.top-\[calc\(var\(--drupal-displace-offset-top\2c 0px\)\+96px\)\] {
+  top: calc(var(--drupal-displace-offset-top,0px) + 96px);
+}
+.top-24 {
+  top: 6rem;
 }
 .z-50 {
   z-index: 50;
@@ -644,6 +647,9 @@ video {
 }
 .mt-24 {
   margin-top: 6rem;
+}
+.mt-\[calc\(var\(--drupal-displace-offset-top\2c 0px\)\)\] {
+  margin-top: calc(var(--drupal-displace-offset-top,0px));
 }
 .block {
   display: block;
@@ -830,6 +836,12 @@ video {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+}
+header {
+  margin-top: calc(var(--drupal-displace-offset-top,0px));
+}
+.customTop {
+  top: calc(var(--drupal-displace-offset-top,0px) + 96px);
 }
 
 /********FONTS********/
