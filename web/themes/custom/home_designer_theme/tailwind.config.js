@@ -55,6 +55,7 @@ module.exports = {
                 'theme-gold2': "#b79259",
                 'black': "#111",
                 'black2': "#222",
+                'bg-black':"#191611"
             },
             fontFamily: {
                 // Основні шрифти

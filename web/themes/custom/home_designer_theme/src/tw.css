@@ -16,7 +16,7 @@
 @layer components {
     .slogan-dot {
         @apply relative after:absolute after:top-0 after:right-0 lg:after:translate-y-[70%]
-        after:bg-theme-white2 after:rounded-full after:w-1.5 after:h-1.5 after:lg:w-2 after:lg:h-2;
+        after:bg-theme-white2 after:rounded-full after:w-1.5 after:h-1.5 after:lg:w-2 after:lg:h-2 max-w-[155px] md:max-w-full;
     }
 
     .btn{
@@ -40,6 +40,25 @@
     @apply bg-theme-bg-green backdrop-blur-[6px] translate-y-0 transition-transform duration-300;
 }
 
+.footer::after{
+  @apply absolute inset-0 bg-cover bg-center opacity-70;
+  content: "";
+  background-image: url('../images/bg/footer1.jpg');
+  z-index: 0;
+}
+
+.footer::before{
+  content:'';
+  @apply absolute inset-0 bg-bg-black/80;
+  z-index: 1;
+}
+
+.configPage{
+  @apply text-[18px] font-medium;
+  .field{
+    @apply mb-3;
+  }
+}
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
