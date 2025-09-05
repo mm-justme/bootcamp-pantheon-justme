@@ -42,6 +42,9 @@
 header {
   @apply mt-[calc(var(--drupal-displace-offset-top,0px))];
 }
+.customTop{
+  @apply top-[calc(var(--drupal-displace-offset-top,0px)+96px)]
+}
 
 /********FONTS********/
 /*Red Hat Display*/

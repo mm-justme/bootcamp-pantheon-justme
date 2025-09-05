@@ -629,6 +629,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.top-\[calc\(var\(--drupal-displace-offset-top\2c 0px\)\+96px\)\] {
+  top: calc(var(--drupal-displace-offset-top,0px) + 96px);
+}
 .top-24 {
   top: 6rem;
 }
@@ -836,6 +839,9 @@ video {
 }
 header {
   margin-top: calc(var(--drupal-displace-offset-top,0px));
+}
+.customTop {
+  top: calc(var(--drupal-displace-offset-top,0px) + 96px);
 }
 
 /********FONTS********/
