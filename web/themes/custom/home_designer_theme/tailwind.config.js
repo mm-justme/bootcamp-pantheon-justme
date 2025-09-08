@@ -2,6 +2,7 @@
 module.exports = {
     content: [
         "./templates/**/*.twig",
+        "./components/**/*.twig",
         "./**/*.theme",
         "./js/**/*.js",
         "./src/**/*.css"
@@ -55,7 +56,8 @@ module.exports = {
                 'theme-gold2': "#b79259",
                 'black': "#111",
                 'black2': "#222",
-                'bg-black':"#191611"
+                'bg-black':"#191611",
+                'bg-indicators':"rgba(255,255,255,0.15)",
             },
             fontFamily: {
                 // Основні шрифти

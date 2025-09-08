@@ -8,16 +8,13 @@
         </div>
     </header>
 
-    <main role="main" class="mt-24">
-        <div class="content">
-            {{ page.content }}
-        </div>
+    <main role="main" class="!mt-24">
+          {{ page.content }}
         {% if page.sidebar %}
-            <div class="sidebar">
                 {{ page.sidebar }}
-            </div>
         {% endif %}
     </main>
+
 
     <footer role="contentinfo" class="footer relative text-theme-white">
         <div class="container relative z-10 ">

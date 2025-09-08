@@ -105,7 +105,7 @@ function serve() {
 
     // Tailwind + Twig/Theme/JS/Config → послідовно: tw → drush cr → reload
     gulp.watch(
-        ['src/**/*.css','templates/**/*.twig','**/*.theme','js/**/*.js','tailwind.config.js'],
+        ['src/**/*.css','components/**/*.twig','templates/**/*.twig','**/*.theme','js/**/*.js','tailwind.config.js'],
         { delay: 400 },
         gulp.series(tailwind, drushCr, reload)
     );
