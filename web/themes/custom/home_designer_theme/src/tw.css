@@ -12,7 +12,6 @@
     }
 }
 
-
 @layer components {
     .slogan-dot {
         @apply relative after:absolute after:top-0 after:right-0 lg:after:translate-y-[70%]
@@ -23,27 +22,38 @@
         @apply bg-theme-gold font-medium uppercase text-btn py-3 px-4
         hover:bg-theme-gold1;
     }
+
    .menu-links > li > a:hover {
         @apply text-theme-gold;
     }
 }
 
-
-
 .flex-center {
     @apply flex items-center justify-center;
 }
-.scrolldown header{
-    @apply -translate-y-120;
+
+header{
+  @apply top-[calc(var(--drupal-displace-offset-top,0px))];
 }
-.scrolled header{
-    @apply bg-theme-bg-green backdrop-blur-[6px] translate-y-0 transition-transform duration-300;
+
+.scrollup header {
+  @apply top-[calc(var(--drupal-displace-offset-top,0px))];
 }
-header {
-  @apply mt-[calc(var(--drupal-displace-offset-top,0px))];
+
+.scrolldown header {
+  @apply -translate-y-full;
 }
-.customTop{
-  @apply top-[calc(var(--drupal-displace-offset-top,0px)+96px)]
+
+.scrolled header {
+  @apply bg-theme-bg-green backdrop-blur-[6px] translate-y-0 transition-transform duration-300;
+}
+
+.secondMenu{
+  @apply top-[calc(var(--drupal-displace-offset-top,0px)+96px)];
+}
+
+.scrolled .secondMenu {
+  @apply top-[96px];
 }
 
 /********FONTS********/
