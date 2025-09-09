@@ -1,0 +1,12 @@
+{# themes/custom/home_designer_theme/templates/views/views-view-unformatted--articles--footer-article-view.html.twig #}
+{% if title %}
+    <h2 class="text-[18px] font-medium uppercase">{{ title }}</h2>
+{% endif %}
+<div>
+
+    {% for row in rows %}
+        <div class="text-[15px] !mb-2 hover:text-theme-gold">
+            {{- row.content -}}
+        </div>
+    {% endfor %}
+</div>
