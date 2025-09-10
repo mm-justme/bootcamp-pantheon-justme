@@ -4,13 +4,7 @@
   "description": "Bootstrap SASS implementation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass scss:css --style=expanded",
-    "watch": "sass --watch scss:css --style=expanded",
-    "tw": "gulp tailwind",
-    "tw:watch": "gulp tailwind --watch",
-    "dev": "gulp",
-    "build:tw": "NODE_ENV=production gulp tailwind"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "SASS",
@@ -21,32 +15,15 @@
   "author": "@hatuhay",
   "license": "MIT",
   "dependencies": {
-    "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.3.0",
     "bootstrap-icons": "^1.11.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "browser-sync": "^2.24.7",
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^9.2.1",
-    "del": "^3.0.0",
     "gulp": "^4.0.0",
-    "gulp-clean-css": "3.9.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-html-replace": "^1.6.2",
-    "gulp-load-plugins": "^2.0.4",
-    "gulp-postcss": "^9.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^5.0.0",
-    "gulp-scss-lint": "^1.0.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0",
-    "merge-stream": "^1.0.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
     "postcss": "^8.5.6",
-    "postcss-inline-svg": "^4.1.0",
-    "postcss-pxtorem": "^5.1.1",
-    "sass": "^1.45.0",
-    "tailwindcss": "^3.4.17"
+    "sass": "^1.92.1"
   }
 }
