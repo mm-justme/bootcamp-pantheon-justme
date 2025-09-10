@@ -43,39 +43,42 @@ function home_designer_theme_preprocess_paragraph__hero_section(
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
 
-  $terms = $paragraph->get('field_indicators')->referencedEntities();
   $indicators = [];
 
-  foreach ($terms as $term) {
-    $title = $term->label();
+  if ($paragraph->hasField('field_indicators') && !$paragraph->get('field_indicators')
+      ->isEmpty()) {
+    $terms = $paragraph->get('field_indicators')->referencedEntities();
 
-    $desc = ($term->hasField('field_description') && !$term->get('field_description')
-        ->isEmpty())
-      ? $term->get('field_description')->value
-      : '';
+    foreach ($terms as $term) {
+      $title = $term->label();
 
-    $img_url = '';
-    if ($term->hasField('field_icon') && !$term->get('field_icon')
-        ->isEmpty()) {
-      $file = $term->get('field_icon')->entity;
-      if ($file) {
-        $file_url = \Drupal::service('file_url_generator');
+      $desc = ($term->hasField('field_description') && !$term->get('field_description')
+          ->isEmpty())
+        ? $term->get('field_description')->value
+        : '';
 
-        $style = \Drupal::entityTypeManager()
-          ->getStorage('image_style')
-          ->load('thumbnail');
+      $img_url = '';
+      if ($term->hasField('field_icon') && !$term->get('field_icon')
+          ->isEmpty()) {
+        $file = $term->get('field_icon')->entity;
+        if ($file) {
+          $file_url = \Drupal::service('file_url_generator');
 
-        $uri = $file->getFileUri();
-        $img_url = $style ? $style->buildUrl($uri) : $file_url->generateString($uri);
+          $style = \Drupal::entityTypeManager()
+            ->getStorage('image_style')
+            ->load('thumbnail');
+
+          $uri = $file->getFileUri();
+          $img_url = $style ? $style->buildUrl($uri) : $file_url->generateString($uri);
+        }
       }
+
+      $indicators[] = [
+        'title' => $title,
+        'desc' => $desc,
+        'img' => $img_url,
+      ];
     }
-
-    $indicators[] = [
-      'title' => $title,
-      'desc' => $desc,
-      'img' => $img_url,
-    ];
   }
-
   $variables['indicators'] = $indicators;
 }
