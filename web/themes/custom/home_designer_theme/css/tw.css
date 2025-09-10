@@ -636,11 +636,14 @@ video {
 .right-0 {
   right: 0px;
 }
-.top-0 {
-  top: 0px;
+.top-\[96px\] {
+  top: 96px;
 }
-.top-full {
-  top: 100%;
+.top-\[calc\(var\(--drupal-displace-offset-top\2c 0px\)\)\] {
+  top: calc(var(--drupal-displace-offset-top,0px));
+}
+.top-\[calc\(var\(--drupal-displace-offset-top\2c 0px\)\+96px\)\] {
+  top: calc(var(--drupal-displace-offset-top,0px) + 96px);
 }
 .z-10 {
   z-index: 10;
@@ -896,17 +899,25 @@ video {
   transition-duration: 100ms;
 }
 
-
-
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+header {
+  top: calc(var(--drupal-displace-offset-top,0px));
+}
+
+.scrollup header {
+  top: calc(var(--drupal-displace-offset-top,0px));
+}
+
 .scrolldown header {
-  --tw-translate-y: -120%;
+  --tw-translate-y: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+
 .scrolled header {
   --tw-translate-y: 0%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -944,6 +955,14 @@ video {
     margin-bottom: 0.75rem;
   }
 }
+.secondMenu {
+  top: calc(var(--drupal-displace-offset-top,0px) + 96px);
+}
+
+.scrolled .secondMenu {
+  top: 96px;
+}
+
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
