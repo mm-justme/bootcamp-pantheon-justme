@@ -12,7 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * Replace Bootstrap setting options with subtheme ones.
  */
-function bootstrap_sass_form_system_theme_settings_alter(
+function home_theme_designer_form_system_theme_settings_alter(
   &$form,
   FormStateInterface $form_state
 ) {
