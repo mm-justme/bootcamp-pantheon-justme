@@ -1,0 +1,9 @@
+{
+  "extends": "../../../core/.eslintrc.json",
+  "env": { "node": true },
+  "ignorePatterns": [
+    "dist/**",
+    "build/**",
+    "node_modules/**"
+  ]
+}
