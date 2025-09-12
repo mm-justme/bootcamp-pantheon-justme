@@ -1,0 +1,19 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "<img alt=\"Drupal Logo\" src=\"https://www.drupal.org/files/Wordmark_blue_RGB.png\" height=\"60px\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-drupal": "^5.0.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-yml": "^1.18.0"
+  }
+}

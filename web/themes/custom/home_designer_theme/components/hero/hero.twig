@@ -1,0 +1,58 @@
+<section class='bg-gray-600 !pt-12 md:!pt-0'>
+  <div class="container flex flex-col md:flex-row">
+    <div class="flex-auto max-w-full md:max-w-[60%] lg:max-w-[50%] md:!pt-24 ">
+      <div>
+        {% if subtitle %}
+          <div class="font-family-PS text-[36px] lg:text-[60px] text-theme-gold !mt-3 lg:!mb-7">
+            {{ subtitle }}
+          </div>
+        {% endif %}
+
+        <div
+            class="leading-none font-family-GD text-[36px] md:text-[48px] lg:text-[96px] uppercase !my-3 text-theme-white max-w-60 md:max-w-lg lg:max-w-3xl md:leading-none ">
+          {{ title }}
+        </div>
+
+        {% if desc %}
+          <div class="text-[16px] lg:text-[20px] md:max-w-[26rem] lg:max-w-lg  text-theme-white !mb-8">
+            {{ desc }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="max-w-52 md:max-w-full text-theme-white">
+        <div class="btn text-theme-white">{{ link_one }}</div>
+        <div class="btn bg-transparent text-theme-white hover:text-theme-gold">{{ link_sec }}</div>
+      </div>
+    </div>
+
+
+    <div class="relative flex-auto min-w-[40%] lg:max-w-[50%]">
+      <div class="max-h-[390px] sm:max-h-[580px] lg:max-h-[800px] overflow-hidden">
+        {{ hero_img }}
+      </div>
+
+      <div
+          class=" md:min-w-full absolute bottom-5 text-[18px] text-theme-white  bg-bg-indicators p-2 md:!p-2 customBlur">
+        {% if indicators|length %}
+          <div class="flex flex-col max-w-[280px] justify-between lg:justify-evenly md:flex-row md:max-w-full">
+
+            {% for item in indicators %}
+              <div class="!my-2 md:!my-3">
+                <div class="flex text-[18px] md:text-[15px] lg:text-[18px] xl:text-[22px]">
+                  <img src="{{ item.img }}" alt="a" class="size-6  !mr-3">
+
+                  {{ item.title }}
+                </div>
+                <p
+                    class="leading-none max-w-52  md:!pt-2 text-[14px] md:text-[11px] lg:text-[14px] md:max-w-28 lg:max-w-48">
+                  {{ item.desc }}</p>
+              </div>
+            {% endfor %}
+
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+

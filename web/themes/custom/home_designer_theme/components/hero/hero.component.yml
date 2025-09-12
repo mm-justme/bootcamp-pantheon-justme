@@ -1,0 +1,22 @@
+name: Hero
+props:
+  indicators:
+    title: array
+    default: []
+
+slots:
+  subtitle:
+    title: Subtitle
+  title:
+    title: Title
+  desc:
+    title: Description
+  link_one:
+    title: Action
+  link_sec:
+    title: Action
+  hero_img:
+    title: Img
+  bg_img:
+    title: Img
+  
