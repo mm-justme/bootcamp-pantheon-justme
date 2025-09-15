@@ -8,7 +8,18 @@
         </div>
     </header>
 
-    <main role="main" class="!mt-24">
+
+
+  <main role="main" class="!mt-24">
+    {% set chip_content %}
+      Type: <span>{{ node.bundle() }}</span>
+    {% endset %}
+
+    {{ include('home_designer_theme:chip', {
+      color: 'primary',
+      dismissable: true,
+      content: chip_content,
+    }, with_context = false) }}
           {{ page.content }}
         {% if page.sidebar %}
                 {{ page.sidebar }}
