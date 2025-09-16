@@ -6,10 +6,16 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 
 function styles() {
+  const STYLE_SRC = [
+    'scss/style.scss',
+    'scss/paragraphs/**/*.scss',
+    '!scss/**/_*.scss'
+  ];
+
   return gulp
-    .src("scss/style.scss", { sourcemaps: true })
-    .pipe(gulpSass({ outputStyle: "expanded" }))
-    .on("error", gulpSass.logError)
+    .src(STYLE_SRC, { sourcemaps: true, base: 'scss' })
+    .pipe(gulpSass({ outputStyle: "expanded" })
+      .on("error", gulpSass.logError))
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest("css", { sourcemaps: "." }));
 }
