@@ -14,3 +14,12 @@ global-styling:
   dependencies:
     - core/jquery
     - core/drupal
+
+about:
+  css:
+    theme:
+      css/paragraphs/about.css: {}
+  js:
+    js/paragraphs/about.js: {}
+  dependencies:
+    - core/once
