@@ -6,10 +6,6 @@
     body {
         @apply font-family-RH text-lg tracking-normal;
     }
-
-    h3 {
-        @apply text-5xl lg:text-8xl font-normal uppercase;
-    }
 }
 
 @layer components {

@@ -2,21 +2,24 @@
 
 <div class="wrapper">
   <div class="container">
+    <div class="about__block">
 
-    <div class="about__text_block">
-      <h3 class="about__text_title">
-        {{ content.field_title }}
-      </h3>
-      <div class="about__text_body">
-        {{ content.field_body }}
+      <div class="about__text_block">
+        <h3 class="about__text_title titlePSstyle">
+          {{ content.field_title }}
+        </h3>
+        <div class="about__text_body">
+          {{ content.field_body }}
+        </div>
+        <div class="about__text_link btn">
+          {{ content.field_book_link }}
+        </div>
       </div>
-      <div class="about__text_link">
-        {{ content.field_book_link }}
-      </div>
-    </div>
 
-    <div class="about__img_block">
-      {{ content.field_person_img }}
+      <div class="about__img_block changeOpacity">
+        {{ content.field_person_img }}
+      </div>
+
     </div>
 
   </div>
