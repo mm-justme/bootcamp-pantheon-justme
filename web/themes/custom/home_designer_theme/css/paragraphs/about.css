@@ -147,7 +147,7 @@
   }
 }
 
-.changeOpacity {
+.is-visible {
   opacity: 0;
   transition: opacity 700ms ease-out;
 }
