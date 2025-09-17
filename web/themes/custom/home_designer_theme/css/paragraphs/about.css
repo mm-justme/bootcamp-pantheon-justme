@@ -151,4 +151,9 @@
   opacity: 0;
   transition: opacity 700ms ease-out;
 }
+
+.field--name-field-body {
+  overflow: auto;
+  max-height: 500px;
+}
 /*# sourceMappingURL=about.css.map */
