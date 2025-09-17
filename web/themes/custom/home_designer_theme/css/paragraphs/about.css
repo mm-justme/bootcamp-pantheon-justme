@@ -29,7 +29,7 @@
     max-width: 1024px;
   }
 }
-.wrapper .container .about__block {
+.wrapper .container .about {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -39,27 +39,27 @@
   z-index: 4;
 }
 @media (max-width: 800px) {
-  .wrapper .container .about__block {
+  .wrapper .container .about {
     flex-direction: column;
   }
 }
-.wrapper .container .about__block .about__text_block {
+.wrapper .container .about__text_block {
   flex: 1;
   padding-right: 60px;
   color: #f9f8f2;
 }
 @media (max-width: 1024px) {
-  .wrapper .container .about__block .about__text_block {
+  .wrapper .container .about__text_block {
     padding-right: 40px;
   }
 }
 @media (max-width: 800px) {
-  .wrapper .container .about__block .about__text_block {
+  .wrapper .container .about__text_block {
     margin-top: 30px;
     order: 2;
   }
 }
-.wrapper .container .about__block .about__text_block .about__text_title {
+.wrapper .container .about__text_block .about__text_title {
   font-size: 60px;
   line-height: 1;
   font-weight: 500;
@@ -67,53 +67,53 @@
   text-transform: capitalize;
 }
 @media (max-width: 1024px) {
-  .wrapper .container .about__block .about__text_block .about__text_title {
+  .wrapper .container .about__text_block .about__text_title {
     font-size: 42px;
   }
 }
-.wrapper .container .about__block .about__text_block .about__text_body {
+.wrapper .container .about__text_block .about__text_body {
   margin: 20px 0;
 }
-.wrapper .container .about__block .about__text_block .about__text_body h3 {
+.wrapper .container .about__text_block .about__text_body h3 {
   font-family: Gilda;
   font-size: 36px;
   margin: 10px 0 7px;
 }
 @media (max-width: 1280px) {
-  .wrapper .container .about__block .about__text_block .about__text_body h3 {
+  .wrapper .container .about__text_block .about__text_body h3 {
     font-size: 26px;
   }
 }
 @media (max-width: 1024px) {
-  .wrapper .container .about__block .about__text_block .about__text_body h3 {
+  .wrapper .container .about__text_block .about__text_body h3 {
     font-size: 22px;
   }
 }
 @media (max-width: 800px) {
-  .wrapper .container .about__block .about__text_block .about__text_body h3 {
+  .wrapper .container .about__text_block .about__text_body h3 {
     font-size: 30px;
   }
 }
-.wrapper .container .about__block .about__text_block .about__text_body p {
+.wrapper .container .about__text_block .about__text_body p {
   font-family: "Red Hat Display";
   font-size: 17px;
 }
 @media (max-width: 1280px) {
-  .wrapper .container .about__block .about__text_block .about__text_body p {
+  .wrapper .container .about__text_block .about__text_body p {
     font-size: 17px;
   }
 }
 @media (max-width: 1024px) {
-  .wrapper .container .about__block .about__text_block .about__text_body p {
+  .wrapper .container .about__text_block .about__text_body p {
     font-size: 14px;
   }
 }
 @media (max-width: 800px) {
-  .wrapper .container .about__block .about__text_block .about__text_body p {
+  .wrapper .container .about__text_block .about__text_body p {
     font-size: 17px;
   }
 }
-.wrapper .container .about__block .about__img_block {
+.wrapper .container .about__img_block {
   display: flex;
   justify-content: center;
   flex: 1;
@@ -122,27 +122,27 @@
   max-width: fit-content;
 }
 @media (max-width: 800px) {
-  .wrapper .container .about__block .about__img_block {
+  .wrapper .container .about__img_block {
     order: 1;
   }
 }
-.wrapper .container .about__block .about__img_block img {
+.wrapper .container .about__img_block img {
   width: 100%;
   max-width: 580px;
   height: auto;
 }
 @media (max-width: 1280px) {
-  .wrapper .container .about__block .about__img_block img {
+  .wrapper .container .about__img_block img {
     max-width: 500px;
   }
 }
 @media (max-width: 1024px) {
-  .wrapper .container .about__block .about__img_block img {
+  .wrapper .container .about__img_block img {
     max-width: 400px;
   }
 }
 @media (max-width: 800px) {
-  .wrapper .container .about__block .about__img_block img {
+  .wrapper .container .about__img_block img {
     max-width: 700px;
   }
 }
