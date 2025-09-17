@@ -12,6 +12,11 @@ footer h2, footer .h2 {
   margin-bottom: 20px;
 }
 
+.titlePSstyle {
+  font-family: Pinyon Script, cursive;
+  color: #B79259;
+}
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
