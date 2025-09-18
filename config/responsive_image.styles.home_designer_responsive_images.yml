@@ -1,0 +1,13 @@
+uuid: 3db1567b-c8a8-42df-a06c-157f6ebb16c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.theme_large_1200x800
+  theme:
+    - home_designer_theme
+id: home_designer_responsive_images
+label: about
+image_style_mappings: {  }
+breakpoint_group: home_designer_theme
+fallback_image_style: theme_large_1200x800

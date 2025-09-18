@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.taxonomy_term.indicators.field_description
     - field.field.taxonomy_term.indicators.field_icon
-    - image.style.thumbnail
     - taxonomy.vocabulary.indicators
   module:
     - image
@@ -38,7 +37,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   name:
     type: string_textfield

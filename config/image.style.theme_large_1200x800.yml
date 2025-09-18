@@ -1,0 +1,21 @@
+uuid: 699e5b61-10d5-47b4-91ce-96983485280d
+langcode: en
+status: true
+dependencies: {  }
+name: theme_large_1200x800
+label: 'about-xl 600'
+effects:
+  0fc78fa8-c677-40ba-ac21-8bdb86028821:
+    uuid: 0fc78fa8-c677-40ba-ac21-8bdb86028821
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
+  fd1e32d4-492f-478e-a1a8-1f04a95ff859:
+    uuid: fd1e32d4-492f-478e-a1a8-1f04a95ff859
+    id: image_scale
+    weight: 3
+    data:
+      width: 600
+      height: null
+      upscale: false

@@ -1,0 +1,15 @@
+uuid: 4b9e27ba-f03c-4573-b010-09b365c640ae
+langcode: en
+status: true
+dependencies: {  }
+name: theme_thumbnail_150x150
+label: 'Thumbnail 150x150'
+effects:
+  24af38a7-ff32-401b-9ab1-384c8f89bdf3:
+    uuid: 24af38a7-ff32-401b-9ab1-384c8f89bdf3
+    id: image_crop
+    weight: 1
+    data:
+      width: 150
+      height: 150
+      anchor: center-center

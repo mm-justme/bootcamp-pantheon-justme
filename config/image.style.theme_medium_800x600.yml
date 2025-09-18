@@ -1,0 +1,21 @@
+uuid: 7a25977b-f086-4490-8c25-fdcae4b18383
+langcode: en
+status: true
+dependencies: {  }
+name: theme_medium_800x600
+label: 'about-md 350x560'
+effects:
+  e862c8cc-fb40-4ef0-bfe7-2d75f546e7c7:
+    uuid: e862c8cc-fb40-4ef0-bfe7-2d75f546e7c7
+    id: image_convert
+    weight: -9
+    data:
+      extension: webp
+  59f90e98-7514-4803-9b8d-dcfb2a03c90c:
+    uuid: 59f90e98-7514-4803-9b8d-dcfb2a03c90c
+    id: image_scale_and_crop
+    weight: -10
+    data:
+      width: 350
+      height: 560
+      anchor: center-center

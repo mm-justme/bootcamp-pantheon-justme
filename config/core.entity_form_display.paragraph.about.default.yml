@@ -8,7 +8,6 @@ dependencies:
     - field.field.paragraph.about.field_book_link
     - field.field.paragraph.about.field_person_img
     - field.field.paragraph.about.field_title
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.about
   module:
     - image
@@ -25,7 +24,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   field_body:
     type: text_textarea_with_summary
@@ -51,7 +50,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   field_title:
     type: string_textfield
