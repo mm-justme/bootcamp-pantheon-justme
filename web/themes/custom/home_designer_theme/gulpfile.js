@@ -20,7 +20,12 @@ const LOCAL_URL = "https://bootcamp-pantheon-justme.ddev.site";
 function styles() {
   return gulp
     .src(STYLE_SRC, { sourcemaps: true, base: "scss" })
-    .pipe(gulpSass({ outputStyle: "expanded" }).on("error", gulpSass.logError))
+    .pipe(
+      gulpSass({ outputStyle: "expanded", quietDeps: true }).on(
+        "error",
+        gulpSass.logError
+      )
+    )
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest("css", { sourcemaps: "." }))
     .pipe(browserSync.stream({ match: "**/*.css" })); // injection for scss (helps avoid  full reload)

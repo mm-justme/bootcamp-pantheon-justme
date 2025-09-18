@@ -73,9 +73,9 @@
           margin: 20px 0;
 
           h3 {
-            font-family: Gilda;
+            font-family: Gilda Display;
             font-size: 36px;
-            margin: 10px 0 7px;
+            margin: 15px 0 10px;
             @media (max-width: 1280px) {
               font-size: 26px;
             }
@@ -112,15 +112,25 @@
         position: relative;
         max-width: fit-content;
 
+
+
+        @media (max-width: 1024px) {
+          max-width: 325px;
+          height: 520px;
+        }
         @media (max-width: 800px) {
           order: 1;
+          max-width: 100%;
+          height: auto;
+
         }
 
 
         img {
           width: 100%;
           max-width: 580px;
-          height: auto;
+          height: 100%;
+          object-fit: cover;
 
           @media (max-width: 1280px) {
             max-width: 500px;
@@ -141,10 +151,4 @@
 .is-visible {
   opacity: 0;
   transition: opacity 700ms ease-out;
-}
-
-.field--name-field-body {
-  //color:red;
-  overflow: auto;
-  max-height: 500px;
 }
