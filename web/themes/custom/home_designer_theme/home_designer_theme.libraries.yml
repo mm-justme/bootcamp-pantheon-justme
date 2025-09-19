@@ -9,7 +9,7 @@ global-styling:
     base:
       "https://fonts.googleapis.com/css2?family=Gilda+Display&family=Pinyon+Script&display=swap": { type: external }
     component:
-      css/style.css: { }
+      css/style.css: { preprocess: false } # now all styles implementing from our sub_theme/css and not from /sites/default/files/css/
       css/tw.css: { preprocess: false }
   dependencies:
     - core/jquery

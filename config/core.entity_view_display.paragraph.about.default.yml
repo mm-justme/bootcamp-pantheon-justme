@@ -9,26 +9,16 @@ dependencies:
     - field.field.paragraph.about.field_person_img
     - field.field.paragraph.about.field_title
     - paragraphs.paragraphs_type.about
+    - responsive_image.styles.home_designer_responsive_images
   module:
-    - image
     - link
+    - responsive_image
     - text
 id: paragraph.about.default
 targetEntityType: paragraph
 bundle: about
 mode: default
 content:
-  field_background_image:
-    type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 4
-    region: content
   field_body:
     type: text_default
     label: hidden
@@ -46,18 +36,18 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_person_img:
-    type: image
-    label: hidden
+    type: responsive_image
+    label: above
     settings:
+      responsive_image_style: home_designer_responsive_images
       image_link: ''
-      image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_title:
     type: string
@@ -67,4 +57,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_background_image: true

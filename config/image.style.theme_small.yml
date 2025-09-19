@@ -1,0 +1,21 @@
+uuid: 7f98fb44-b436-45f2-8d95-714276f87e8a
+langcode: en
+status: true
+dependencies: {  }
+name: theme_small
+label: 'about-sm 700'
+effects:
+  1a8f5dc8-177b-4e6c-b592-c28843442b24:
+    uuid: 1a8f5dc8-177b-4e6c-b592-c28843442b24
+    id: image_convert
+    weight: -8
+    data:
+      extension: webp
+  a29bc9c1-3b42-49d6-b601-0ce7c8931402:
+    uuid: a29bc9c1-3b42-49d6-b601-0ce7c8931402
+    id: image_scale
+    weight: -10
+    data:
+      width: null
+      height: 770
+      upscale: true

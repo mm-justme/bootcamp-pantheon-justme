@@ -499,7 +499,7 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-  body {
+    body {
   font-family: Red Hat Display;
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -572,6 +572,23 @@ video {
     --tw-translate-y: 70%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
+}
+.\!btn {
+  --tw-bg-opacity: 1;
+  background-color: rgb(183 146 89 / var(--tw-bg-opacity, 1));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.\!btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
 }
 .btn {
   --tw-bg-opacity: 1;
@@ -722,6 +739,10 @@ video {
 }
 .max-w-\[280px\] {
   max-width: 280px;
+}
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 .max-w-full {
   max-width: 100%;
@@ -899,6 +920,7 @@ video {
 .duration-100 {
   transition-duration: 100ms;
 }
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -944,12 +966,12 @@ header {
   background-position: center;
   opacity: 0.7;
   content: "";
-  background-image: url("../images/bg/footer1.jpg");
+  background-image: url('../images/bg/footer1.jpg');
   z-index: 0;
 }
 
-.footer::before {
-  content: "";
+.footer::before{
+  content:'';
   position: absolute;
   inset: 0px;
   background-color: rgb(25 22 17 / 0.8);
@@ -959,27 +981,28 @@ header {
 .configPage {
   font-size: 18px;
   font-weight: 500;
+  .field {
+    margin-bottom: 0.75rem;
+  }
 }
-.configPage .field {
-  margin-bottom: 0.75rem;
-}
-
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
-  font-family: "Red Hat Display";
-  src: url("../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf") format("truetype-variations");
-  font-weight: 300 900;
-  font-style: italic;
-  font-display: swap;
+    font-family: 'Red Hat Display';
+    src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 300 900;
+    font-style: italic;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "Red Hat Display";
-  src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf") format("truetype-variations");
-  font-weight: 300 900;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Red Hat Display';
+    src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
 }
+
 .last\:btn:last-child {
   --tw-bg-opacity: 1;
   background-color: rgb(183 146 89 / var(--tw-bg-opacity, 1));
@@ -993,26 +1016,32 @@ header {
   font-weight: 500;
   text-transform: uppercase;
 }
+
 .last\:btn:last-child:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
 }
+
 .last\:block:last-child {
   display: block;
 }
+
 .last\:hidden:last-child {
   display: none;
 }
+
 .hover\:text-theme-gold:hover {
   --tw-text-opacity: 1;
   color: rgb(183 146 89 / var(--tw-text-opacity, 1));
 }
+
 @media (min-width: 640px) {
 
   .sm\:max-h-\[580px\] {
     max-height: 580px;
   }
 }
+
 @media (min-width: 768px) {
 
   .md\:\!my-3 {
@@ -1101,10 +1130,15 @@ header {
     line-height: 1;
   }
 }
+
 @media (min-width: 1024px) {
 
   .lg\:\!mb-7 {
     margin-bottom: 1.75rem !important;
+  }
+
+  .lg\:flex {
+    display: flex;
   }
 
   .lg\:max-h-\[800px\] {
@@ -1123,12 +1157,20 @@ header {
     max-width: 50%;
   }
 
+  .lg\:max-w-full {
+    max-width: 100%;
+  }
+
   .lg\:max-w-lg {
     max-width: 32rem;
   }
 
   .lg\:justify-evenly {
     justify-content: space-evenly;
+  }
+
+  .lg\:gap-5 {
+    gap: 1.25rem;
   }
 
   .lg\:\!py-5 {
@@ -1187,10 +1229,20 @@ header {
     letter-spacing: 1.2px;
   }
 }
+
 @media (min-width: 1280px) {
 
   .xl\:text-\[22px\] {
     font-size: 22px;
   }
+}
+
+.\[\&\:last-child_a\:hover\]\:text-inherit:last-child a:hover {
+  color: inherit;
+}
+
+.\[\&\:not\(\:last-child\)_a\:hover\]\:text-theme-gold:not(:last-child) a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(183 146 89 / var(--tw-text-opacity, 1));
 }
 /*# sourceMappingURL=tw.css.map */

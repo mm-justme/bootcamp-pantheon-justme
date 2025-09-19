@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.case_studies.field_body
     - field.field.node.case_studies.field_photo
     - field.field.node.case_studies.field_title_additional
-    - image.style.thumbnail
     - node.type.case_studies
   module:
     - image
@@ -39,7 +38,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   field_title_additional:
     type: string_textfield

@@ -9,7 +9,6 @@ dependencies:
     - field.field.block_content.block_comments.field_link
     - field.field.block_content.block_comments.field_media_links
     - field.field.block_content.block_comments.field_quota
-    - image.style.thumbnail
   module:
     - image
     - link
@@ -34,7 +33,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   field_link:
     type: link_default

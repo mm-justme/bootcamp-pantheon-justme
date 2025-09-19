@@ -3,7 +3,9 @@
         <div>
             <ul class="flex items-center gap-6 menu-links">
                 {% for item in items %}
-                    <li class="hidden text-sm md:block lg:text-mainMenu lg:px-2.5 last:btn last:block">
+                    <li class="hidden text-sm md:block lg:text-mainMenu lg:px-2.5 last:btn last:block
+                                 [&:not(:last-child)_a:hover]:text-theme-gold
+                                   [&:last-child_a:hover]:text-inherit">
                         <a href="{{ item.url }}"
                            class="{{ item.in_active_trail ? 'text-theme-gold1' : '' }} transition-colors">
                             {{ item.title }}
