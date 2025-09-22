@@ -3,7 +3,7 @@
 @use "abstracts/variables";
 @use "base/typography";
 @use "base/base";
-$enable-important-utilities: false; // BS утиліти без !important
+$enable-important-utilities: false; // BS utilities without !important
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../node_modules/bootstrap/scss/functions";
 
