@@ -11992,4 +11992,50 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.paragraph--type--achivments-item {
+  margin-bottom: 20px;
+}
+.paragraph--type--achivments-item:nth-last-child(1) {
+  margin-bottom: 0;
+}
+.paragraph--type--achivments-item .field--name-field-title {
+  font-family: "Gilda Display", sans-serif;
+  color: #F9F8F2;
+  font-size: 42px;
+  text-transform: uppercase;
+  margin: 10px 0 10px;
+}
+@media (min-width: 1024px) {
+  .paragraph--type--achivments-item .field--name-field-title {
+    font-size: 56px;
+    margin-bottom: 25px;
+  }
+}
+.paragraph--type--achivments-item .field--name-field-subtitle {
+  font-family: Pinyon Script, cursive;
+  color: #B79259;
+  font-size: 36px;
+}
+@media (min-width: 1024px) {
+  .paragraph--type--achivments-item .field--name-field-subtitle {
+    font-size: 45px;
+  }
+}
+
+.achivment-wrapper {
+  background-color: #1c1918;
+  position: relative;
+}
+
+.field--name-field-bg-image {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+}
+.field--name-field-bg-image img {
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.2;
+}
 /*# sourceMappingURL=style.css.map */
