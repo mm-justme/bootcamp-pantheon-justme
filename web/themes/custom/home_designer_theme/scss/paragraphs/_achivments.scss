@@ -1,0 +1,47 @@
+.paragraph--type--achivments-item {
+  margin-bottom: 20px;
+
+  &:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+
+  .field--name-field-title {
+    font-family: 'Gilda Display', sans-serif;
+    color: #F9F8F2;
+    font-size: 42px;
+    text-transform: uppercase;
+    margin: 10px 0 10px;
+
+    @media(min-width: 1024px){
+      font-size: 56px;
+      margin-bottom:25px;
+    }
+  }
+
+  .field--name-field-subtitle {
+    font-family: Pinyon Script, cursive;
+    color: #B79259;
+    font-size: 36px;
+
+    @media(min-width: 1024px){
+      font-size: 45px;
+    }
+  }
+}
+
+.achivment-wrapper {
+  background-color: #1c1918;
+  position: relative;
+}
+.field--name-field-bg-image{
+  overflow: hidden;
+  position: absolute;
+  inset:0;
+  min-height: 100%;
+
+  img{
+    min-height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+  }
+}
