@@ -1,0 +1,21 @@
+uuid: 5cb7f14c-fedf-48f7-a352-7bdfb3080b7c
+langcode: en
+status: true
+dependencies: {  }
+name: theme_banner
+label: 'about-2xl 1600x1920'
+effects:
+  873f86b0-8e3c-4f74-9b07-901e4a9cb763:
+    uuid: 873f86b0-8e3c-4f74-9b07-901e4a9cb763
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 1920
+      anchor: center-center
+  7384399b-43e4-43bf-b7a0-b1e38526bbe4:
+    uuid: 7384399b-43e4-43bf-b7a0-b1e38526bbe4
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp

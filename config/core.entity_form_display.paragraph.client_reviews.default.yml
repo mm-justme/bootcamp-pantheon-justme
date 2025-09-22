@@ -8,7 +8,6 @@ dependencies:
     - field.field.paragraph.client_reviews.field_quote
     - field.field.paragraph.client_reviews.field_role_subtitle
     - field.field.paragraph.client_reviews.field_title
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.client_reviews
   module:
     - image
@@ -23,7 +22,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   field_author:
     type: string_textfield
