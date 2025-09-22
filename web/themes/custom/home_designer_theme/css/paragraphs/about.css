@@ -113,6 +113,10 @@
     font-size: 17px;
   }
 }
+.wrapper .container .about__text_block .about__text_link {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 .wrapper .container .about__img_block {
   display: flex;
   justify-content: center;
