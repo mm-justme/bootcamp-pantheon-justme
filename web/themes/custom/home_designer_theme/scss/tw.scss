@@ -18,10 +18,23 @@
         @apply bg-theme-gold font-medium uppercase text-btn py-3 px-4
         hover:bg-theme-gold1;
     }
+  .btn2{
+    a{
+      @apply bg-theme-green hover:bg-theme-gold text-theme-white px-[26px] py-[16px];
+
+    }
+  }
 
    .menu-links > li > a:hover {
         @apply text-theme-gold;
     }
+  .main-title{
+    @apply font-family-GD uppercase leading-none text-theme-green my-3 text-[42px] lg:text-[56px] xl:text-[64px];
+  }
+  .main-subtitle{
+    @apply font-family-PS leading-tight text-theme-gold text-[36px] lg:text-[50px];
+  }
+
 }
 
 .flex-center {
@@ -71,6 +84,8 @@ header{
     @apply mb-3;
   }
 }
+
+
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
