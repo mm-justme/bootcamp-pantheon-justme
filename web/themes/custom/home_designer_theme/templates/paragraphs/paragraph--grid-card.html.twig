@@ -46,6 +46,14 @@
   not paragraph.isPublished() ? 'paragraph--unpublished'
 ] %}
 
+
+{#
+  Position of the text block will determined by the flex property - order.
+  By default text block has order 0, the img block has order 2, and the second img block has order 3.
+  We had created a simple array map to choosec the correct value of the order property.
+  Determine the order by using the field - field_position.
+  Gave the text block a dynamic order property according to the map array.
+#}
 {% set map = {'start':0,'center':3,'end':5} %}
 {% set new_order = map[paragraph.field_position.value]|default(0) %}
 
