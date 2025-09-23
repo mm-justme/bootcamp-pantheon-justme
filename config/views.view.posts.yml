@@ -1,8 +1,9 @@
 uuid: b3b7b72c-5ce6-402d-a96e-90636ded7b4d
 langcode: en
-status: false
+status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card
     - field.storage.node.field_design_tags
     - node.type.posts
   module:
@@ -259,6 +260,28 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 5
+      style:
+        type: grid_responsive
+        options:
+          uses_fields: false
+          columns: 3
+          cell_min_width: 250
+          grid_gutter: 10
+          alignment: horizontal
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: card
+      defaults:
+        pager: false
+        style: false
+        row: false
       display_description: ''
       display_extenders: {  }
       block_description: post-card
