@@ -1,0 +1,55 @@
+uuid: 68e1c3fc-0abd-4194-ad7c-85e806ff79d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.posts.field_design_tags
+    - field.field.node.posts.field_main_photo
+    - field.field.node.posts.layout_builder__layout
+    - image.style.theme_medium_800x600
+    - node.type.posts
+  module:
+    - image
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.posts.card
+targetEntityType: node
+bundle: posts
+mode: card
+content:
+  field_design_tags:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_main_photo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: theme_medium_800x600
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+hidden:
+  addtoany: true
+  layout_builder__layout: true
+  links: true
