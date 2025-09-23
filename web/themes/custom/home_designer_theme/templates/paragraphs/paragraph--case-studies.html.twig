@@ -55,14 +55,14 @@
             <div class="main-title ">
               {{ content.field_title }}
             </div>
-            {% if content.field_subtitle %}
+            {% if content.field_subtitle.0 %}
               <div class="main-subtitle">
                 {{ content.field_subtitle }}
               </div>
             {% endif %}
           </div>
           {{ content|without('field_title','field_subtitle','field_book_link') }}
-          {% if content.field_book_link %}
+          {% if content.field_book_link|render %}
             <div class="btn2 mx-auto text-[14px] lg:text-[16px] mt-14 leading-1">
               {{ content.field_book_link }}</div>
           {% endif %}
