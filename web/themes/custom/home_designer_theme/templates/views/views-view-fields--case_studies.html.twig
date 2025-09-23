@@ -32,24 +32,50 @@
  */
 #}
 
-{% for field in fields -%}
-  {{ field.separator }}
-  {%- if field.wrapper_element -%}
-    <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
-  {%- endif %}
-  {%- if field.label -%}
-    {%- if field.label_element -%}
-      <{{ field.label_element }}{{ field.label_attributes }}>{{ field.label }}{{ field.label_suffix }}</{{ field.label_element }}>
-    {%- else -%}
-      {{ field.label }}{{ field.label_suffix }}
-    {%- endif %}
-  {%- endif %}
-  {%- if field.element_type -%}
-    <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}</{{ field.element_type }}>
-  {%- else -%}
-    {{ field.content }}
-  {%- endif %}
-  {%- if field.wrapper_element -%}
-    </{{ field.wrapper_element }}>
-  {%- endif %}
-{%- endfor %}
+<div class="relative overflow-hidden inner_bg">
+  {% if fields.field_photo is defined %}
+    {{ fields.field_photo.content }}
+  {% endif %}
+
+  {% if fields.title is defined %}
+    <h3 class="absolute bottom-0 inner_title px-6 md:px-3 lg:px-6 pb-5 md:pb-1 lg:mb-5 text-start z-10 ">
+      {{ fields.title.content }}
+    </h3>
+  {% endif %}
+</div>
+
+
+{% for field in fields %}
+  {# skip elements which we have already showed #}
+  {% if (fields.field_photo is defined and field is same as(fields.field_photo))
+    or (fields.title is defined and field is same as(fields.title)) %}
+  {% else %}
+    {{ field.separator }}
+
+    {% if field.wrapper_element %}
+      <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
+    {% endif %}
+
+    {% if field.label %}
+      {% if field.label_element %}
+        <{{ field.label_element }}{{ field.label_attributes }}>
+        {{ field.label }}{{ field.label_suffix }}
+        </{{ field.label_element }}>
+      {% else %}
+        {{ field.label }}{{ field.label_suffix }}
+      {% endif %}
+    {% endif %}
+
+    {% if field.element_type %}
+      <{{ field.element_type }}{{ field.element_attributes }}>
+      {{ field.content }}
+      </{{ field.element_type }}>
+    {% else %}
+      {{ field.content }}
+    {% endif %}
+
+    {% if field.wrapper_element %}
+      </{{ field.wrapper_element }}>
+    {% endif %}
+  {% endif %}
+{% endfor %}
