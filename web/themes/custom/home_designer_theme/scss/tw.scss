@@ -3,45 +3,47 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply font-family-RH text-lg tracking-normal;
-    }
+  body {
+    @apply font-family-RH text-lg tracking-normal;
+  }
 }
 
 @layer components {
-    .slogan-dot {
-        @apply relative after:absolute after:top-0 after:right-0 lg:after:translate-y-[70%]
-        after:bg-theme-white2 after:rounded-full after:w-1.5 after:h-1.5 after:lg:w-2 after:lg:h-2 max-w-[155px] md:max-w-full;
-    }
+  .slogan-dot {
+    @apply relative after:absolute after:top-0 after:right-0 lg:after:translate-y-[70%]
+    after:bg-theme-white2 after:rounded-full after:w-1.5 after:h-1.5 after:lg:w-2 after:lg:h-2 max-w-[155px] md:max-w-full;
+  }
 
-    .btn{
-        @apply bg-theme-gold font-medium uppercase text-btn py-3 px-4
-        hover:bg-theme-gold1;
-    }
+  .btn {
+    @apply bg-theme-gold font-medium uppercase text-btn py-3 px-4
+    hover:bg-theme-gold1;
+  }
 
-  .btn2{
-    a{
+  .btn2 {
+    a {
       @apply bg-theme-green hover:bg-theme-gold text-theme-white px-[26px] py-[16px] transition-colors;
     }
   }
 
-   .menu-links > li > a:hover {
-        @apply text-theme-gold;
-    }
-  .main-title{
+  .menu-links > li > a:hover {
+    @apply text-theme-gold;
+  }
+
+  .main-title {
     @apply font-family-GD uppercase leading-none text-theme-green my-3 text-[42px] lg:text-[56px] xl:text-[64px];
   }
-  .main-subtitle{
+
+  .main-subtitle {
     @apply font-family-PS leading-tight text-theme-gold text-[36px] lg:text-[50px];
   }
 
 }
 
 .flex-center {
-    @apply flex items-center justify-center;
+  @apply flex items-center justify-center;
 }
 
-header{
+header {
   @apply top-[calc(var(--drupal-displace-offset-top,0px))];
 }
 
@@ -57,7 +59,7 @@ header{
   @apply bg-theme-bg-green backdrop-blur-[6px] translate-y-0 transition-transform duration-300;
 }
 
-.secondMenu{
+.secondMenu {
   @apply top-[calc(var(--drupal-displace-offset-top,0px)+96px)];
 }
 
@@ -65,72 +67,76 @@ header{
   @apply top-[96px];
 }
 
-.footer::after{
+.footer::after {
   @apply absolute inset-0 bg-cover bg-center opacity-70;
   content: "";
   background-image: url('../images/bg/footer1.jpg');
   z-index: 0;
 }
 
-.footer::before{
-  content:'';
+.footer::before {
+  content: '';
   @apply absolute inset-0 bg-bg-black/80;
   z-index: 1;
 }
 
-.configPage{
+.configPage {
   @apply text-[18px] font-medium;
-  .field{
+  .field {
     @apply mb-3;
   }
 }
 
-.grid-card--img_set{
+.grid-card--img_set {
   @apply flex-1 bg-cover bg-center min-h-[320px] sm:min-h-[500px] md:min-h-[200px] lg:min-h-[250px];
 }
-.case-grid__item{
-  img{
+
+.case-grid__item {
+  img {
     @apply w-full max-h-[800px] md:max-h-[550px] lg:max-h-[450px] object-cover;
   }
 }
 
-.inner_title{
+.inner_title {
   @apply text-[24px] md:text-[20px] lg:text-[26px] xl:text-[32px] text-theme-white font-family-GD font-normal leading-[1.1]
 }
 
-.inner_bg{
+.inner_bg {
   @apply cursor-pointer;
-  img{
+  img {
     @apply transition ease-in-out duration-300;
   }
-&:hover{
-  img{ @apply md:transform md:scale-[1.2] ;}
-}
-&::after{
+
+  &:hover {
+    img {
+      @apply md:transform md:scale-[1.2] ;
+    }
+  }
+
+  &::after {
     content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,0) 41%, rgba(0,0,0,0));
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 41%, rgba(0, 0, 0, 0));
     z-index: 5;
- }
+  }
 }
-
-
 
 
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
-    font-family: 'Red Hat Display';
-    src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Red Hat Display';
+  src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Red Hat Display';
-    src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Red Hat Display';
+  src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
 }

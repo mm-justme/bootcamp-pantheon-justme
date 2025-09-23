@@ -46,9 +46,9 @@
 
 
 {% for field in fields %}
-  {# skip elements which we have already showed #}
-  {% if (fields.field_photo is defined and field is same as(fields.field_photo))
-    or (fields.title is defined and field is same as(fields.title)) %}
+  {# check if fields field_photos and title exist, if yes we skip them in loop #}
+  {% if (fields.field_photo is defined )
+    or (fields.title is defined)  %}
   {% else %}
     {{ field.separator }}
 

@@ -499,7 +499,7 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-    body {
+  body {
   font-family: Red Hat Display;
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -607,7 +607,7 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
 }
-.btn2{
+.btn2 {
     a {
     --tw-bg-opacity: 1;
     background-color: rgb(5 52 38 / var(--tw-bg-opacity, 1));
@@ -1130,8 +1130,8 @@ header {
   z-index: 0;
 }
 
-.footer::before{
-  content:'';
+.footer::before {
+  content: '';
   position: absolute;
   inset: 0px;
   background-color: rgb(25 22 17 / 0.8);
@@ -1173,7 +1173,8 @@ header {
     min-height: 250px;
   }
 }
-.case-grid__item{
+
+.case-grid__item {
   img {
     max-height: 800px;
   }
@@ -1241,8 +1242,9 @@ header {
   img {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-&:hover{
-  @media (min-width: 768px) {
+
+  &:hover {
+    @media (min-width: 768px) {
 
       img {
         --tw-scale-x: 1.2;
@@ -1250,40 +1252,40 @@ header {
         transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
       }
     }
-  @media (min-width: 768px) {
+    @media (min-width: 768px) {
 
       img {
         transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
       }
     }
-}
-&::after{
+  }
+
+  &::after {
     content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,0) 41%, rgba(0,0,0,0));
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 41%, rgba(0, 0, 0, 0));
     z-index: 5;
- }
+  }
 }
-
-
 
 
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
-    font-family: 'Red Hat Display';
-    src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Red Hat Display';
+  src: url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Red Hat Display';
-    src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype-variations');
-    font-weight: 300 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Red Hat Display';
+  src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 .last\:btn:last-child {
