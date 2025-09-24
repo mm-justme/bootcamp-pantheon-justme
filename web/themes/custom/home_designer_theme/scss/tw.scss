@@ -102,7 +102,7 @@ header {
 }
 
 .inner_bg {
-  @apply cursor-pointer;
+  @apply cursor-pointer min-h-full;
   img {
     @apply transition ease-in-out duration-300;
   }
