@@ -1230,6 +1230,7 @@ header {
 }
 
 .inner_bg {
+  min-height: 100%;
   cursor: pointer;
   img {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
