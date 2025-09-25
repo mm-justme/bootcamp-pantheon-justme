@@ -138,6 +138,45 @@ header {
 }
 
 
+.paragraph--type--client-reviews {
+
+  .quota-subtitle {
+    @apply font-family-PS text-[54px] md:text-[50px] lg:text-[64px] xl:text-[80px] leading-[1] font-medium
+    text-theme-gold mb-3 md:mb-5;
+
+  }
+
+  .reviews-quota {
+    @apply max-w-[1024px] px-5 mx-auto mb-5;
+
+    .field--name-field-quote {
+      @apply font-family-RH italic text-[26px] md:text-[22px] lg:text-[26px] xl:text-[30px] leading-[1.5] font-normal
+      text-theme-green text-center;
+    }
+  }
+
+  .quota-author-block {
+    @apply flex gap-6 flex-col md:flex-row justify-center items-center;
+
+    .field--name-field-author {
+      @apply text-theme-green text-[36px] md:text-[22px] lg:text-[24px] xl:text-[36px] font-medium font-family-GD
+      tracking-[0px] leading-[1.1] my-2;
+    }
+
+    .field--name-field-role-subtitle {
+      @apply text-theme-gray font-family-RH italic text-[18px] md:text-[16px] lg:text-[18px] font-normal
+      tracking-[0.5px] leading-[1.2] md:text-start;
+    }
+  }
+
+  .field--name-field-additional-image {
+
+    img {
+      @apply rounded-full  min-w-full max-w-[115px] sm:max-w-[150px] md:max-w-[100px];
+    }
+  }
+}
+
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
