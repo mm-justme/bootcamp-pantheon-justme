@@ -122,6 +122,21 @@ header {
   }
 }
 
+.consultation-text-wrapper {
+  @apply flex flex-col justify-between items-start md:items-center gap-5 md:flex-row py-8 px-5 md:px-7 lg:px-14
+  bg-theme-green text-theme-white max-w-5xl min-w-full md:max-w-[740px] lg:max-w-[980px] xl:max-w-[1024px];
+}
+
+.consultation-link {
+  @apply mt-6;
+
+  a {
+    @apply text-[15px] lg:text-[13px] xl:text-[15px] leading-[1.2]
+    tracking-[0.5px] uppercase font-medium text-[#dbb478];
+  }
+
+}
+
 
 /********FONTS********/
 /*Red Hat Display*/
