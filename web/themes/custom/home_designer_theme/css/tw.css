@@ -1271,6 +1271,293 @@ header {
 }
 
 
+.paragraph--type--client-reviews {
+
+  .quota-subtitle {
+    margin-bottom: 0.75rem;
+  }
+
+  .quota-subtitle {
+    font-family: Pinyon Script, cursive;
+  }
+
+  .quota-subtitle {
+    font-size: 54px;
+  }
+
+  .quota-subtitle {
+    font-weight: 500;
+  }
+
+  .quota-subtitle {
+    line-height: 1;
+  }
+
+  .quota-subtitle {
+    --tw-text-opacity: 1;
+    color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+  }
+
+  @media (min-width: 768px) {
+
+    .quota-subtitle {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    .quota-subtitle {
+      font-size: 50px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    .quota-subtitle {
+      font-size: 64px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    .quota-subtitle {
+      font-size: 80px;
+    }
+  }
+
+  .reviews-quota {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reviews-quota {
+    margin-bottom: 1.25rem;
+  }
+
+  .reviews-quota {
+    max-width: 1024px;
+  }
+
+  .reviews-quota {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .reviews-quota {
+
+    .field--name-field-quote {
+      text-align: center;
+    }
+
+    .field--name-field-quote {
+      font-family: Red Hat Display;
+    }
+
+    .field--name-field-quote {
+      font-size: 26px;
+    }
+
+    .field--name-field-quote {
+      font-weight: 400;
+    }
+
+    .field--name-field-quote {
+      font-style: italic;
+    }
+
+    .field--name-field-quote {
+      line-height: 1.5;
+    }
+
+    .field--name-field-quote {
+      --tw-text-opacity: 1;
+      color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-quote {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .field--name-field-quote {
+        font-size: 26px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      .field--name-field-quote {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .quota-author-block {
+    display: flex;
+  }
+
+  .quota-author-block {
+    flex-direction: column;
+  }
+
+  .quota-author-block {
+    align-items: center;
+  }
+
+  .quota-author-block {
+    justify-content: center;
+  }
+
+  .quota-author-block {
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+
+    .quota-author-block {
+      flex-direction: row;
+    }
+  }
+
+  .quota-author-block {
+
+    .field--name-field-author {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .field--name-field-author {
+      font-family: Gilda Display;
+    }
+
+    .field--name-field-author {
+      font-size: 36px;
+    }
+
+    .field--name-field-author {
+      font-weight: 500;
+    }
+
+    .field--name-field-author {
+      line-height: 1.1;
+    }
+
+    .field--name-field-author {
+      letter-spacing: 0px;
+    }
+
+    .field--name-field-author {
+      --tw-text-opacity: 1;
+      color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-author {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .field--name-field-author {
+        font-size: 24px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      .field--name-field-author {
+        font-size: 36px;
+      }
+    }
+
+    .field--name-field-role-subtitle {
+      font-family: Red Hat Display;
+    }
+
+    .field--name-field-role-subtitle {
+      font-size: 18px;
+    }
+
+    .field--name-field-role-subtitle {
+      font-weight: 400;
+    }
+
+    .field--name-field-role-subtitle {
+      font-style: italic;
+    }
+
+    .field--name-field-role-subtitle {
+      line-height: 1.2;
+    }
+
+    .field--name-field-role-subtitle {
+      letter-spacing: 0.5px;
+    }
+
+    .field--name-field-role-subtitle {
+      --tw-text-opacity: 1;
+      color: rgb(121 132 126 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-role-subtitle {
+        text-align: start;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-role-subtitle {
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .field--name-field-role-subtitle {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .field--name-field-additional-image {
+
+    img {
+      min-width: 100%;
+    }
+
+    img {
+      max-width: 115px;
+    }
+
+    img {
+      border-radius: 9999px;
+    }
+
+    @media (min-width: 640px) {
+
+      img {
+        max-width: 150px;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
+
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
