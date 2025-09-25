@@ -1,0 +1,95 @@
+.main_photo {
+  position: relative;
+}
+.main_photo img {
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 767px) {
+  .main_photo img {
+    max-height: 500px;
+  }
+}
+
+.post-title {
+  font-family: "Gilda Display", serif;
+  font-size: 30px;
+  color: #f9f8f2;
+  line-height: 1.2;
+  font-weight: 400;
+  transition: color 0.2s ease-in-out;
+  padding-top: 35px;
+  text-align: center;
+}
+.post-title:hover {
+  color: #B79259;
+}
+
+.tag-wrapper {
+  position: relative;
+}
+.tag-wrapper .post-tags {
+  position: absolute;
+  bottom: -4%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background-color: #B79259;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  transition: background-color 0.2s ease-in-out;
+}
+.tag-wrapper .post-tags:hover {
+  background-color: #c2a25d;
+}
+
+.post-item-list {
+  display: flex;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.swiper-controls .swiper-button-prev,
+.swiper-controls .swiper-button-next {
+  position: static;
+  width: 40px;
+  height: 40px;
+  background-color: #b79259;
+  color: #f9f8f2;
+  transition: background-color 0.2s ease-in-out;
+}
+.swiper-controls .swiper-button-prev:hover,
+.swiper-controls .swiper-button-next:hover {
+  background-color: #c2a25d;
+}
+.swiper-controls .swiper-button-prev .swiper-navigation-icon,
+.swiper-controls .swiper-button-next .swiper-navigation-icon {
+  height: 20px;
+}
+/*# sourceMappingURL=swiper-posts.css.map */
