@@ -1,54 +1,47 @@
 (function(Drupal) {
   Drupal.behaviors.latestPostsSwiper = {
     attach(context) {
-      once("latestPostsSwiper", ".post-blocks-list.js-swiper", context).forEach(
-        el => {
-          console.log(el, "test");
+      once("latestPostsSwiper", ".js-swiper", context).forEach(el => {
+        const controls = document.createElement("div");
+        const buttonPrev = document.createElement("div");
+        const buttonNext = document.createElement("div");
 
-          const controls = document.createElement("div");
-          const buttonPrev = document.createElement("div");
-          const buttonNext = document.createElement("div");
+        controls.classList.add("swiper-controls");
+        buttonPrev.classList.add("swiper-button-prev");
+        buttonNext.classList.add("swiper-button-next");
 
-          controls.classList.add("swiper-controls");
-          buttonPrev.classList.add("swiper-button-prev");
-          buttonNext.classList.add("swiper-button-next");
+        el.appendChild(controls);
+        controls.appendChild(buttonPrev);
+        controls.appendChild(buttonNext);
 
-          el.appendChild(controls);
-          controls.appendChild(buttonPrev);
-          controls.appendChild(buttonNext);
-
-          new Swiper(el, {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
-            spaceBetween: 16,
-            allowTouchMove: false,
-            autoHeight: true,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            breakpoints: {
-              // мобільно ≤768px: вертикально, по 3 зверху-вниз
-              0: {
-                direction: 'vertical',
-                slidesPerView: 3,
-                slidesPerGroup: 3,
-                spaceBetween: 12,
-                allowTouchMove: false,
-                simulateTouch: false,
-              },
-              769: {
-                direction: 'horizontal',
-                slidesPerView: 3,
-                slidesPerGroup: 3,
-                spaceBetween: 16,
-              }
+        new Swiper(el, {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 16,
+          // allowTouchMove: false,
+          autoHeight: true,
+          loop: false,
+          breakpoints: {
+            0: {
+              slidesPerView: 1,
+              slidesPerGroup: 1
             },
-            navigation: {
-              nextEl: el.querySelector(".swiper-button-next"),
-              prevEl: el.querySelector(".swiper-button-prev")
+            769: {
+              slidesPerView: 2,
+              slidesPerGroup: 2
+            },
+            1024: {
+              slidesPerView: 3,
+              slidesPerGroup: 3
             }
-          });
-        }
-      );
+          },
+
+          navigation: {
+            nextEl: el.querySelector(".swiper-button-next"),
+            prevEl: el.querySelector(".swiper-button-prev")
+          }
+        });
+      });
     }
   };
 })(Drupal);
