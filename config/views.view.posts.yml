@@ -266,13 +266,14 @@ display:
           offset: 0
           items_per_page: 5
       style:
-        type: grid_responsive
+        type: html_list
         options:
+          row_class: swiper-slide
+          default_row_class: true
           uses_fields: false
-          columns: 3
-          cell_min_width: 250
-          grid_gutter: 10
-          alignment: horizontal
+          type: ul
+          wrapper_class: 'swiper js-swiper'
+          class: swiper-wrapper
       row:
         type: 'entity:node'
         options:

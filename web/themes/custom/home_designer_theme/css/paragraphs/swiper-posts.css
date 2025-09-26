@@ -28,6 +28,8 @@
   letter-spacing: 0.5px;
   max-width: -moz-fit-content;
   max-width: fit-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   transition: background-color 0.2s ease-in-out;
 }
 .posts-tag-wrapper .post-tags:hover {
@@ -51,6 +53,16 @@
 }
 .post-title:hover {
   color: #B79259;
+}
+@media (min-width: 1024px) {
+  .post-title {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .post-title {
+    font-size: 30px;
+  }
 }
 
 .swiper-controls {

@@ -18,7 +18,7 @@
           slidesPerView: 3,
           slidesPerGroup: 3,
           spaceBetween: 16,
-          // allowTouchMove: false,
+          allowTouchMove: false,
           autoHeight: true,
           loop: false,
           breakpoints: {

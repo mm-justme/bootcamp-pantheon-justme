@@ -2,7 +2,7 @@
   position: relative;
 
   .post-main-photo {
-    //position: relative;
+
     img {
       min-width: 100%;
       min-height: 100%;
@@ -31,11 +31,13 @@
     font-weight: 400;
     letter-spacing: 0.5px;
     max-width: fit-content;
+    min-width: max-content;
     transition: background-color 0.2s ease-in-out;
 
     &:hover {
       background-color: #c2a25d;
     }
+
     @media (min-width: 768px) {
       font-size: 12px;
     }
@@ -55,6 +57,14 @@
 
   &:hover {
     color: #B79259;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 30px;
   }
 }
 
