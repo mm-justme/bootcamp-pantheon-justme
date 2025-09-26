@@ -727,6 +727,10 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.my-\[10px\] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -821,6 +825,9 @@ video {
   min-width: -moz-fit-content;
   min-width: fit-content;
 }
+.min-w-full {
+  min-width: 100%;
+}
 .max-w-48 {
   max-width: 12rem;
 }
@@ -842,6 +849,9 @@ video {
 }
 .max-w-full {
   max-width: 100%;
+}
+.max-w-lg {
+  max-width: 32rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -869,6 +879,9 @@ video {
 }
 .items-stretch {
   align-items: stretch;
+}
+.justify-normal {
+  justify-content: normal;
 }
 .justify-between {
   justify-content: space-between;
@@ -1007,6 +1020,9 @@ video {
 .text-\[18px\] {
   font-size: 18px;
 }
+.text-\[30px\] {
+  font-size: 30px;
+}
 .text-\[36px\] {
   font-size: 36px;
 }
@@ -1033,6 +1049,9 @@ video {
 }
 .font-medium {
   font-weight: 500;
+}
+.font-normal {
+  font-weight: 400;
 }
 .uppercase {
   text-transform: uppercase;
@@ -1288,6 +1307,381 @@ header {
   }
 }
 
+.consultation-text-wrapper {
+  display: flex;
+  min-width: 100%;
+  max-width: 64rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 52 38 / var(--tw-bg-opacity, 1));
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(249 249 249 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px) {
+
+  .consultation-text-wrapper {
+    max-width: 740px;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .consultation-text-wrapper {
+    max-width: 980px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .consultation-text-wrapper {
+    max-width: 1024px;
+  }
+}
+
+.consultation-link {
+  margin-top: 1.5rem;
+
+  a {
+    font-size: 15px;
+  }
+
+  a {
+    font-weight: 500;
+  }
+
+  a {
+    text-transform: uppercase;
+  }
+
+  a {
+    line-height: 1.2;
+  }
+
+  a {
+    letter-spacing: 0.5px;
+  }
+
+  a {
+    --tw-text-opacity: 1;
+    color: rgb(219 180 120 / var(--tw-text-opacity, 1));
+  }
+
+  @media (min-width: 1024px) {
+
+    a {
+      font-size: 13px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    a {
+      font-size: 15px;
+    }
+  }
+}
+
+
+.paragraph--type--client-reviews {
+
+  .quota-subtitle {
+    margin-bottom: 0.75rem;
+  }
+
+  .quota-subtitle {
+    font-family: Pinyon Script, cursive;
+  }
+
+  .quota-subtitle {
+    font-size: 54px;
+  }
+
+  .quota-subtitle {
+    font-weight: 500;
+  }
+
+  .quota-subtitle {
+    line-height: 1;
+  }
+
+  .quota-subtitle {
+    --tw-text-opacity: 1;
+    color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+  }
+
+  @media (min-width: 768px) {
+
+    .quota-subtitle {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    .quota-subtitle {
+      font-size: 50px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    .quota-subtitle {
+      font-size: 64px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    .quota-subtitle {
+      font-size: 80px;
+    }
+  }
+
+  .reviews-quota {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reviews-quota {
+    margin-bottom: 1.25rem;
+  }
+
+  .reviews-quota {
+    max-width: 1024px;
+  }
+
+  .reviews-quota {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .reviews-quota {
+
+    .field--name-field-quote {
+      text-align: center;
+    }
+
+    .field--name-field-quote {
+      font-family: Red Hat Display;
+    }
+
+    .field--name-field-quote {
+      font-size: 26px;
+    }
+
+    .field--name-field-quote {
+      font-weight: 400;
+    }
+
+    .field--name-field-quote {
+      font-style: italic;
+    }
+
+    .field--name-field-quote {
+      line-height: 1.5;
+    }
+
+    .field--name-field-quote {
+      --tw-text-opacity: 1;
+      color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-quote {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .field--name-field-quote {
+        font-size: 26px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      .field--name-field-quote {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .quota-author-block {
+    display: flex;
+  }
+
+  .quota-author-block {
+    flex-direction: column;
+  }
+
+  .quota-author-block {
+    align-items: center;
+  }
+
+  .quota-author-block {
+    justify-content: center;
+  }
+
+  .quota-author-block {
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+
+    .quota-author-block {
+      flex-direction: row;
+    }
+  }
+
+  .quota-author-block {
+
+    .field--name-field-author {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .field--name-field-author {
+      font-family: Gilda Display;
+    }
+
+    .field--name-field-author {
+      font-size: 36px;
+    }
+
+    .field--name-field-author {
+      font-weight: 500;
+    }
+
+    .field--name-field-author {
+      line-height: 1.1;
+    }
+
+    .field--name-field-author {
+      letter-spacing: 0px;
+    }
+
+    .field--name-field-author {
+      --tw-text-opacity: 1;
+      color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-author {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .field--name-field-author {
+        font-size: 24px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      .field--name-field-author {
+        font-size: 36px;
+      }
+    }
+
+    .field--name-field-role-subtitle {
+      font-family: Red Hat Display;
+    }
+
+    .field--name-field-role-subtitle {
+      font-size: 18px;
+    }
+
+    .field--name-field-role-subtitle {
+      font-weight: 400;
+    }
+
+    .field--name-field-role-subtitle {
+      font-style: italic;
+    }
+
+    .field--name-field-role-subtitle {
+      line-height: 1.2;
+    }
+
+    .field--name-field-role-subtitle {
+      letter-spacing: 0.5px;
+    }
+
+    .field--name-field-role-subtitle {
+      --tw-text-opacity: 1;
+      color: rgb(121 132 126 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-role-subtitle {
+        text-align: start;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      .field--name-field-role-subtitle {
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .field--name-field-role-subtitle {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .field--name-field-additional-image {
+
+    img {
+      min-width: 100%;
+    }
+
+    img {
+      max-width: 115px;
+    }
+
+    img {
+      border-radius: 9999px;
+    }
+
+    @media (min-width: 640px) {
+
+      img {
+        max-width: 150px;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
 
 /********FONTS********/
 /*Red Hat Display*/
@@ -1407,6 +1801,11 @@ header {
     display: none;
   }
 
+  .md\:min-w-fit {
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+  }
+
   .md\:min-w-full {
     min-width: 100%;
   }
@@ -1435,6 +1834,10 @@ header {
     max-width: 32rem;
   }
 
+  .md\:max-w-sm {
+    max-width: 24rem;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1449,6 +1852,10 @@ header {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
   }
 
   .md\:gap-10 {
@@ -1588,6 +1995,14 @@ header {
     padding-bottom: 2.5rem;
   }
 
+  .lg\:pb-24 {
+    padding-bottom: 6rem;
+  }
+
+  .lg\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
   .lg\:pt-20 {
     padding-top: 5rem;
   }
@@ -1644,6 +2059,10 @@ header {
 }
 
 @media (min-width: 1280px) {
+
+  .xl\:text-\[20px\] {
+    font-size: 20px;
+  }
 
   .xl\:text-\[22px\] {
     font-size: 22px;

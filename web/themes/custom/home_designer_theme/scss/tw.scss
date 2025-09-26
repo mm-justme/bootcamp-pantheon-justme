@@ -122,6 +122,60 @@ header {
   }
 }
 
+.consultation-text-wrapper {
+  @apply flex flex-col justify-between items-start md:items-center gap-5 md:flex-row py-8 px-5 md:px-7 lg:px-14
+  bg-theme-green text-theme-white max-w-5xl min-w-full md:max-w-[740px] lg:max-w-[980px] xl:max-w-[1024px];
+}
+
+.consultation-link {
+  @apply mt-6;
+
+  a {
+    @apply text-[15px] lg:text-[13px] xl:text-[15px] leading-[1.2]
+    tracking-[0.5px] uppercase font-medium text-[#dbb478];
+  }
+
+}
+
+
+.paragraph--type--client-reviews {
+
+  .quota-subtitle {
+    @apply font-family-PS text-[54px] md:text-[50px] lg:text-[64px] xl:text-[80px] leading-[1] font-medium
+    text-theme-gold mb-3 md:mb-5;
+
+  }
+
+  .reviews-quota {
+    @apply max-w-[1024px] px-5 mx-auto mb-5;
+
+    .field--name-field-quote {
+      @apply font-family-RH italic text-[26px] md:text-[22px] lg:text-[26px] xl:text-[30px] leading-[1.5] font-normal
+      text-theme-green text-center;
+    }
+  }
+
+  .quota-author-block {
+    @apply flex gap-6 flex-col md:flex-row justify-center items-center;
+
+    .field--name-field-author {
+      @apply text-theme-green text-[36px] md:text-[22px] lg:text-[24px] xl:text-[36px] font-medium font-family-GD
+      tracking-[0px] leading-[1.1] my-2;
+    }
+
+    .field--name-field-role-subtitle {
+      @apply text-theme-gray font-family-RH italic text-[18px] md:text-[16px] lg:text-[18px] font-normal
+      tracking-[0.5px] leading-[1.2] md:text-start;
+    }
+  }
+
+  .field--name-field-additional-image {
+
+    img {
+      @apply rounded-full  min-w-full max-w-[115px] sm:max-w-[150px] md:max-w-[100px];
+    }
+  }
+}
 
 /********FONTS********/
 /*Red Hat Display*/
