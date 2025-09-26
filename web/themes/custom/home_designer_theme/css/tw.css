@@ -771,6 +771,9 @@ video {
 .ml-0\.5 {
   margin-left: 0.125rem;
 }
+.ml-3 {
+  margin-left: 0.75rem;
+}
 .mt-14 {
   margin-top: 3.5rem;
 }
@@ -788,6 +791,9 @@ video {
 }
 .flex {
   display: flex;
+}
+.inline-flex {
+  display: inline-flex;
 }
 .table {
   display: table;
@@ -882,6 +888,9 @@ video {
 }
 .justify-between {
   justify-content: space-between;
+}
+.gap-2 {
+  gap: 0.5rem;
 }
 .gap-4 {
   gap: 1rem;
@@ -1472,6 +1481,11 @@ header {
 .hover\:text-theme-gold:hover {
   --tw-text-opacity: 1;
   color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-theme-gold1:hover {
+  --tw-text-opacity: 1;
+  color: rgb(194 162 93 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 640px) {
