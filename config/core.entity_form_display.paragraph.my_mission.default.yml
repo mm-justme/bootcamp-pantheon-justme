@@ -27,14 +27,6 @@ content:
       progress_indicator: throbber
       preview_image_style: ''
     third_party_settings: {  }
-  field_background_image:
-    type: image_image
-    weight: 7
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: ''
-    third_party_settings: {  }
   field_description_additional:
     type: string_textarea
     weight: 6
@@ -85,4 +77,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_background_image: true
   status: true

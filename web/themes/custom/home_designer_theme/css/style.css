@@ -12,6 +12,138 @@ footer h2, footer .h2 {
   margin-bottom: 20px;
 }
 
+.my-mission-wrapper {
+  background-color: #053426;
+  color: #f7f9f9;
+  padding: 110px 0;
+}
+.my-mission-wrapper .paragraph--type--my-mission {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+.my-mission-wrapper .paragraph--type--my-mission::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/bg/bg-my-mision.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  opacity: 0.16;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .my-mission-wrapper .paragraph--type--my-mission {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block {
+    text-align: start;
+    align-items: flex-start;
+  }
+}
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-title {
+  font-size: 64px;
+  font-family: "Gilda Display", serif;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-title {
+    font-size: 42px;
+  }
+}
+@media (min-width: 769px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-title {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-title {
+    font-size: 42px;
+  }
+}
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-subtitle {
+  font-size: 50px;
+  color: #c2a25d;
+  font-family: "Pinyon Script", cursive;
+  line-height: 1;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-subtitle {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1200px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-subtitle {
+    font-size: 40px;
+  }
+}
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-additional-image img,
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-second-image img {
+  min-height: 200px;
+  min-width: 100%;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 768px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-additional-image img,
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-second-image img {
+    min-height: 400px;
+    max-height: 100%;
+  }
+}
+@media (min-width: 769px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-additional-image img,
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-second-image img {
+    min-height: 100px;
+    max-height: 100px;
+  }
+}
+@media (min-width: 900px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-additional-image img,
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-second-image img {
+    min-height: 200px;
+    max-height: 200px;
+  }
+}
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-description-main,
+.my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-description-additional {
+  font-size: 15px;
+  font-family: "Red Hat Display", serif;
+  line-height: 1.8;
+  font-weight: 400;
+  margin-top: 30px;
+}
+@media (min-width: 769px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-description-main,
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-description-additional {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1200px) {
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-description-main,
+  .my-mission-wrapper .paragraph--type--my-mission .my-mission--block .field--name-field-description-additional {
+    font-size: 15px;
+  }
+}
+
 .ps-style {
   font-family: Pinyon Script, cursive;
   color: #B79259;
