@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_main_photo
     - field.field.node.posts.layout_builder__layout
+    - image.style.theme_large_1200x800
     - node.type.posts
   module:
     - image
@@ -37,7 +38,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: ''
+      preview_image_style: theme_large_1200x800
     third_party_settings: {  }
   path:
     type: path
