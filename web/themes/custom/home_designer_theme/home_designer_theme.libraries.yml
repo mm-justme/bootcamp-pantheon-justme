@@ -15,6 +15,27 @@ global-styling:
     - core/jquery
     - core/drupal
 
+
+swiper:
+  version: 12.x
+  css:
+    theme:
+      /libraries/swiper/swiper-bundle.min.css: {}
+  js:
+    /libraries/swiper/swiper-bundle.min.js: {}
+
+
+swiper-posts:
+  css:
+    theme:
+      css/paragraphs/swiper-posts.css: {}
+  js:
+    js/paragraphs/swiper-posts.js: {}
+  dependencies:
+    - home_designer_theme/swiper
+    - core/once
+
+
 about:
   css:
     theme:
@@ -23,3 +44,4 @@ about:
     js/paragraphs/about.js: {}
   dependencies:
     - core/once
+    

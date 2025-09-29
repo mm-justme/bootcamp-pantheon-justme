@@ -1,0 +1,95 @@
+.posts-tag-wrapper {
+  position: relative;
+
+  .post-main-photo {
+
+    img {
+      min-width: 100%;
+      min-height: 100%;
+
+      max-height: 400px;
+      object-fit: cover;
+
+      @media (max-width: 768px) {
+        max-height: 500px;
+      }
+    }
+  }
+
+  .post-tags {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background-color: #B79259;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    max-width: fit-content;
+    min-width: max-content;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #c2a25d;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.post-title {
+  font-family: "Gilda Display", serif;
+  font-size: 30px;
+  color: #f9f8f2;
+  line-height: 1.2;
+  font-weight: 400;
+  transition: color 0.2s ease-in-out;
+
+  padding-top: 35px;
+  text-align: center;
+
+  &:hover {
+    color: #B79259;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 30px;
+  }
+}
+
+.swiper-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;
+
+    width: 40px;
+    height: 40px;
+    background-color: #b79259;
+    color: #f9f8f2;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #c2a25d;
+    }
+
+    .swiper-navigation-icon {
+      height: 20px;
+    }
+  }
+}

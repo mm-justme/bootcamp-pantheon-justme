@@ -11,6 +11,10 @@
         {
             "type": "path",
             "url": "upstream-configuration"
+        },
+        {
+          "type": "composer",
+          "url": "https://asset-packagist.org"
         }
     ],
     "require": {
@@ -30,7 +34,9 @@
         "drupal/admin_toolbar": "^3.6",
         "drupal/viewsreference": "^2.0@beta",
         "drupal/addtoany": "^2.0",
-        "drupal/bootstrap": "^5.0"
+        "drupal/bootstrap": "^5.0",
+        "oomphinc/composer-installers-extender": "^2.0",
+        "npm-asset/swiper": "^12.0"
     },
     "require-dev": {
         "drupal/core-dev": "^11"
@@ -41,6 +47,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "extra": {
+        "installer-types": ["npm-asset","drupal-library"],
         "drupal-scaffold": {
             "locations": {
                 "web-root": "./web"
@@ -54,7 +61,7 @@
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/libraries/{$name}": ["type:drupal-library","type:npm-asset"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
@@ -90,7 +97,8 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true,
             "php-http/discovery": true,
-            "tbachert/spi": true
+            "tbachert/spi": true,
+            "oomphinc/composer-installers-extender": true
         }
     }
 }
