@@ -177,27 +177,69 @@ header {
   }
 }
 
-.layout__region--second {
-  .views-element-container {
-    @apply sticky top-[100px]  md:max-w-[385px] py-5 md:py-[25px] px-5 md:px-[30px] bg-[#f7f4ed];
-  }
 
-  .latest-articles--title {
-    @apply text-theme-gold text-[30px] md:text-[22px] lg:md:text-[26px] xl:text-[30px] leading-[1.1] font-bold mt-3 mb-5;
-  }
+.node--type-posts {
+  .layout--twocol-section {
+    @apply flex flex-col md:flex-row;
 
-  .view-display-id-block_1 {
-    .views-field-title {
-      @apply text-theme-green text-[26px] md:text-[17px] lg:text-[20px] xl:text-[26px] leading-[1.2] font-medium font-family-GD
-      mb-[10px] md:mb-[6px] lg:mb-[10px] hover:text-theme-gold transition-colors;
+    @apply mx-auto md:max-w-[1024px] lg:max-w-[1200px] xl:max-w-[1400px] py-16 xl:py-28;
+
+    .layout__region--first {
+      @apply md:px-3 px-5 lg:px-5 xl:px-6;
+
+      .block-field-blocknodepoststitle {
+        @apply mb-5;
+
+        .field--name-title {
+          @apply font-family-GD text-theme-green text-[36px] lg:text-[42px] xl:text-[60px] leading-[1.1] font-medium;
+        }
+      }
+
+      .block-field-blocknodepostsuid {
+        @apply inline-block;
+
+        .field--name-uid {
+          @apply text-theme-green font-bold leading-[1] tracking-[0.5px] text-[13px] md:text-[16px] capitalize;
+        }
+      }
+
+      .block-field-blocknodepostscreated {
+        @apply inline-block;
+
+        .field--name-created {
+          @apply text-theme-gray font-normal leading-[1] tracking-[0.5px] text-[13px] md:text-[16px] capitalize;
+        }
+      }
+
+      .field--name-field-photo-main {
+        @apply my-5;
+      }
     }
 
-    .views-row {
-      @apply pb-[10px] mb-[10px];
-    }
+    .layout__region--second {
+      @apply md:px-3 lg:px-5 xl:px-6;
+      .views-element-container {
+        @apply sticky top-[100px]  md:max-w-[385px] py-5 md:py-[25px] px-5 md:px-[30px] bg-[#f7f4ed];
+      }
 
-    .views-field-created {
-      @apply text-theme-gray text-[15px] md:text-[13px] lg:text-[15px] leading-[1] font-normal;
+      .latest-articles--title {
+        @apply text-theme-gold text-[30px] md:text-[22px] lg:md:text-[26px] xl:text-[30px] leading-[1.1] font-bold mt-3 mb-5;
+      }
+
+      .view-display-id-block_1 {
+        .views-field-title {
+          @apply text-theme-green text-[26px] md:text-[17px] lg:text-[20px] xl:text-[26px] leading-[1.2] font-medium font-family-GD
+          mb-[10px] md:mb-[6px] lg:mb-[10px] hover:text-theme-gold transition-colors;
+        }
+
+        .views-row {
+          @apply pb-[10px] mb-[10px];
+        }
+
+        .views-field-created {
+          @apply text-theme-gray text-[15px] md:text-[13px] lg:text-[15px] leading-[1] font-normal;
+        }
+      }
     }
   }
 }
