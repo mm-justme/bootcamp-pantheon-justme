@@ -1683,6 +1683,196 @@ header {
   }
 }
 
+.layout__region--second {
+  .views-element-container {
+    position: sticky;
+  }
+  .views-element-container {
+    top: 100px;
+  }
+  .views-element-container {
+    --tw-bg-opacity: 1;
+    background-color: rgb(247 244 237 / var(--tw-bg-opacity, 1));
+  }
+  .views-element-container {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .views-element-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 768px) {
+
+    .views-element-container {
+      max-width: 385px;
+    }
+  }
+  @media (min-width: 768px) {
+
+    .views-element-container {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
+  @media (min-width: 768px) {
+
+    .views-element-container {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  .latest-articles--title {
+    margin-top: 0.75rem;
+  }
+
+  .latest-articles--title {
+    margin-bottom: 1.25rem;
+  }
+
+  .latest-articles--title {
+    font-size: 30px;
+  }
+
+  .latest-articles--title {
+    font-weight: 700;
+  }
+
+  .latest-articles--title {
+    line-height: 1.1;
+  }
+
+  .latest-articles--title {
+    --tw-text-opacity: 1;
+    color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+  }
+
+  @media (min-width: 768px) {
+
+    .latest-articles--title {
+      font-size: 22px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    @media (min-width: 768px) {
+
+      .latest-articles--title {
+        font-size: 26px;
+      }
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    .latest-articles--title {
+      font-size: 30px;
+    }
+  }
+
+  .view-display-id-block_1 {
+    .views-field-title {
+      margin-bottom: 10px;
+    }
+    .views-field-title {
+      font-family: Gilda Display;
+    }
+    .views-field-title {
+      font-size: 26px;
+    }
+    .views-field-title {
+      font-weight: 500;
+    }
+    .views-field-title {
+      line-height: 1.2;
+    }
+    .views-field-title {
+      --tw-text-opacity: 1;
+      color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+    }
+    .views-field-title {
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+    .views-field-title:hover {
+      --tw-text-opacity: 1;
+      color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+    }
+    @media (min-width: 768px) {
+
+      .views-field-title {
+        margin-bottom: 6px;
+      }
+    }
+    @media (min-width: 768px) {
+
+      .views-field-title {
+        font-size: 17px;
+      }
+    }
+    @media (min-width: 1024px) {
+
+      .views-field-title {
+        margin-bottom: 10px;
+      }
+    }
+    @media (min-width: 1024px) {
+
+      .views-field-title {
+        font-size: 20px;
+      }
+    }
+    @media (min-width: 1280px) {
+
+      .views-field-title {
+        font-size: 26px;
+      }
+    }
+
+    .views-row {
+      margin-bottom: 10px;
+    }
+
+    .views-row {
+      padding-bottom: 10px;
+    }
+
+    .views-field-created {
+      font-size: 15px;
+    }
+
+    .views-field-created {
+      font-weight: 400;
+    }
+
+    .views-field-created {
+      line-height: 1;
+    }
+
+    .views-field-created {
+      --tw-text-opacity: 1;
+      color: rgb(121 132 126 / var(--tw-text-opacity, 1));
+    }
+
+    @media (min-width: 768px) {
+
+      .views-field-created {
+        font-size: 13px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .views-field-created {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
