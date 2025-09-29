@@ -125,7 +125,7 @@ third_party_settings:
                 label: hidden
                 settings:
                   image_link: ''
-                  image_style: large
+                  image_style: theme_large_1200x800
                   image_loading:
                     attribute: lazy
                 third_party_settings: {  }
