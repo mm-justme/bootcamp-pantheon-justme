@@ -200,6 +200,29 @@ header {
 
         .field--name-uid {
           @apply text-theme-green font-bold leading-[1] tracking-[0.5px] text-[13px] md:text-[16px] capitalize;
+
+          &:before {
+            content: '';
+            background-image: url("../images/icons/avatar.jpg");
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 50%;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+
+          }
+
+          &:after {
+            content: '-';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            vertical-align: baseline;
+            margin: 0 10px;
+          }
         }
       }
 
