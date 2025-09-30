@@ -1683,191 +1683,450 @@ header {
   }
 }
 
-.layout__region--second {
-  .views-element-container {
-    position: sticky;
+
+.node--type-posts {
+  .layout--twocol-section {
+    display: flex;
   }
-  .views-element-container {
-    top: 100px;
-  }
-  .views-element-container {
-    --tw-bg-opacity: 1;
-    background-color: rgb(247 244 237 / var(--tw-bg-opacity, 1));
-  }
-  .views-element-container {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-  }
-  .views-element-container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+  .layout--twocol-section {
+    flex-direction: column;
   }
   @media (min-width: 768px) {
 
-    .views-element-container {
-      max-width: 385px;
+    .layout--twocol-section {
+      flex-direction: row;
     }
+  }
+  .layout--twocol-section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .layout--twocol-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
   @media (min-width: 768px) {
 
-    .views-element-container {
-      padding-top: 25px;
-      padding-bottom: 25px;
+    .layout--twocol-section {
+      max-width: 1024px;
     }
   }
-  @media (min-width: 768px) {
-
-    .views-element-container {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-
-  .latest-articles--title {
-    margin-top: 0.75rem;
-  }
-
-  .latest-articles--title {
-    margin-bottom: 1.25rem;
-  }
-
-  .latest-articles--title {
-    font-size: 30px;
-  }
-
-  .latest-articles--title {
-    font-weight: 700;
-  }
-
-  .latest-articles--title {
-    line-height: 1.1;
-  }
-
-  .latest-articles--title {
-    --tw-text-opacity: 1;
-    color: rgb(183 146 89 / var(--tw-text-opacity, 1));
-  }
-
-  @media (min-width: 768px) {
-
-    .latest-articles--title {
-      font-size: 22px;
-    }
-  }
-
   @media (min-width: 1024px) {
 
-    @media (min-width: 768px) {
-
-      .latest-articles--title {
-        font-size: 26px;
-      }
+    .layout--twocol-section {
+      max-width: 1200px;
     }
   }
-
   @media (min-width: 1280px) {
 
-    .latest-articles--title {
-      font-size: 30px;
+    .layout--twocol-section {
+      max-width: 1400px;
     }
   }
+  @media (min-width: 1280px) {
 
-  .view-display-id-block_1 {
-    .views-field-title {
-      margin-bottom: 10px;
+    .layout--twocol-section {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
     }
-    .views-field-title {
-      font-family: Gilda Display;
+  }
+  .layout--twocol-section {
+
+    .layout__region--first {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
-    .views-field-title {
-      font-size: 26px;
-    }
-    .views-field-title {
-      font-weight: 500;
-    }
-    .views-field-title {
-      line-height: 1.2;
-    }
-    .views-field-title {
-      --tw-text-opacity: 1;
-      color: rgb(5 52 38 / var(--tw-text-opacity, 1));
-    }
-    .views-field-title {
-      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 150ms;
-    }
-    .views-field-title:hover {
-      --tw-text-opacity: 1;
-      color: rgb(183 146 89 / var(--tw-text-opacity, 1));
-    }
+
     @media (min-width: 768px) {
 
-      .views-field-title {
-        margin-bottom: 6px;
+      .layout__region--first {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
       }
     }
-    @media (min-width: 768px) {
 
-      .views-field-title {
-        font-size: 17px;
-      }
-    }
     @media (min-width: 1024px) {
 
-      .views-field-title {
-        margin-bottom: 10px;
+      .layout__region--first {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
     }
-    @media (min-width: 1024px) {
 
-      .views-field-title {
-        font-size: 20px;
-      }
-    }
     @media (min-width: 1280px) {
 
-      .views-field-title {
-        font-size: 26px;
+      .layout__region--first {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
     }
 
-    .views-row {
-      margin-bottom: 10px;
-    }
+    .layout__region--first {
 
-    .views-row {
-      padding-bottom: 10px;
-    }
+      .block-field-blocknodepoststitle {
+        margin-bottom: 1.25rem;
+      }
 
-    .views-field-created {
-      font-size: 15px;
-    }
+      .block-field-blocknodepoststitle {
 
-    .views-field-created {
-      font-weight: 400;
-    }
+        .field--name-title {
+          font-family: Gilda Display;
+        }
 
-    .views-field-created {
-      line-height: 1;
-    }
+        .field--name-title {
+          font-size: 36px;
+        }
 
-    .views-field-created {
-      --tw-text-opacity: 1;
-      color: rgb(121 132 126 / var(--tw-text-opacity, 1));
+        .field--name-title {
+          font-weight: 500;
+        }
+
+        .field--name-title {
+          line-height: 1.1;
+        }
+
+        .field--name-title {
+          --tw-text-opacity: 1;
+          color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+        }
+
+        @media (min-width: 1024px) {
+
+          .field--name-title {
+            font-size: 42px;
+          }
+        }
+
+        @media (min-width: 1280px) {
+
+          .field--name-title {
+            font-size: 60px;
+          }
+        }
+      }
+
+      .block-field-blocknodepostsuid {
+        display: inline-block;
+      }
+
+      .block-field-blocknodepostsuid {
+
+        .field--name-uid {
+          font-size: 13px;
+        }
+
+        .field--name-uid {
+          font-weight: 700;
+        }
+
+        .field--name-uid {
+          text-transform: capitalize;
+        }
+
+        .field--name-uid {
+          line-height: 1;
+        }
+
+        .field--name-uid {
+          letter-spacing: 0.5px;
+        }
+
+        .field--name-uid {
+          --tw-text-opacity: 1;
+          color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+        }
+
+        @media (min-width: 768px) {
+
+          .field--name-uid {
+            font-size: 16px;
+          }
+        }
+
+        .field--name-uid {
+
+          &:before {
+            content: '';
+            background-image: url("../images/icons/avatar.jpg");
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 50%;
+            -o-object-fit: contain;
+               object-fit: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+
+          }
+
+          &:after {
+            content: '-';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            vertical-align: baseline;
+            margin: 0 10px;
+          }
+        }
+      }
+
+      .block-field-blocknodepostscreated {
+        display: inline-block;
+      }
+
+      .block-field-blocknodepostscreated {
+
+        .field--name-created {
+          font-size: 13px;
+        }
+
+        .field--name-created {
+          font-weight: 400;
+        }
+
+        .field--name-created {
+          text-transform: capitalize;
+        }
+
+        .field--name-created {
+          line-height: 1;
+        }
+
+        .field--name-created {
+          letter-spacing: 0.5px;
+        }
+
+        .field--name-created {
+          --tw-text-opacity: 1;
+          color: rgb(121 132 126 / var(--tw-text-opacity, 1));
+        }
+
+        @media (min-width: 768px) {
+
+          .field--name-created {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .field--name-field-photo-main {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
     }
 
     @media (min-width: 768px) {
 
-      .views-field-created {
-        font-size: 13px;
+      .layout__region--second {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
       }
     }
 
     @media (min-width: 1024px) {
 
-      .views-field-created {
-        font-size: 15px;
+      .layout__region--second {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      .layout__region--second {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    .layout__region--second {
+      .views-element-container {
+        position: sticky;
+      }
+      .views-element-container {
+        top: 100px;
+      }
+      .views-element-container {
+        --tw-bg-opacity: 1;
+        background-color: rgb(247 244 237 / var(--tw-bg-opacity, 1));
+      }
+      .views-element-container {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+      }
+      .views-element-container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      @media (min-width: 768px) {
+
+        .views-element-container {
+          max-width: 385px;
+        }
+      }
+      @media (min-width: 768px) {
+
+        .views-element-container {
+          padding-top: 25px;
+          padding-bottom: 25px;
+        }
+      }
+      @media (min-width: 768px) {
+
+        .views-element-container {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+
+      .latest-articles--title {
+        margin-top: 0.75rem;
+      }
+
+      .latest-articles--title {
+        margin-bottom: 1.25rem;
+      }
+
+      .latest-articles--title {
+        font-size: 30px;
+      }
+
+      .latest-articles--title {
+        font-weight: 700;
+      }
+
+      .latest-articles--title {
+        line-height: 1.1;
+      }
+
+      .latest-articles--title {
+        --tw-text-opacity: 1;
+        color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+      }
+
+      @media (min-width: 768px) {
+
+        .latest-articles--title {
+          font-size: 22px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+
+        @media (min-width: 768px) {
+
+          .latest-articles--title {
+            font-size: 26px;
+          }
+        }
+      }
+
+      @media (min-width: 1280px) {
+
+        .latest-articles--title {
+          font-size: 30px;
+        }
+      }
+
+      .view-display-id-block_1 {
+        .views-field-title {
+          margin-bottom: 10px;
+        }
+        .views-field-title {
+          font-family: Gilda Display;
+        }
+        .views-field-title {
+          font-size: 26px;
+        }
+        .views-field-title {
+          font-weight: 500;
+        }
+        .views-field-title {
+          line-height: 1.2;
+        }
+        .views-field-title {
+          --tw-text-opacity: 1;
+          color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+        }
+        .views-field-title {
+          transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 150ms;
+        }
+        .views-field-title:hover {
+          --tw-text-opacity: 1;
+          color: rgb(183 146 89 / var(--tw-text-opacity, 1));
+        }
+        @media (min-width: 768px) {
+
+          .views-field-title {
+            margin-bottom: 6px;
+          }
+        }
+        @media (min-width: 768px) {
+
+          .views-field-title {
+            font-size: 17px;
+          }
+        }
+        @media (min-width: 1024px) {
+
+          .views-field-title {
+            margin-bottom: 10px;
+          }
+        }
+        @media (min-width: 1024px) {
+
+          .views-field-title {
+            font-size: 20px;
+          }
+        }
+        @media (min-width: 1280px) {
+
+          .views-field-title {
+            font-size: 26px;
+          }
+        }
+
+        .views-row {
+          margin-bottom: 10px;
+        }
+
+        .views-row {
+          padding-bottom: 10px;
+        }
+
+        .views-field-created {
+          font-size: 15px;
+        }
+
+        .views-field-created {
+          font-weight: 400;
+        }
+
+        .views-field-created {
+          line-height: 1;
+        }
+
+        .views-field-created {
+          --tw-text-opacity: 1;
+          color: rgb(121 132 126 / var(--tw-text-opacity, 1));
+        }
+
+        @media (min-width: 768px) {
+
+          .views-field-created {
+            font-size: 13px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+
+          .views-field-created {
+            font-size: 15px;
+          }
+        }
       }
     }
   }
