@@ -18,6 +18,7 @@ footer h2, footer .h2 {
   padding: 110px 0;
   position: relative;
   z-index: 1;
+  border-top: 4px solid #b79259;
 }
 .my-mission-wrapper .paragraph--type--my-mission {
   display: flex;
