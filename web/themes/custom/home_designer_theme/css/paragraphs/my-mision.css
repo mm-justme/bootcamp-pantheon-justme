@@ -2,10 +2,11 @@
   background-color: #053426;
   color: #f7f9f9;
   padding: 110px 0;
-}
-.my-mission-wrapper .paragraph--type--my-mission {
   position: relative;
   z-index: 1;
+  border-top: 4px solid #b79259;
+}
+.my-mission-wrapper .paragraph--type--my-mission {
   display: flex;
   justify-content: center;
   align-items: flex-start;
