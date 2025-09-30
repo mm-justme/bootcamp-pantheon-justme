@@ -1,0 +1,11 @@
+uuid: da879b88-9780-4b1a-a8e4-8eab8c598735
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.responsive_main
+label: 'Responsive posts'
+description: null
+targetEntityType: media
+cache: true

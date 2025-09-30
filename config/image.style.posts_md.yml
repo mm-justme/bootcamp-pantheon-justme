@@ -1,0 +1,21 @@
+uuid: ea21890b-5907-4dc1-aee1-642a5527bc59
+langcode: en
+status: true
+dependencies: {  }
+name: posts_md
+label: 'posts-md 620x300'
+effects:
+  7e866bf7-612a-42a9-81dc-20489725607e:
+    uuid: 7e866bf7-612a-42a9-81dc-20489725607e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 620
+      height: 300
+      anchor: center-center
+  ced44a73-616c-4eab-bc39-e362792cec28:
+    uuid: ced44a73-616c-4eab-bc39-e362792cec28
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

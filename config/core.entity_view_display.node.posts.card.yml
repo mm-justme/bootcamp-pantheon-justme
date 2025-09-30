@@ -5,12 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.posts.field_design_tags
-    - field.field.node.posts.field_main_photo
+    - field.field.node.posts.field_photo_main
     - field.field.node.posts.layout_builder__layout
-    - image.style.theme_medium_800x600
     - node.type.posts
   module:
-    - image
     - layout_builder
     - user
 third_party_settings:
@@ -30,17 +28,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_main_photo:
-    type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: theme_medium_800x600
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_title:
     type: string
     label: above
@@ -51,5 +38,6 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_photo_main: true
   layout_builder__layout: true
   links: true
