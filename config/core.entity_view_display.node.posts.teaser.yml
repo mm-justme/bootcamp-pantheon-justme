@@ -5,30 +5,19 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.posts.field_design_tags
-    - field.field.node.posts.field_main_photo
+    - field.field.node.posts.field_photo_main
     - field.field.node.posts.layout_builder__layout
     - node.type.posts
   module:
-    - image
     - user
 id: node.posts.teaser
 targetEntityType: node
 bundle: posts
 mode: teaser
-content:
-  field_main_photo:
-    type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
   addtoany: true
   field_design_tags: true
+  field_photo_main: true
   layout_builder__layout: true
   links: true

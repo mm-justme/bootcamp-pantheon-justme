@@ -1,0 +1,21 @@
+uuid: 92d44497-57b8-4f38-985d-48e26935e0ef
+langcode: en
+status: true
+dependencies: {  }
+name: post_lg
+label: 'post-sm 700x200'
+effects:
+  eccfcd0d-fabc-4b24-8891-409f108501b0:
+    uuid: eccfcd0d-fabc-4b24-8891-409f108501b0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 350
+      anchor: center-center
+  754346b4-5147-49b3-a7f0-caa4512ab1a8:
+    uuid: 754346b4-5147-49b3-a7f0-caa4512ab1a8
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

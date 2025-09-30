@@ -1,0 +1,30 @@
+uuid: be15ff8d-5d14-408a-ab2f-5e14f939d22e
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.post_2xl
+    - image.style.post_lg
+    - image.style.posts_md
+  theme:
+    - home_designer_theme
+id: posts
+label: posts
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: post_2xl
+    breakpoint_id: comminfo.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: post_lg
+    breakpoint_id: comminfo.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: posts_md
+    breakpoint_id: comminfo.phone
+    multiplier: 1x
+breakpoint_group: home_designer_theme
+fallback_image_style: post_2xl
