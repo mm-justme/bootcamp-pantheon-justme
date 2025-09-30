@@ -954,6 +954,10 @@ video {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -965,14 +969,6 @@ video {
 .py-14 {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
-}
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 .\!pb-5 {
   padding-bottom: 1.25rem !important;
@@ -2136,6 +2132,147 @@ header {
           }
         }
       }
+    }
+  }
+}
+
+.layout--onecol {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+
+  .layout--onecol {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .layout--onecol {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .layout--onecol {
+    max-width: 1400px;
+  }
+}
+
+.layout--onecol {
+
+  .views-view-responsive-grid {
+    display: flex;
+  }
+
+  .views-view-responsive-grid {
+    flex-direction: column;
+  }
+
+  .views-view-responsive-grid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+
+    .views-view-responsive-grid {
+      flex-direction: row;
+    }
+  }
+
+  .related-posts--title {
+    margin-bottom: 1.5rem;
+  }
+
+  .related-posts--title {
+    margin-top: 0.75rem;
+  }
+
+  .related-posts--title {
+    text-align: center;
+  }
+
+  .related-posts--title {
+    font-size: 30px;
+  }
+
+  .related-posts--title {
+    font-weight: 700;
+  }
+
+  .related-posts--title {
+    line-height: 1.1;
+  }
+
+  .related-posts--title {
+    --tw-text-opacity: 1;
+    color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+  }
+
+  @media (min-width: 768px) {
+
+    .related-posts--title {
+      font-size: 36px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    .related-posts--title {
+      font-size: 42px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    .related-posts--title {
+      font-size: 48px;
+    }
+  }
+
+  .post-title {
+    padding-top: 1.5rem;
+  }
+
+  .post-title {
+    text-align: start;
+  }
+
+  .post-title {
+    font-size: 25px;
+  }
+
+  .post-title {
+    --tw-text-opacity: 1;
+    color: rgb(5 52 38 / var(--tw-text-opacity, 1));
+  }
+
+  @media (min-width: 768px) {
+
+    .post-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    .post-title {
+      font-size: 25px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    .post-title {
+      font-size: 30px;
     }
   }
 }

@@ -267,6 +267,23 @@ header {
   }
 }
 
+.layout--onecol {
+  @apply mx-auto md:max-w-[1024px] lg:max-w-[1200px] xl:max-w-[1400px] my-10 md:my-20;
+
+  .views-view-responsive-grid {
+    @apply flex flex-col md:flex-row px-6;
+  }
+
+  .related-posts--title {
+    @apply text-theme-green  leading-[1.1] font-bold text-center mb-6 mt-3
+    text-[30px] md:text-[36px] lg:text-[42px] xl:text-[48px];
+  }
+
+  .post-title {
+    @apply text-theme-green text-start pt-6 text-[25px] md:text-[20px] lg:text-[25px] xl:text-[30px];
+  }
+}
+
 /********FONTS********/
 /*Red Hat Display*/
 @font-face {
