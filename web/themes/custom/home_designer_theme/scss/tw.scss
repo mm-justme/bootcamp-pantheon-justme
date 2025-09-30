@@ -271,7 +271,7 @@ header {
   @apply mx-auto md:max-w-[1024px] lg:max-w-[1200px] xl:max-w-[1400px] my-10 md:my-20 px-6;
 
   .views-view-responsive-grid {
-    @apply flex flex-col md:flex-row;
+    @apply flex flex-col md:flex-row gap-10;
   }
 
   .related-posts--title {
