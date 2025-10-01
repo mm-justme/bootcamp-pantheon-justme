@@ -1,0 +1,20 @@
+uuid: b817ec8a-2a9a-4edc-9f9c-a37cf435a28a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - home_designer_theme
+id: home_designer_theme_tabs
+theme: home_designer_theme
+region: content
+weight: -9
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

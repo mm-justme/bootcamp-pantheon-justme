@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_photo_main
-    - field.field.node.posts.layout_builder__layout
+    - field.field.node.posts.field_posts_body
     - node.type.posts
     - views.view.articles
     - views.view.posts
@@ -18,7 +18,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: true
+    allow_custom: false
     sections:
       -
         layout_id: layout_twocol_section
@@ -122,7 +122,7 @@ third_party_settings:
               addtoany_html: ''
               link_url: ''
               link_title: ''
-            weight: 6
+            weight: 7
             additional: {  }
           aed7fd2f-ed41-4cb9-b9af-d0d741f00c8f:
             uuid: aed7fd2f-ed41-4cb9-b9af-d0d741f00c8f
@@ -142,6 +142,24 @@ third_party_settings:
                   view_mode: responsive_main
                 third_party_settings: {  }
             weight: 5
+            additional: {  }
+          8f6cbd0b-d41d-4a06-b4ae-d2bfc6c79b7c:
+            uuid: 8f6cbd0b-d41d-4a06-b4ae-d2bfc6c79b7c
+            region: first
+            configuration:
+              id: 'field_block:node:posts:field_posts_body'
+              label: 'posts body'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 6
             additional: {  }
         third_party_settings: {  }
       -
@@ -194,4 +212,5 @@ content:
 hidden:
   addtoany: true
   field_design_tags: true
+  field_posts_body: true
   layout_builder__layout: true

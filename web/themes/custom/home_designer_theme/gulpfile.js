@@ -43,13 +43,14 @@ function tailwind() {
 function serve() {
   browserSync.init({
     proxy: LOCAL_URL,
-    open: true,
+    open: false,
     notify: false,
     ghostMode: false
   });
 
   // Separate watcher for scss and tailwind
-  gulp.watch(["scss/**/*.scss", "!scss/tw.scss"], styles);
+
+  gulp.watch(["scss/**/*.scss", "!scss/tw.scss", "scss/components/ckeditor5.css"], styles);
   gulp.watch(
     [
       "scss/tw.scss",

@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.node.card
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_photo_main
-    - field.field.node.posts.layout_builder__layout
+    - field.field.node.posts.field_posts_body
     - node.type.posts
   module:
     - layout_builder
@@ -47,5 +47,5 @@ content:
     region: content
 hidden:
   addtoany: true
-  layout_builder__layout: true
+  field_posts_body: true
   links: true

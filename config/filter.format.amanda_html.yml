@@ -2,6 +2,8 @@ uuid: 5e5ec499-00af-4258-a456-432b1564ec9b
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.body_posts
   module:
     - media
 name: 'Amanda HTML'
@@ -48,6 +50,8 @@ filters:
     status: true
     weight: 100
     settings:
-      default_view_mode: default
-      allowed_view_modes: {  }
-      allowed_media_types: {  }
+      default_view_mode: body_posts
+      allowed_view_modes:
+        body_posts: body_posts
+      allowed_media_types:
+        image: image

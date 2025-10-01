@@ -9,7 +9,7 @@ libraries:
 libraries-override:
   bootstrap/global-styling: false
 ckeditor5-stylesheets:
-  - css/ckeditor5-styles.css
+  - scss/components/ckeditor5.css
 regions:
   header: Header
   content: Content
