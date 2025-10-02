@@ -2,17 +2,19 @@
 
 namespace Drupal\show_weather\Plugin\Block;
 
+use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Provides a "Weather" block.
- *
- * @Block(
- *   id = "weather_block",
- *   admin_label = @Translation("Show Weather")
- * )
  */
+#[Block(
+   id: new TranslatableMarkup("weather_block"),
+   admin_label: new TranslatableMarkup("Show Weather"),
+)]
+
 class ShowWeatherBlock extends BlockBase {
 
   /**
