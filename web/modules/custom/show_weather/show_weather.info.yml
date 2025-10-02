@@ -1,0 +1,5 @@
+name: Show weather in Lutsk
+type: module
+description: Provides information about the weather in Lutsk.
+core_version_requirement: ^11
+package: Custom
