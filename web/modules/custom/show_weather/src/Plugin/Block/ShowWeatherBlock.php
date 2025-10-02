@@ -67,7 +67,6 @@ class ShowWeatherBlock extends BlockBase {
             '@desc' => $desc,
           ]);
         }
-        dump($weather);
       }
       catch (GuzzleException $e) {
         \Drupal::logger('show_weather')
