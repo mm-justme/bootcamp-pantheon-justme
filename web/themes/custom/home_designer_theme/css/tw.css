@@ -2178,6 +2178,10 @@ header {
     flex-direction: column;
   }
 
+  .views-view-responsive-grid {
+    gap: 2.5rem;
+  }
+
   @media (min-width: 768px) {
 
     .views-view-responsive-grid {
