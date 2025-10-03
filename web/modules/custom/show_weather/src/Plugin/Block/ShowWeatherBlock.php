@@ -4,10 +4,12 @@ namespace Drupal\show_weather\Plugin\Block;
 
 use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -19,14 +21,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 )]
 
 class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterface {
-
+  private LoggerInterface $logger;
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
     private ClientInterface $httpClient,
+    LoggerChannelFactoryInterface $loggerFactory,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->logger = $loggerFactory->get('show_weather');
   }
 
   /**
@@ -37,7 +41,8 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('http_client')
+      $container->get('http_client'),
+      $container->get('logger.factory')
     );
   }
 
@@ -47,8 +52,8 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
   public function build() {
     $apiKey = '92d717b1083712802aa9804c4ee82f0f';
     $city = 'Lutsk';
-    $lat = 0;
-    $lon = 0;
+    $lat = null;
+    $lon = null;
     $text = 'The Weather service unavailable so far.';
 
     try {
@@ -69,8 +74,7 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
       }
     }
     catch (GuzzleException $e) {
-      \Drupal::logger('show_weather')
-        ->error('Geocoding failed: @msg', ['@msg' => $e->getMessage()]);
+        $this->logger->error('Geocoding failed: @msg', ['@msg' => $e->getMessage()]);
     }
 
     if (!is_null($lat) && !is_null($lon)) {
@@ -99,11 +103,9 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
         }
       }
       catch (GuzzleException $e) {
-        \Drupal::logger('show_weather')
-          ->error('Geocoding failed: @msg', ['@msg' => $e->getMessage()]);
+          $this->logger->error('Geocoding failed: @msg', ['@msg' => $e->getMessage()]);
       }
     }
-
     return [
       '#markup' => $text,
       '#cache' => ['max-age' => 600],
