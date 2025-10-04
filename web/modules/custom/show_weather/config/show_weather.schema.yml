@@ -1,0 +1,7 @@
+show_weather.settings:
+  type: config_object
+  label: 'Show Weather settings'
+  mapping:
+    api_key:
+      type: string
+      label: 'OpenWeatherMap API key'
