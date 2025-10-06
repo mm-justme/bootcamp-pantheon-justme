@@ -5,3 +5,6 @@ show_weather.settings:
     api_key:
       type: string
       label: 'OpenWeatherMap API key'
+    city:
+      type: string
+      label: 'Default city'

@@ -8,14 +8,14 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * {@inheritdoc}
  */
-class ShowWeatherSettingsForm extends ConfigFormBase {
+final class ShowWeatherSettingsForm extends ConfigFormBase {
   private const SETTINGS = 'show_weather.settings';
 
   /**
    * {@inheritdoc}
    */
   public function getFormId(): string {
-    return 'show_weather_settings_form';
+    return self::SETTINGS;
   }
 
   /**
@@ -28,7 +28,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state): array {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config(self::SETTINGS);
 
     $form['api_key'] = [
@@ -39,16 +39,47 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
+    $form['city'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('City'),
+      '#default_value' => $config->get('city') ?? '',
+      '#description' => $this->t('Lutsk - provided as default city'),
+      '#required' => FALSE,
+      '#placeholder' => 'Lutsk',
+    ];
     return parent::buildForm($form, $form_state);
   }
+
   /**
-   * {@inheritdoc}
+   * {@inheritDoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state): void {
+  public function validateForm(array &$form, FormStateInterface $form_state): void {
+    parent::validateForm($form, $form_state);
+
+    $api_key = $form_state->getValue('api_key');
+    if (strlen($api_key) < 20) {
+      $form_state->setErrorByName('api_key', $this->t('Invalid API key. Please try again.'));
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $api_key = $form_state->getValue('api_key');
+    $city = $form_state->getValue('city');
+
     $this->configFactory->getEditable(self::SETTINGS)
-      ->set('api_key', trim((string) $form_state->getValue('api_key')))
+      ->set('api_key', $api_key)
+      ->set('city', $city)
       ->save();
-    parent::submitForm($form, $form_state);
+
+    $this->config(self::SETTINGS)
+      ->set('api_key', $api_key)
+      ->set('city', $city)
+      ->save();
+
+    $this->messenger()->addMessage($this->t('Configuration has been saved.'));
   }
 
 }
