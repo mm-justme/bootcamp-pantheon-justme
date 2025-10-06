@@ -11,7 +11,6 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -21,27 +20,47 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
    id: "weather_block",
    admin_label: new TranslatableMarkup("Show Weather"),
 )]
-
 class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterface {
-  private LoggerInterface $logger;
 
+  /**
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
+
+  /**
+   * Constructs a download process plugin.
+   *
+   * @param array $configuration
+   *   The plugin configuration.
+   * @param string $plugin_id
+   *   The plugin ID.
+   * @param array $plugin_definition
+   *   The file system service.
+   * @param \GuzzleHttp\ClientInterface $httpClient
+   *   The HTTP client.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerFactory
+   *   The logger factory service.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The config factory service.
+   */
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    private ClientInterface $httpClient,
+    private readonly ClientInterface $httpClient,
     LoggerChannelFactoryInterface $loggerFactory,
-    private ConfigFactoryInterface $configFactory,
+    private readonly ConfigFactoryInterface $configFactory,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->logger = $loggerFactory->get('show_weather');
+
   }
 
   /**
    * {@inheritDoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition):self {
-    return new self(
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
       $configuration,
       $plugin_id,
       $plugin_definition,
@@ -55,10 +74,9 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
    * {@inheritdoc}
    */
   public function build() {
-
     $apiKey = (string) $this->configFactory->get('show_weather.settings')->get('api_key');
-    $this->logger->notice('show_weather: api key length = @len', ['@len' => strlen($apiKey)]);
-
+    // Check $apiKey.
+    // Show URL to the settings page if we don`t have it.
     if ($apiKey === '') {
       $url = Url::fromRoute('show_weather.settings')->toString();
       return [
@@ -76,6 +94,7 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
     $text = 'The Weather service unavailable so far.';
 
     try {
+      // Make request to receive $lat and $lon.
       $get_location = $this->httpClient->request('get', 'https://api.openweathermap.org/geo/1.0/direct',
         [
           'query' => [
@@ -86,7 +105,7 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
           'timeout' => 3,
         ]);
       $location = json_decode($get_location->getBody(), TRUE);
-
+      // Check if data is correct type and it isn't empty.
       if (is_array($location) && !empty($location[0])) {
         $lat = $location[0]["lat"] ?? NULL;
         $lon = $location[0]["lon"] ?? NULL;
@@ -95,7 +114,8 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
     catch (GuzzleException $e) {
       $this->logger->error('Geocoding failed: @msg', ['@msg' => $e->getMessage()]);
     }
-
+    // Check received data of the $lat and $lon.
+    // And request info about the weather acc. to the $lat and $lon.
     if (!is_null($lat) && !is_null($lon)) {
       try {
         $get_weather = $this->httpClient->request('get', 'https://api.openweathermap.org/data/2.5/weather',
@@ -128,7 +148,6 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
     return [
       '#markup' => $text,
       '#cache' => ['max-age' => 600, 'tags' => ['config:show_weather.settings']],
-
     ];
   }
 
