@@ -4,11 +4,12 @@ namespace Drupal\show_weather\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * {@inheritdoc}
  */
-final class ShowWeatherSettingsForm extends ConfigFormBase {
+class ShowWeatherSettingsForm extends ConfigFormBase {
   private const SETTINGS = 'show_weather.settings';
 
   /**
@@ -23,6 +24,15 @@ final class ShowWeatherSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames(): array {
     return [self::SETTINGS];
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public static function create(ContainerInterface $container) {
+    $instance = parent::create($container);
+    $instance->httpClient = $container->get('http_client');
+    return $instance;
   }
 
   /**
@@ -78,6 +88,18 @@ final class ShowWeatherSettingsForm extends ConfigFormBase {
       ->set('api_key', $api_key)
       ->set('city', $city)
       ->save();
+
+    // @todo test setup check for hhtclient. Need to add check API before save configuration.
+    $get_location = $this->httpClient->request('get', 'https://api.openweathermap.org/geo/1.0/direct',
+      [
+        'query' => [
+          'q' => $city,
+          'limit' => 1,
+          'appid' => $api_key,
+        ],
+        'timeout' => 3,
+      ]);
+    $location = json_decode($get_location->getBody(), TRUE);
 
     $this->messenger()->addMessage($this->t('Configuration has been saved.'));
   }
