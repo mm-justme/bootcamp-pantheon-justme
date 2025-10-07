@@ -1,0 +1,114 @@
+<?php
+
+namespace Drupal\show_weather\Form;
+
+use Drupal\Core\Form\ConfigFormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+/**
+ * {@inheritdoc}
+ */
+class ShowWeatherSettingsForm extends ConfigFormBase {
+
+  /**
+   * The Guzzle HTTP Client service.
+   *
+   * @var \GuzzleHttp\Client
+   */
+  protected $httpClient;
+  private const SETTINGS = 'show_weather.settings';
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId(): string {
+    return self::SETTINGS;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames(): array {
+    return [self::SETTINGS];
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public static function create(ContainerInterface $container) {
+    $instance = parent::create($container);
+    $instance->httpClient = $container->get('http_client');
+    return $instance;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $config = $this->config(self::SETTINGS);
+
+    $form['api_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('OpenWeatherMap API key'),
+      '#default_value' => $config->get('api_key') ?? '',
+      '#description' => $this->t('Create an API key at openweathermap.org and paste it here.'),
+      '#required' => TRUE,
+    ];
+
+    $form['city'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('City'),
+      '#default_value' => $config->get('city') ?? 'Lutsk',
+      '#description' => $this->t('Lutsk - provided as default city'),
+      '#required' => FALSE,
+      '#placeholder' => 'Lutsk',
+    ];
+    return parent::buildForm($form, $form_state);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state): void {
+    parent::validateForm($form, $form_state);
+
+    $api_key = $form_state->getValue('api_key');
+    if (strlen($api_key) < 20) {
+      $form_state->setErrorByName('api_key', $this->t('Invalid API key. Please try again.'));
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $api_key = $form_state->getValue('api_key');
+    $city = $form_state->getValue('city');
+
+    $this->configFactory->getEditable(self::SETTINGS)
+      ->set('api_key', $api_key)
+      ->set('city', $city)
+      ->save();
+
+    $this->config(self::SETTINGS)
+      ->set('api_key', $api_key)
+      ->set('city', $city)
+      ->save();
+
+    // @todo test setup check for hhtclient. Need to add check API before save configuration.
+    $get_location = $this->httpClient->request('get', 'https://api.openweathermap.org/geo/1.0/direct',
+      [
+        'query' => [
+          'q' => $city,
+          'limit' => 1,
+          'appid' => $api_key,
+        ],
+        'timeout' => 3,
+      ]);
+    $location = json_decode($get_location->getBody(), TRUE);
+
+    $this->messenger()->addMessage($this->t('Configuration has been saved.'));
+  }
+
+}

@@ -1,0 +1,6 @@
+show_weather.settings:
+  title: 'Show Weather'
+  description: 'Configure OpenWeatherMap API key.'
+  route_name: show_weather.settings
+  parent: system.admin_config_services
+  weight: 100

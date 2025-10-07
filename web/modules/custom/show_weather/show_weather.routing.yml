@@ -1,0 +1,9 @@
+show_weather.settings:
+  path: '/admin/config/services/show-weather'
+  defaults:
+    _form: '\Drupal\show_weather\Form\ShowWeatherSettingsForm'
+    _title: 'Show Weather settings'
+  requirements:
+    _permission: 'administer show_weather'
+  options:
+    _admin_route: TRUE
