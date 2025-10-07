@@ -10,6 +10,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * {@inheritdoc}
  */
 class ShowWeatherSettingsForm extends ConfigFormBase {
+
+  /**
+   * The Guzzle HTTP Client service.
+   *
+   * @var \GuzzleHttp\Client
+   */
+  protected $httpClient;
   private const SETTINGS = 'show_weather.settings';
 
   /**
@@ -52,7 +59,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
     $form['city'] = [
       '#type' => 'textfield',
       '#title' => $this->t('City'),
-      '#default_value' => $config->get('city') ?? '',
+      '#default_value' => $config->get('city') ?? 'Lutsk',
       '#description' => $this->t('Lutsk - provided as default city'),
       '#required' => FALSE,
       '#placeholder' => 'Lutsk',

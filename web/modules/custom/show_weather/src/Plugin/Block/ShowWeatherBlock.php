@@ -147,7 +147,7 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
     }
     return [
       '#markup' => $text,
-      '#cache' => ['max-age' => 600, 'tags' => ['config:show_weather.settings']],
+      '#cache' => ['max-age' => 600],
     ];
   }
 
