@@ -1,0 +1,7 @@
+services:
+  show_weather.weather_client:
+    class: Drupal\show_weather\WeatherClient
+    arguments:
+     - '@http_client'
+     - '@logger.factory'
+  Drupal\show_weather\WeatherClientInterface: '@show_weather.weather_client'
