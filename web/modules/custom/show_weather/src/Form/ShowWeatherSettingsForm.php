@@ -18,6 +18,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
    * @var \Drupal\show_weather\WeatherClientInterface
    */
   protected $weatherClient;
+  protected $city_by_ip;
   private const SETTINGS = 'show_weather.settings';
 
   /**
@@ -66,14 +67,17 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Create an API key at openweathermap.org and paste it here.'),
       '#required' => TRUE,
     ];
+
+    // @todo need to update current field. Make it unused when location is checked
     $form['city'] = [
       '#type' => 'textfield',
       '#title' => $this->t('City'),
       '#default_value' => $config->get('city') ?? 'Lutsk',
       '#description' => $this->t('Lutsk - provided as default city'),
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#placeholder' => 'Lutsk',
     ];
+
     $form['location'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Location by IP'),
@@ -93,7 +97,13 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
     if (preg_match('/\d/', $city)) {
       $form_state->setErrorByName('city', $this->t('The City field cannot contain numbers. Please try again.'));
     }
+
+    if ($auto_location) {
+      $response = $this->weatherClient->getLocationByIP();
+      $city = $this->city_by_ip = $response['city'];
+    }
     $city_checked = $this->weatherClient->getGeoData($city);
+
     if (!$city_checked['is_city_exists']) {
       $form_state->setErrorByName('city', $this->t('The City field is invalid. Please try again.'));
       return;
@@ -117,6 +127,11 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $api_key = $form_state->getValue('api_key');
     $city = $form_state->getValue('city');
+    $auto_location = $form_state->getValue('location');
+
+    if ($auto_location) {
+      $city = $this->city_by_ip;
+    }
 
     $this->configFactory->getEditable(self::SETTINGS)
       ->set('api_key', $api_key)

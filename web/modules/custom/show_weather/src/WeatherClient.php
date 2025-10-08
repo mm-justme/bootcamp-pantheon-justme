@@ -37,6 +37,9 @@ class WeatherClient implements WeatherClientInterface {
    * {@inheritDoc}
    */
   public function getGeoData(string $city): ?array {
+    // $test = $this->httpClient->request('get','http://ip-api.com/json');
+    //    $d = json_decode($test->getBody()->getContents(), TRUE);
+    //    dd($d);
     $url_geo = 'https://api.openweathermap.org/geo/1.0/direct';
     $api_key = '06ab2d5eeae73540ec27071666893a72';
     $weather_data = [
@@ -108,6 +111,24 @@ class WeatherClient implements WeatherClientInterface {
     }
 
     return $weather_data;
+  }
+
+  /**
+   *
+   */
+  public function getLocationByIP(): ?array {
+    $request = $this->httpClient->request('get', 'http://ip-api.com/json');
+    $data = json_decode($request->getBody()->getContents(), TRUE);
+
+    $city = $data['city'];
+    $lat = $data['lat'];
+    $lon = $data['lon'];
+
+    return [
+      'city' => $city,
+      'lat' => $lat,
+      'lon' => $lon,
+    ];
   }
 
 }

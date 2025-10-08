@@ -30,5 +30,6 @@ interface WeatherClientInterface {
    *   An array containing the formatted data for the weather, or null
    */
   public function getWeatherData(string $api_key, string $city): ?array;
+  public function getLocationByIP(): ?array;
 
 }
