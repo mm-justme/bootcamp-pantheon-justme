@@ -89,10 +89,10 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
       ];
     }
 
-    $weather = $this->weatherClient->getWeatherData($city, $api_key);
+    $weather = $this->weatherClient->getWeatherData($api_key, $city);
     $text = 'The Weather service unavailable so far.';
-    if (empty($weather)) {
-      $text = 'There is no information about the weather so far. .';
+    if (is_null($weather)) {
+      $text = 'There is no information about the weather so far.';
     }
     $temp = $weather['main']['temp'] ?? NULL;
     $desc = $weather['weather'][0]['description'] ?? '';

@@ -66,7 +66,6 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Create an API key at openweathermap.org and paste it here.'),
       '#required' => TRUE,
     ];
-
     $form['city'] = [
       '#type' => 'textfield',
       '#title' => $this->t('City'),
@@ -74,6 +73,10 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Lutsk - provided as default city'),
       '#required' => TRUE,
       '#placeholder' => 'Lutsk',
+    ];
+    $form['location'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Location by IP'),
     ];
     return parent::buildForm($form, $form_state);
   }
@@ -83,21 +86,27 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     parent::validateForm($form, $form_state);
-
     $api_key = $form_state->getValue('api_key');
     $city = $form_state->getValue('city');
-
-    if (strlen($api_key) < 20) {
-      $form_state->setErrorByName('api_key', $this->t('Invalid API key. Please try again.'));
-    }
+    $auto_location = $form_state->getValue('location');
 
     if (preg_match('/\d/', $city)) {
       $form_state->setErrorByName('city', $this->t('The City field cannot contain numbers. Please try again.'));
     }
+    $city_checked = $this->weatherClient->getGeoData($city);
+    if (!$city_checked['is_city_exists']) {
+      $form_state->setErrorByName('city', $this->t('The City field is invalid. Please try again.'));
+      return;
+    }
+
+    if (strlen($api_key) < 20) {
+      $form_state->setErrorByName('api_key', $this->t('Invalid API key. Please try again.'));
+      return;
+    }
     // Make request to the weather API, return array, or empty array.
-    $weather_data = $this->weatherClient->getWeatherData($city, $api_key);
+    $weather_data = $this->weatherClient->getWeatherData($api_key, $city);
     if (!is_array($weather_data) || empty($weather_data)) {
-      $form_state->setErrorByName('city', $this->t('Cannot receive weather data, API key ot city is invalid.'));
+      $form_state->setErrorByName('city', $this->t('Invalid API key. The weather info is missing. Please try again.'));
     }
 
   }
