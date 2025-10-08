@@ -7,7 +7,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * Weather API client.
+ * Weather API service.
  */
 class WeatherClient implements WeatherClientInterface {
 
@@ -17,12 +17,12 @@ class WeatherClient implements WeatherClientInterface {
   protected $logger;
 
   /**
-   * Constructs a download process plugin.
+   * Constructs a WeatherClient object.
    *
    * @param \GuzzleHttp\ClientInterface $httpClient
-   *   The HTTP client.
+   *   The Guzzle HTTP client service for making API requests.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerFactory
-   *   The logger factory service.
+   *   The logger factory used to create a logger channel for the module.
    */
   public function __construct(
     private readonly ClientInterface $httpClient,

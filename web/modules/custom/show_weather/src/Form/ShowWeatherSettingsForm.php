@@ -13,6 +13,7 @@ use Drupal\show_weather\WeatherClientInterface;
 class ShowWeatherSettingsForm extends ConfigFormBase {
 
   /**
+   * The WeatherClient service.
    *
    * @var \Drupal\show_weather\WeatherClientInterface
    */
@@ -34,9 +35,10 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
   }
 
   /**
-   * Constructs a download process plugin.
+   * Constructs a WeatherClient object.
    *
    * @param \Drupal\show_weather\WeatherClientInterface $weather_client
+   *   The weather service.
    */
   public function __construct(WeatherClientInterface $weather_client) {
     $this->weatherClient = $weather_client;
@@ -70,7 +72,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#title' => $this->t('City'),
       '#default_value' => $config->get('city') ?? 'Lutsk',
       '#description' => $this->t('Lutsk - provided as default city'),
-      '#required' => FALSE,
+      '#required' => TRUE,
       '#placeholder' => 'Lutsk',
     ];
     return parent::buildForm($form, $form_state);
@@ -94,8 +96,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
     }
     // Make request to the weather API, return array, or empty array.
     $weather_data = $this->weatherClient->getWeatherData($city, $api_key);
-
-    if (!is_array($weather_data) && empty($weather_data)) {
+    if (!is_array($weather_data) || empty($weather_data)) {
       $form_state->setErrorByName('city', $this->t('Cannot receive weather data, API key ot city is invalid.'));
     }
 

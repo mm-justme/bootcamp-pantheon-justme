@@ -21,6 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
+   * The WeatherClient service.
    *
    * @var \Drupal\show_weather\WeatherClientInterface
    */
@@ -37,8 +38,8 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
    *   The file system service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory service.
-   * @param \Drupal\show_weather\WeatherClientInterface $weather_client,
-   *   The config factory service.
+   * @param \Drupal\show_weather\WeatherClientInterface $weather_client
+   *   The weather service.
    */
   public function __construct(
     array $configuration,
@@ -90,10 +91,13 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
 
     $weather = $this->weatherClient->getWeatherData($city, $api_key);
     $text = 'The Weather service unavailable so far.';
+    if (empty($weather)) {
+      $text = 'There is no information about the weather so far. .';
+    }
     $temp = $weather['main']['temp'] ?? NULL;
     $desc = $weather['weather'][0]['description'] ?? '';
 
-    if ($temp !== NULL) {
+    if (!empty($temp)) {
       $text = $this->t('@city: @temp°C — @desc', [
         '@city' => $city,
         '@temp' => round($temp),
