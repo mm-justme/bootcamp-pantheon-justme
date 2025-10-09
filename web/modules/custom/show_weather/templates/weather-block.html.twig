@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation for weather_block.
+ *
+ * Available variables:
+ * - weather_city: Town to display.
+ * - weather_temp: Temperate info.
+ * - weather_info: A summary of the weather.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="weather_block">
+  {% if weather_message %}
+    <div class="weather_block--message">
+      {{ weather_message }}
+    </div>
+  {% else %}
+    <div class="weather_block--city">
+      {{ weather_city }}
+    </div>
+    <div class="weather_block--temp">
+      {{ weather_temp }}
+    </div>
+    <div class="weather_block--desc">
+      {{ weather_desc }}
+    </div>
+  {% endif %}
+</div>

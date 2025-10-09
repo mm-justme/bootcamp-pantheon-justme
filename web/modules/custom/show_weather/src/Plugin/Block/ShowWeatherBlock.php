@@ -76,38 +76,34 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
   public function build() {
     $api_key = (string) $this->configFactory->get('show_weather.settings')->get('api_key') ?? '';
     $city = (string) $this->configFactory->get('show_weather.settings')->get('city') ?? 'Lutsk';
+    $weather_message = NULL;
+    $max_age = 600;
 
     // Check $api_key and $city.
     // Show URL to the settings page if we don`t have it.
     if ($api_key === '') {
       $url = Url::fromRoute('show_weather.settings')->toString();
-      return [
-        '#markup' => $this->t(
-          'API key or city is missing. Click 
-           <a href=":url">here</a> to add your configuration, please.', [':url' => $url]),
-        '#cache' => ['max-age' => 0],
-      ];
+      $weather_message = $this->t('API key or city is missing. Click 
+      <a href=":url">here</a> to add your configuration, please.', [':url' => $url]);
+      $max_age = 0;
     }
 
     $weather = $this->weatherClient->getWeatherData($api_key, $city);
-    $text = 'The Weather service unavailable so far.';
-    if (is_null($weather)) {
-      $text = 'There is no information about the weather so far.';
+    if (empty($weather)) {
+      $weather_message = $this->t('Service invaluable for naw');
     }
-    $temp = $weather['main']['temp'] ?? NULL;
-    $desc = $weather['weather'][0]['description'] ?? '';
-
-    if (!empty($temp)) {
-      $text = $this->t('@city: @temp°C — @desc', [
-        '@city' => $city,
-        '@temp' => round($temp),
-        '@desc' => $desc,
-      ]);
+    else {
+      $temp = $weather['main']['temp'] ?? NULL;
+      $desc = $weather['weather'][0]['description'] ?? NULL;
     }
 
     return [
-      '#markup' => $text,
-      '#cache' => ['max-age' => 600],
+      '#theme' => 'weather_block',
+      '#weather_city' => $city,
+      '#weather_temp' => round($temp),
+      '#weather_desc' => $desc,
+      '#weather_message' => $weather_message,
+      '#cache' => ['max-age' => $max_age],
     ];
   }
 
