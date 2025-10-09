@@ -1,0 +1,3 @@
+administer show_weather:
+  title: 'Administer Show Weather settings'
+  restrict access: TRUE

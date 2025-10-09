@@ -17,6 +17,7 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  devel: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
@@ -43,6 +44,7 @@ module:
   responsive_image: 0
   search: 0
   shortcut: 0
+  show_weather: 0
   social_media_links: 0
   social_media_links_field: 0
   system: 0

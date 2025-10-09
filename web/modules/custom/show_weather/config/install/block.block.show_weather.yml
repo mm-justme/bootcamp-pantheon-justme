@@ -1,0 +1,5 @@
+id: show_weather
+theme: home_designer_theme
+region: content
+weight: -10
+plugin: weather_block
