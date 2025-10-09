@@ -1,0 +1,108 @@
+/* Weather block — drop-in styles */
+.weather_block {
+  --wb-bg: rgba(15, 23, 42, 0.4);
+  --wb-bg-hover: rgba(15, 23, 42, 0.9);
+  --wb-fg: #e2e8f0;
+  --wb-sub: #5276aa;
+  --wb-accent: #38bdf8;
+  --wb-ring: rgba(56, 189, 248, .35);
+
+  background: var(--wb-bg);
+  color: var(--wb-fg);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(2, 6, 23, .35);
+  position: absolute;
+  z-index: 1;
+  top:-90px;
+  overflow: hidden;
+  isolation: isolate;
+  max-width: fit-content;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 110px;
+  margin-left: 20px;
+
+  transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+.weather_block:hover {
+  background: var(--wb-bg-hover);
+  box-shadow: 0 12px 28px rgba(2, 6, 23, .45);
+  transform: translateY(-1px);
+}
+
+.weather_block::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto auto;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--wb-ring), transparent 70%);
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.weather_block--city {
+  font-size: clamp(1rem, 1.4vw + .6rem, 1.25rem);
+  font-weight: 600;
+  letter-spacing: .2px;
+  margin-bottom: .25rem;
+}
+
+.weather_block--temp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .35rem;
+  font-weight: 700;
+  line-height: 1;
+  font-size: clamp(2rem, 3.5vw + .5rem, 2.75rem);
+  margin: .25rem 0 .5rem;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+.weather_block--temp::after {
+  content: "°C";
+  font-size: .55em;
+  font-weight: 600;
+  color: var(--wb-sub);
+  transform: translateY(-.15em);
+}
+
+.weather_block--desc {
+  font-size: .95rem;
+  color: var(--wb-sub);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.weather_block--desc::before {
+  content: "";
+  width: .6rem; height: .6rem;
+  border-radius: 999px;
+  background: var(--wb-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, .15);
+}
+
+.weather_block--message {
+  background: rgba(148, 163, 184, .15);
+  color: #e2e8f0;
+  border: 1px dashed rgba(148, 163, 184, .45);
+  padding: .75rem .875rem;
+  border-radius: .75rem;
+  font-size: .95rem;
+}
+
+.weather_block:hover {
+  box-shadow: 0 12px 28px rgba(2, 6, 23, .45);
+  transition: box-shadow .25s ease, transform .25s ease;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .weather_block { padding: .875rem 1rem; margin-top: 150px; }
+}

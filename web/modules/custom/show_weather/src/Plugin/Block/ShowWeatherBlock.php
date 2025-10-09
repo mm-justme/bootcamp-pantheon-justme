@@ -99,6 +99,7 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
 
     return [
       '#theme' => 'weather_block',
+      '#attached' => ['library' => ['show_weather/weather']],
       '#weather_city' => $city,
       '#weather_temp' => round($temp),
       '#weather_desc' => $desc,
