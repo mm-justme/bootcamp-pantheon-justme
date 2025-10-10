@@ -8,7 +8,11 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\show_weather\WeatherClientInterface;
 
 /**
- * {@inheritdoc}
+ * Defines the configuration form for the Show Weather module.
+ *
+ *  This form allows site administrators to:
+ *  - Set the OpenWeatherMap API key.
+ *  - Specify a default city or enable automatic city detection by IP.
  */
 class ShowWeatherSettingsForm extends ConfigFormBase {
 
@@ -18,6 +22,12 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
    * @var \Drupal\show_weather\WeatherClientInterface
    */
   protected $weatherClient;
+
+  /**
+   * The cty name detected automatically by IP.
+   *
+   * @var string
+   */
   protected $city_by_ip;
   private const SETTINGS = 'show_weather.settings';
 
