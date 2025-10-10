@@ -74,8 +74,9 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
    * {@inheritdoc}
    */
   public function build() {
-    $api_key = (string) $this->configFactory->get('show_weather.settings')->get('api_key') ?? '';
-    $city = (string) $this->configFactory->get('show_weather.settings')->get('city') ?? 'Lutsk';
+    $config = $this->configFactory->get('show_weather.settings');
+    $api_key = (string) $config->get('api_key') ?? '';
+    $city = (string) $config->get('city') ?? 'Lutsk';
 
     // Check $api_key and $city.
     // Show URL to the settings page if we don`t have it.

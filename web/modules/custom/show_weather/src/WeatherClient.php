@@ -37,9 +37,6 @@ class WeatherClient implements WeatherClientInterface {
    * {@inheritDoc}
    */
   public function getGeoData(string $city): ?array {
-    // $test = $this->httpClient->request('get','http://ip-api.com/json');
-    //    $d = json_decode($test->getBody()->getContents(), TRUE);
-    //    dd($d);
     $url_geo = 'https://api.openweathermap.org/geo/1.0/direct';
     $api_key = '06ab2d5eeae73540ec27071666893a72';
     $weather_data = [
@@ -114,10 +111,15 @@ class WeatherClient implements WeatherClientInterface {
   }
 
   /**
-   *
+   * Determines the user's approximate location based on their IP address.
    */
   public function getLocationByIP(): ?array {
-    $request = $this->httpClient->request('get', 'http://ip-api.com/json');
+    try {
+      $request = $this->httpClient->request('get', 'http://ip-api.com/json');
+    }
+    catch (GuzzleException $e) {
+      $this->logger->error('Failed to define IP. @msg', ['@msg' => $e->getMessage()]);
+    }
     $data = json_decode($request->getBody()->getContents(), TRUE);
 
     $city = $data['city'];
