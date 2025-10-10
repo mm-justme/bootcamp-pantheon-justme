@@ -2,21 +2,33 @@
 
 namespace Drupal\show_weather\Form;
 
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\show_weather\WeatherClientInterface;
 
 /**
- * {@inheritdoc}
+ * Defines the configuration form for the Show Weather module.
+ *
+ *  This form allows site administrators to:
+ *  - Set the OpenWeatherMap API key.
+ *  - Specify a default city or enable automatic city detection by IP.
  */
 class ShowWeatherSettingsForm extends ConfigFormBase {
 
   /**
-   * The Guzzle HTTP Client service.
+   * The WeatherClient service.
    *
-   * @var \GuzzleHttp\Client
+   * @var \Drupal\show_weather\WeatherClientInterface
    */
-  protected $httpClient;
+  protected $weatherClient;
+
+  /**
+   * The cty name detected automatically by IP.
+   *
+   * @var string
+   */
+  protected $city_by_ip;
   private const SETTINGS = 'show_weather.settings';
 
   /**
@@ -34,12 +46,22 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
   }
 
   /**
+   * Constructs a WeatherClient object.
+   *
+   * @param \Drupal\show_weather\WeatherClientInterface $weather_client
+   *   The weather service.
+   */
+  public function __construct(WeatherClientInterface $weather_client) {
+    $this->weatherClient = $weather_client;
+  }
+
+  /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container) {
-    $instance = parent::create($container);
-    $instance->httpClient = $container->get('http_client');
-    return $instance;
+    return new static(
+    $container->get(WeatherClientInterface::class)
+    );
   }
 
   /**
@@ -56,6 +78,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
+    // @todo need to update current field. Make it unused when location is checked
     $form['city'] = [
       '#type' => 'textfield',
       '#title' => $this->t('City'),
@@ -63,6 +86,11 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Lutsk - provided as default city'),
       '#required' => FALSE,
       '#placeholder' => 'Lutsk',
+    ];
+
+    $form['location'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Location by IP'),
     ];
     return parent::buildForm($form, $form_state);
   }
@@ -72,11 +100,35 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     parent::validateForm($form, $form_state);
-
     $api_key = $form_state->getValue('api_key');
+    $city = $form_state->getValue('city');
+    $auto_location = $form_state->getValue('location');
+
+    if (preg_match('/\d/', $city)) {
+      $form_state->setErrorByName('city', $this->t('The City field cannot contain numbers. Please try again.'));
+    }
+
+    if ($auto_location) {
+      $response = $this->weatherClient->getLocationByIP();
+      $city = $this->city_by_ip = $response['city'];
+    }
+    $city_checked = $this->weatherClient->getGeoData($city);
+
+    if (!$city_checked['is_city_exists']) {
+      $form_state->setErrorByName('city', $this->t('The City field is invalid. Please try again.'));
+      return;
+    }
+
     if (strlen($api_key) < 20) {
       $form_state->setErrorByName('api_key', $this->t('Invalid API key. Please try again.'));
+      return;
     }
+    // Make request to the weather API, return array, or empty array.
+    $weather_data = $this->weatherClient->getWeatherData($api_key, $city);
+    if (!is_array($weather_data) || empty($weather_data)) {
+      $form_state->setErrorByName('city', $this->t('Invalid API key. The weather info is missing. Please try again.'));
+    }
+
   }
 
   /**
@@ -85,6 +137,11 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $api_key = $form_state->getValue('api_key');
     $city = $form_state->getValue('city');
+    $auto_location = $form_state->getValue('location');
+
+    if ($auto_location) {
+      $city = $this->city_by_ip;
+    }
 
     $this->configFactory->getEditable(self::SETTINGS)
       ->set('api_key', $api_key)
@@ -95,18 +152,6 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
       ->set('api_key', $api_key)
       ->set('city', $city)
       ->save();
-
-    // @todo test setup check for hhtclient. Need to add check API before save configuration.
-    $get_location = $this->httpClient->request('get', 'https://api.openweathermap.org/geo/1.0/direct',
-      [
-        'query' => [
-          'q' => $city,
-          'limit' => 1,
-          'appid' => $api_key,
-        ],
-        'timeout' => 3,
-      ]);
-    $location = json_decode($get_location->getBody(), TRUE);
 
     $this->messenger()->addMessage($this->t('Configuration has been saved.'));
   }
