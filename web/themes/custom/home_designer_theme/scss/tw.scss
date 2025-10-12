@@ -43,6 +43,18 @@
   }
 
 }
+//
+//.site-header {
+//  transition: background 0.3s ease;
+//
+//  &--transparent {
+//    @apply absolute top-0 left-0 w-full bg-transparent text-white;
+//  }
+//
+//  &--green {
+//    @apply relative bg-theme-green text-white;
+//  }
+//}
 
 .hero__video {
   @apply absolute inset-0 w-full h-full object-cover z-0;
