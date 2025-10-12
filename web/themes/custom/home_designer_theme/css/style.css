@@ -204,6 +204,14 @@ footer h2, footer .h2 {
   color: #B79259;
 }
 
+.customBlur {
+  backdrop-filter: blur(6px);
+}
+
+.node__content {
+  margin-top: 0;
+}
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;

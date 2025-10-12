@@ -7,3 +7,11 @@
   font-family: Pinyon Script, cursive;
   color: #B79259;
 }
+
+.customBlur {
+  backdrop-filter: blur(6px);
+}
+
+.node__content {
+  margin-top: 0;
+}
