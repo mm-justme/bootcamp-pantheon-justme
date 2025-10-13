@@ -88,10 +88,12 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
       <a href=":url">here</a> to add your configuration, please.', [':url' => $url]);
       $max_age = 0;
     }
+    else {
+      $weather = $this->weatherClient->getWeatherData($api_key, $city);
+    }
 
-    $weather = $this->weatherClient->getWeatherData($api_key, $city);
-    if (empty($weather)) {
-      $weather_message = $this->t('Service invaluable for naw');
+    if (empty($weather) && $api_key !== '') {
+      $weather_message = $this->t('Service invaluable for now');
     }
     else {
       $temp = $weather['main']['temp'] ?? NULL;
@@ -102,8 +104,8 @@ class ShowWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#theme' => 'weather_block',
       '#attached' => ['library' => ['show_weather/weather']],
       '#weather_city' => $city,
-      '#weather_temp' => round($temp),
-      '#weather_desc' => $desc,
+      '#weather_temp' => round($temp ?? 0) ?? '',
+      '#weather_desc' => $desc ?? '',
       '#weather_message' => $weather_message,
       '#cache' => ['max-age' => $max_age],
     ];
