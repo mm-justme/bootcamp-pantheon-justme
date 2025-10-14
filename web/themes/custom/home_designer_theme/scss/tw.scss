@@ -43,6 +43,11 @@
   }
 }
 
+
+.dialog-off-canvas-main-canvas {
+  @apply overflow-hidden;
+}
+
 .hero__video {
   @apply absolute inset-0 w-full h-full object-cover z-0;
 }

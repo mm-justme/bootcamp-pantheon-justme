@@ -1132,6 +1132,11 @@ video {
   transition-duration: 100ms;
 }
 
+
+.dialog-off-canvas-main-canvas {
+  overflow: hidden;
+}
+
 .hero__video {
   position: absolute;
   inset: 0px;
