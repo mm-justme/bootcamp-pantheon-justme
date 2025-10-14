@@ -7,6 +7,60 @@ Description: Bootstrap 4 with Sass
 /* TYPOGRAPHY */
 /* Google Fonts */
 /* base overrides */
+.ck-content {
+  margin: 40px 0;
+  h2, .h2, h3, .h3, h4, .h4 {
+    font-family: "Gilda Display", serif;
+    font-weight: 500;
+    color: #053426;
+    margin-top: 27px;
+    margin-bottom: 17px;
+    line-height: 1.1;
+  }
+  h2, .h2 {
+    font-size: 36px;
+  }
+  h3, .h3 {
+    font-size: 26px;
+  }
+  img {
+    margin: 10px 0;
+  }
+  p {
+    font-family: "Red Hat Display", serif;
+    font-size: 18px;
+    color: #79847e;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  blockquote p {
+    text-align: center;
+    font-family: Pinyon Script, cursive;
+    line-height: 1.1;
+    color: #b79259;
+    font-weight: 500;
+    font-style: normal;
+    margin: 20px 0;
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .ck-content {
+    h2, .h2 {
+      font-size: 26px;
+    }
+    h3, .h3 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 16px;
+    }
+    blockquote p {
+      font-size: 26px;
+    }
+  }
+}
+
 footer h2, footer .h2 {
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -148,6 +202,14 @@ footer h2, footer .h2 {
 .ps-style {
   font-family: Pinyon Script, cursive;
   color: #B79259;
+}
+
+.customBlur {
+  backdrop-filter: blur(6px);
+}
+
+.node__content {
+  margin-top: 0;
 }
 
 :root,

@@ -1,8 +1,17 @@
 /* base overrides */
+@use '../components/ckeditor5';
 @use "footer";
 @use "../paragraphs/my-mision";
 
 .ps-style{
   font-family: Pinyon Script, cursive;
   color: #B79259;
+}
+
+.customBlur {
+  backdrop-filter: blur(6px);
+}
+
+.node__content {
+  margin-top: 0;
 }

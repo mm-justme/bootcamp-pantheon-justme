@@ -1,7 +1,12 @@
-<section class='bg-gray-600 !pt-12 md:!pt-0'>
-  <div class="container flex flex-col md:flex-row">
-    <div class="flex-auto max-w-full md:max-w-[60%] lg:max-w-[50%] md:!pt-24 ">
-      <div>
+<section class='relative !pt-12 md:!pt-0 hero__video-blur'>
+
+  <video class="hero__video" autoplay muted loop playsinline playsinline data-speed="0.2">
+    <source src="/themes/custom/home_designer_theme/videos/living-room-2.mp4" type="video/mp4">
+  </video>
+
+  <div class="relative z-20 container flex flex-col md:flex-row items-center">
+    <div class="flex-auto max-w-full md:max-w-[60%] lg:max-w-[50%] ">
+      <div class="pt-32 md:pt-32">
         {% if subtitle %}
           <div class="font-family-PS text-[36px] lg:text-[60px] text-theme-gold !mt-3 lg:!mb-7">
             {{ subtitle }}
@@ -21,13 +26,13 @@
       </div>
       <div class="max-w-52 lg:max-w-full text-theme-white lg:flex lg:gap-5">
         <div class="!btn text-theme-white max-w-fit">{{ link_one }}</div>
-        <div class="btn bg-transparent text-theme-white hover:text-theme-gold">{{ link_sec }}</div>
+        <div class="btn btn--tr text-theme-white">{{ link_sec }}</div>
       </div>
     </div>
 
 
-    <div class="relative flex-auto min-w-[40%] lg:max-w-[50%]">
-      <div class="max-h-[390px] sm:max-h-[580px] lg:max-h-[800px] overflow-hidden">
+    <div class="relative flex-auto min-w-[40%] lg:max-w-[50%] pt-8 md:pt-24  ">
+      <div class=" max-h-[390px] sm:max-h-[580px] lg:max-h-[800px] overflow-hidden">
         {{ hero_img }}
       </div>
 

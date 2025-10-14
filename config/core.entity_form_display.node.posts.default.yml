@@ -5,11 +5,12 @@ dependencies:
   config:
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_photo_main
-    - field.field.node.posts.layout_builder__layout
+    - field.field.node.posts.field_posts_body
     - node.type.posts
   module:
     - media_library
     - path
+    - text
 id: node.posts.default
 targetEntityType: node
 bundle: posts
@@ -31,6 +32,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_posts_body:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   path:
     type: path
@@ -69,5 +78,4 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  layout_builder__layout: true
   uid: true

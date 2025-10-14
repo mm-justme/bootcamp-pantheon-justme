@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_photo_main
-    - field.field.node.posts.layout_builder__layout
+    - field.field.node.posts.field_posts_body
     - node.type.posts
   module:
     - user
@@ -19,5 +19,5 @@ hidden:
   addtoany: true
   field_design_tags: true
   field_photo_main: true
-  layout_builder__layout: true
+  field_posts_body: true
   links: true
