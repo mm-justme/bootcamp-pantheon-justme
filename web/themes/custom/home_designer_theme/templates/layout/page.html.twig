@@ -1,8 +1,7 @@
 {# themes/custom/home_designer_theme/templates/page.html.twig #}
 <div{{ attributes.addClass('page')}} class="relative">
     <header role="banner" class="fixed min-h-24 flex-center z-50 left-0 right-0 text-theme-white
-{#  site_header {{ is_front ? 'site-header--transparent' : 'site-header--green' }}#}
-">
+ {{ is_front ? 'bg-transparent' : 'bg-theme-green' }}">
         <div class="container mx-auto md:px-2">
             <div class="flex min-h-max justify-between items-center">
                 {{ page.header }}

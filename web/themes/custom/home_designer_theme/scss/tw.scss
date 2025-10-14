@@ -41,25 +41,12 @@
   .main-subtitle {
     @apply font-family-PS leading-tight text-theme-gold text-[36px] lg:text-[50px];
   }
-
 }
-//
-//.site-header {
-//  transition: background 0.3s ease;
-//
-//  &--transparent {
-//    @apply absolute top-0 left-0 w-full bg-transparent text-white;
-//  }
-//
-//  &--green {
-//    @apply relative bg-theme-green text-white;
-//  }
-//}
 
 .hero__video {
   @apply absolute inset-0 w-full h-full object-cover z-0;
-
 }
+
 .hero__video-blur {
   @apply after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.5)] after:z-10 after:pointer-events-none;
 
@@ -206,7 +193,7 @@ header {
 
 .node--type-posts {
   .layout--twocol-section {
-    @apply flex flex-col md:flex-row;
+    @apply flex flex-col md:flex-row mt-24;
 
     @apply mx-auto md:max-w-[1024px] lg:max-w-[1200px] xl:max-w-[1400px] py-16 xl:py-28;
 
