@@ -91,6 +91,8 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
     $form['location'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Location by IP'),
+      '#description' => $this->t('Choose to auto detect your location. 
+      You\'ll see it in the city filed.'),
     ];
     return parent::buildForm($form, $form_state);
   }
