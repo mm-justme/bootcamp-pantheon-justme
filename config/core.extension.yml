@@ -18,6 +18,7 @@ module:
   config_pages: 0
   contact: 0
   contextual: 0
+  custom_reg: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
