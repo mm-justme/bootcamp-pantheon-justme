@@ -1,0 +1,6 @@
+custom_reg.settings:
+  title: Registration Form
+  description: User Registration Form
+  route_name: custom_reg.settings
+  parent: system.admin_config_services
+  weight: 110

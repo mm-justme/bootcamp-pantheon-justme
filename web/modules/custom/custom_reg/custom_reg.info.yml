@@ -1,0 +1,5 @@
+name: 'custom_reg'
+type: module
+description: 'User Registration Form'
+package: Custom
+core_version_requirement: ^11
