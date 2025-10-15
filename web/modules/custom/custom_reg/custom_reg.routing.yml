@@ -1,0 +1,7 @@
+custom_reg.settings:
+  path: '/register'
+  defaults:
+    _title: 'User Registration'
+    _form: 'Drupal\custom_reg\Form\UserRegistrationForm'
+  requirements:
+    _permission: 'access content'
