@@ -144,7 +144,7 @@ final class UserRegistrationForm extends FormBase {
     $email = $form_state->getValue('email');
     $msg = [
       'invalid' => $this->t('<p style="color:maroon">The Email address is not valid.</p>'),
-      'exists' => $this->t('The Email address already exists.'),
+      'exists' => $this->t('<p style="color:maroon">The Email address already exists.</p>'),
       'valid' => $this->t('<p style="color:forestgreen">The Email address is valid.</p>'),
     ];
 
@@ -153,6 +153,19 @@ final class UserRegistrationForm extends FormBase {
     $email_status = $this->emailValidator->isValid($email);
     $text = $email_status ? $msg['valid'] : $msg['invalid'];
 
+    if (!$email_status) {
+      $text = $msg['invalid'];
+      $response->addCommand(new HtmlCommand('#email-status', $text));
+      return $response;
+    }
+
+    $user = (bool) \Drupal::entityQuery('user')
+      ->accessCheck(FALSE)
+      ->condition('mail', $email)
+      ->range(0, 1)
+      ->execute();
+
+    $text = $user ? $msg['exists'] : $msg['valid'];
     // @todo create checking method for email. Check if exist one in DB
     $response->addCommand(new HtmlCommand('#email-status', $text));
     return $response;
@@ -183,6 +196,8 @@ final class UserRegistrationForm extends FormBase {
       'username' => $user_name,
     ];
 
+    // @todo implementation to send email
+    // Mailplit - https://bootcamp-pantheon-justme.ddev.site:8026
     $this->mailManager->mail('custom_reg', 'test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
 
     $this->messenger()->addStatus($this->t('The message has been sent.'));
