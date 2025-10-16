@@ -8,6 +8,7 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Mail\MailManagerInterface;
 
 /**
  * Provides a Custom registration user form.
@@ -24,6 +25,7 @@ final class UserRegistrationForm extends FormBase {
 
   public function __construct(
     protected EmailValidatorInterface $emailValidator,
+    protected MailManagerInterface $mailManager,
   ) {}
 
   /**
@@ -169,16 +171,21 @@ final class UserRegistrationForm extends FormBase {
     //       $this->t('Message should be at least 10 characters.'),
     //     );
     //   }
-    // @endcode
-    //    dump('test');.
   }
 
   /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    $email = $form_state->getValue('email');
+    $user_name = $form_state->getValue('username');
+    $email_params = [
+      'username' => $user_name,
+    ];
+
+    $this->mailManager->mail('custom_reg', 'test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
+
     $this->messenger()->addStatus($this->t('The message has been sent.'));
-    $form_state->setRedirect('<front>');
   }
 
 }
