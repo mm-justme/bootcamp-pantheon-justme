@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the custom_reg module.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Defines basic custom user schema.
+ */
+function basic_schema(): array {
+  return [
+    'description' => 'Custom users table.',
+    'fields' => [
+      'uid' => [
+        'description' => 'provide uniq User ID.',
+        // Autoincrement.
+        'type' => 'serial',
+        // Removes negative values.
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'username' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+      ],
+      'password' => [
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'age' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => 0,
+      ],
+      'about' => [
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'country' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'created' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'updated' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'unique keys' => [
+      'uniq_email' => ['email'],
+    ],
+    'primary key' => ['uid'],
+  ];
+}
+
+/**
+ * Implements hook_schema().
+ *
+ * The hook_schema provides creating table in DB automatically.
+ * While a module was installing.
+ */
+function custom_reg_schema() {
+  $schema = [];
+  $schema['custom_reg_users'] = basic_schema();
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function custom_reg_update_9001() {
+  // If we have already installed a module
+  // we need to use custom_reg_update to create the table.
+  $schema = Database::getConnection()->schema();
+  if (!$schema->tableExists('custom_reg_users')) {
+    $schema->createTable('custom_reg_users', basic_schema());
+    \Drupal::messenger()->addStatus(t('Module custom_reg has been installed.'));
+  }
+}
