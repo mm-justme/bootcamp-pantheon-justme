@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Provides hook implementations fo the Custom Registration module.
+ *
+ * This file defines procedural hooks, such as hook_mail(),
+ *  used for sending to user registration emails.
+ */
+
+/**
+ * Implements hook_mail().
+ *
+ * Defines email templates used by the Custom Registration module.
+ */
+function custom_reg_mail(string $key, array &$message, array $params) {
+  $username = ['@name' => $params['username']];
+
+  switch ($key) {
+    case 'custom_reg.test':
+      $message['subject'] = t('Test Message!');
+      $message['body'][] = t('Hello @name! This is a test email from the registration form.',
+        $username);
+      break;
+
+    case 'custom_reg.registration':
+      $message['subject'] = t('Welcome to our site, @name!', $username);
+      $message['body'][] = t('Hello! This is email from the registration form.');
+      break;
+  }
+}
