@@ -17,13 +17,13 @@ function custom_reg_mail(string $key, array &$message, array $params) {
   $username = ['@name' => $params['username']];
 
   switch ($key) {
-    case 'test':
+    case 'custom_reg.test':
       $message['subject'] = t('Test Message!');
       $message['body'][] = t('Hello @name! This is a test email from the registration form.',
         $username);
       break;
 
-    case 'reg':
+    case 'custom_reg.registration':
       $message['subject'] = t('Welcome to our site, @name!', $username);
       $message['body'][] = t('Hello! This is email from the registration form.');
       break;

@@ -142,32 +142,34 @@ final class UserRegistrationForm extends FormBase {
     $response = new AjaxResponse();
 
     $email = $form_state->getValue('email');
-    $msg = [
+    $message_enum = [
       'invalid' => $this->t('<p style="color:maroon">The Email address is not valid.</p>'),
       'exists' => $this->t('<p style="color:maroon">The Email address already exists.</p>'),
       'valid' => $this->t('<p style="color:forestgreen">The Email address is valid.</p>'),
     ];
 
-    // Check email format by using
-    // Drupal\Component\Utility\EmailValidatorInterface.
+    // Check email format by using EmailValidatorInterface.
+    // Return TRUE if email is valid.
     $email_status = $this->emailValidator->isValid($email);
-    $text = $email_status ? $msg['valid'] : $msg['invalid'];
+    $error_message = $email_status ? $message_enum['valid'] : $message_enum['invalid'];
 
     if (!$email_status) {
-      $text = $msg['invalid'];
-      $response->addCommand(new HtmlCommand('#email-status', $text));
+      $response->addCommand(new HtmlCommand('#email-status', $error_message));
       return $response;
     }
 
-    $user = (bool) \Drupal::entityQuery('user')
+    // @todo needn't update \Drupal::entityQuery('user').
+    // @todo Current check method will be deleted.
+    // Provide search in the DB of the users.
+    // Return TRUE if we found at least 1 user with corresponding email.
+    $is_email_exists = (bool) \Drupal::entityQuery('user')
       ->accessCheck(FALSE)
       ->condition('mail', $email)
       ->range(0, 1)
       ->execute();
 
-    $text = $user ? $msg['exists'] : $msg['valid'];
-    // @todo create checking method for email. Check if exist one in DB
-    $response->addCommand(new HtmlCommand('#email-status', $text));
+    $error_message = $is_email_exists ? $message_enum['exists'] : $message_enum['valid'];
+    $response->addCommand(new HtmlCommand('#email-status', $error_message));
     return $response;
   }
 
@@ -196,9 +198,9 @@ final class UserRegistrationForm extends FormBase {
       'username' => $user_name,
     ];
 
-    // @todo implementation to send email
-    // Mailplit - https://bootcamp-pantheon-justme.ddev.site:8026
-    $this->mailManager->mail('custom_reg', 'test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
+    // Provide sending email by using MailManagerInterface.
+    // Look at the custom_reg.module file, which contain differance messages.
+    $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
 
     $this->messenger()->addStatus($this->t('The message has been sent.'));
   }
