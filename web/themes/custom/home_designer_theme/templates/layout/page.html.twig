@@ -1,7 +1,7 @@
 {# themes/custom/home_designer_theme/templates/page.html.twig #}
 <div{{ attributes.addClass('page')}} class="relative">
     <header role="banner" class="fixed min-h-24 flex-center z-50 left-0 right-0 text-theme-white
- {{ is_front ? 'bg-transparent' : 'bg-theme-green' }}">
+ {{ is_front ? 'bg-transparent' : 'bg-theme-green mb-28' }}">
         <div class="container mx-auto md:px-2">
             <div class="flex min-h-max justify-between items-center">
                 {{ page.header }}
@@ -9,7 +9,7 @@
         </div>
     </header>
 
-    <main role="main">
+    <main role="main" class="{{ not is_front ? 'mt-28' }}">
           {{ page.content }}
         {% if page.sidebar %}
                 {{ page.sidebar }}

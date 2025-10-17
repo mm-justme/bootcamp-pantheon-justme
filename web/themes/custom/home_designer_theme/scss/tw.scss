@@ -6,6 +6,7 @@
   body {
     @apply font-family-RH text-lg tracking-normal;
   }
+
 }
 
 @layer components {
@@ -42,10 +43,8 @@
     @apply font-family-PS leading-tight text-theme-gold text-[36px] lg:text-[50px];
   }
 }
-
-
-.dialog-off-canvas-main-canvas {
-  @apply overflow-hidden;
+html {
+  //scrollbar-gutter: stable both-edges; /* сучасний, безпечний спосіб */
 }
 
 .hero__video {

@@ -14,18 +14,34 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="fixed secondMenu left-0 w-full bg-theme-gold md:hidden">
-            <ul class="flex items-center overflow-x-auto">
-                {% for item in items %}
-                    <li class="text-sm last:hidden p-3 min-w-fit">
-                        <a href="{{ item.url }}"
-                           class="text-theme-white">
-                            {{ item.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+{#      //TODO fix all elements begger than 100% header, Case Studies ... #}
+{#        <div class="fixed secondMenu left-0 w-full bg-theme-gold md:hidden">#}
+{#            <ul class="flex items-center overflow-x-auto">#}
+{#                {% for item in items %}#}
+{#                    <li class="text-sm last:hidden p-3 min-w-fit">#}
+{#                        <a href="{{ item.url }}"#}
+{#                           class="text-theme-white">#}
+{#                            {{ item.title }}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+      {# SECOND MENU (mobile) #}
+      <div class="secondMenu fixed inset-x-0 bg-theme-gold md:hidden z-40">
+        <div class="mx-auto max-w-[1400px] px-4">
+          <ul class="flex items-center gap-2 overflow-x-auto overscroll-contain scroll-px-4 snap-x snap-mandatory">
+            {% for item in items %}
+              <li class="shrink-0 snap-start p-3">
+                <a href="{{ item.url }}" class="text-theme-white">
+                  {{ item.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
+      </div>
+
     </div>
 
 
