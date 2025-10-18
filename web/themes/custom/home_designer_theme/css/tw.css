@@ -1335,6 +1335,11 @@ header {
   color: rgb(249 249 249 / var(--tw-text-opacity, 1));
 }
 
+.inner_title::after {
+  content: var(--tw-content);
+  pointer-events: none;
+}
+
 @media (min-width: 768px) {
 
   .inner_title {
@@ -1358,7 +1363,6 @@ header {
 
 .inner_bg {
   min-height: 100%;
-  cursor: pointer;
   img {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1394,6 +1398,7 @@ header {
     inset: 0;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 41%, rgba(0, 0, 0, 0));
     z-index: 5;
+    pointer-events: none;
   }
 }
 
@@ -2456,6 +2461,11 @@ header {
 
 .last\:hidden:last-child {
   display: none;
+}
+
+.hover\:bg-theme-gold1:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-theme-gold:hover {
