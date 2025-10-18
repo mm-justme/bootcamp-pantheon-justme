@@ -1170,8 +1170,11 @@ video {
 .duration-100 {
   transition-duration: 100ms;
 }
-html {
-  //scrollbar-gutter: stable both-edges; /* сучасний, безпечний спосіб */
+
+.view-display-id-cases_view_block {
+  .row {
+    --bs-gutter-x: 0;
+  }
 }
 
 .hero__video {
@@ -1202,6 +1205,7 @@ html {
 
 header {
   top: calc(var(--drupal-displace-offset-top,0px));
+  max-width: 100vw;
 }
 
 .scrollup header {
@@ -1226,6 +1230,7 @@ header {
 
 .secondMenu {
   top: calc(var(--drupal-displace-offset-top,0px) + 96px);
+  max-width: 100vw;
 }
 
 .scrolled .secondMenu {

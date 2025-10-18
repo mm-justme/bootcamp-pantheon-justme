@@ -43,8 +43,11 @@
     @apply font-family-PS leading-tight text-theme-gold text-[36px] lg:text-[50px];
   }
 }
-html {
-  //scrollbar-gutter: stable both-edges; /* сучасний, безпечний спосіб */
+
+.view-display-id-cases_view_block {
+  .row {
+    --bs-gutter-x: 0;
+  }
 }
 
 .hero__video {
@@ -61,7 +64,7 @@ html {
 }
 
 header {
-  @apply top-[calc(var(--drupal-displace-offset-top,0px))];
+  @apply top-[calc(var(--drupal-displace-offset-top,0px))] max-w-[100vw];
 }
 
 .scrollup header {
@@ -77,7 +80,7 @@ header {
 }
 
 .secondMenu {
-  @apply top-[calc(var(--drupal-displace-offset-top,0px)+96px)];
+  @apply top-[calc(var(--drupal-displace-offset-top,0px)+96px)] max-w-[100vw];
 }
 
 .scrolled .secondMenu {
