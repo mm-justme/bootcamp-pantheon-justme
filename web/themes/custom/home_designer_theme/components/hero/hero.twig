@@ -32,14 +32,14 @@
 
 
     <div class="relative flex-auto min-w-[40%] lg:max-w-[50%] pt-8 md:pt-24  ">
-      <div class=" max-h-[390px] sm:max-h-[580px] lg:max-h-[800px] overflow-hidden">
+      <div class=" max-h-full sm:max-h-[70%] lg:max-h-full overflow-hidden">
         {{ hero_img }}
       </div>
 
       <div
-          class=" md:min-w-full absolute bottom-5 text-[18px] text-theme-white  bg-bg-indicators p-2 md:!p-2 customBlur">
+          class=" md:min-w-full absolute bottom-5 text-[18px] text-theme-white  bg-bg-indicators p-3 customBlur">
         {% if indicators|length %}
-          <div class="flex flex-col max-w-[280px] justify-between lg:justify-evenly md:flex-row md:max-w-full">
+          <div class="flex md:gap-2 flex-col max-w-[280px] justify-between lg:justify-evenly md:flex-row md:max-w-full">
 
             {% for item in indicators %}
               <div class="!my-2 md:!my-3">

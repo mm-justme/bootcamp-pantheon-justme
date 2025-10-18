@@ -699,6 +699,10 @@ video {
 .relative {
   position: relative;
 }
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
+}
 .bottom-0 {
   bottom: 0px;
 }
@@ -716,6 +720,9 @@ video {
 }
 .z-20 {
   z-index: 20;
+}
+.z-40 {
+  z-index: 40;
 }
 .z-50 {
   z-index: 50;
@@ -770,6 +777,9 @@ video {
 .mb-16 {
   margin-bottom: 4rem;
 }
+.mb-28 {
+  margin-bottom: 7rem;
+}
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -784,6 +794,9 @@ video {
 }
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mt-28 {
+  margin-top: 7rem;
 }
 .block {
   display: block;
@@ -813,8 +826,8 @@ video {
   width: 1.5rem;
   height: 1.5rem;
 }
-.max-h-\[390px\] {
-  max-height: 390px;
+.max-h-full {
+  max-height: 100%;
 }
 .min-h-24 {
   min-height: 6rem;
@@ -845,6 +858,9 @@ video {
 .max-w-60 {
   max-width: 15rem;
 }
+.max-w-\[1400px\] {
+  max-width: 1400px;
+}
 .max-w-\[280px\] {
   max-width: 280px;
 }
@@ -867,11 +883,27 @@ video {
 .flex-auto {
   flex: 1 1 auto;
 }
+.shrink-0 {
+  flex-shrink: 0;
+}
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .resize {
   resize: both;
+}
+.snap-x {
+  scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+.snap-mandatory {
+  --tw-scroll-snap-strictness: mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+.scroll-px-4 {
+  scroll-padding-left: 1rem;
+  scroll-padding-right: 1rem;
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -894,6 +926,9 @@ video {
 .justify-between {
   justify-content: space-between;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .gap-4 {
   gap: 1rem;
 }
@@ -908,6 +943,9 @@ video {
 }
 .overflow-x-auto {
   overflow-x: auto;
+}
+.overscroll-contain {
+  overscroll-behavior: contain;
 }
 .border {
   border-width: 1px;
@@ -944,9 +982,6 @@ video {
 .\!p-0 {
   padding: 0px !important;
 }
-.p-2 {
-  padding: 0.5rem;
-}
 .p-3 {
   padding: 0.75rem;
 }
@@ -957,6 +992,10 @@ video {
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .px-5 {
   padding-left: 1.25rem;
@@ -1132,6 +1171,12 @@ video {
   transition-duration: 100ms;
 }
 
+.view-display-id-cases_view_block {
+  .row {
+    --bs-gutter-x: 0;
+  }
+}
+
 .hero__video {
   position: absolute;
   inset: 0px;
@@ -1160,6 +1205,7 @@ video {
 
 header {
   top: calc(var(--drupal-displace-offset-top,0px));
+  max-width: 100vw;
 }
 
 .scrollup header {
@@ -1184,6 +1230,7 @@ header {
 
 .secondMenu {
   top: calc(var(--drupal-displace-offset-top,0px) + 96px);
+  max-width: 100vw;
 }
 
 .scrolled .secondMenu {
@@ -2418,8 +2465,8 @@ header {
 
 @media (min-width: 640px) {
 
-  .sm\:max-h-\[580px\] {
-    max-height: 580px;
+  .sm\:max-h-\[70\%\] {
+    max-height: 70%;
   }
 }
 
@@ -2499,8 +2546,8 @@ header {
     gap: 2.5rem;
   }
 
-  .md\:\!p-2 {
-    padding: 0.5rem !important;
+  .md\:gap-2 {
+    gap: 0.5rem;
   }
 
   .md\:px-2 {
@@ -2572,8 +2619,8 @@ header {
     display: flex;
   }
 
-  .lg\:max-h-\[800px\] {
-    max-height: 800px;
+  .lg\:max-h-full {
+    max-height: 100%;
   }
 
   .lg\:max-w-3xl {

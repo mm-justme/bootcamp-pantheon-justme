@@ -37,6 +37,8 @@ final class UserRegistrationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Username'),
       '#required' => TRUE,
+      '#maxlenght' => 60,
+      '#description' => $this->t("The minimum and maximum number of characters the username should contain is 2 and 60"),
     ];
 
     $form['email'] = [
@@ -92,8 +94,10 @@ final class UserRegistrationForm extends FormBase {
 
     $form['age'] = [
       '#states' => $states,
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Age'),
+      '#min' => 16,
+      '#required' => FALSE,
     ];
 
     $form['country'] = [
@@ -177,15 +181,16 @@ final class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
-    // @todo Validate the form here.
-    // Example:
-    // @code
-    //   if (mb_strlen($form_state->getValue('message')) < 10) {
-    //     $form_state->setErrorByName(
-    //       'message',
-    //       $this->t('Message should be at least 10 characters.'),
-    //     );
-    //   }
+    $email = $form_state->getValue('email');
+    $user_name = $form_state->getValue('username');
+    $password = $form_state->getValue('password');
+    $confirm_password = $form_state->getValue('confirm_pass');
+    $age = $form_state->getValue('confirm_pass');
+    $country = $form_state->getValue('country');
+    $about = $form_state->getValue('about');
+
+
+
   }
 
   /**
@@ -199,7 +204,7 @@ final class UserRegistrationForm extends FormBase {
     ];
 
     // Provide sending email by using MailManagerInterface.
-    // Look at the custom_reg.module file, which contain differance messages.
+    // Look at the custom_reg.module file, which contain different messages.
     $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
 
     $this->messenger()->addStatus($this->t('The message has been sent.'));

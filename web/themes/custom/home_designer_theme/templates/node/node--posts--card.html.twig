@@ -67,12 +67,15 @@
 
 
   <div{{ content_attributes }}>
-      <div class="posts-tag-wrapper">
-        <div class="post-main-photo">{{ content.field_photo_main }}</div>
+    <div class="posts-tag-wrapper">
+      <div class="post-main-photo">{{ content.field_photo_main }}</div>
+      {% if content.field_design_tags.0 %}
         <div class="post-tags">{{ content.field_design_tags }}</div>
-      </div>
+      {% endif %}
 
-      {{ content|without('field_photo_main','field_design_tags') }}
+    </div>
+
+    {{ content|without('field_photo_main','field_design_tags') }}
 
     {{ title_prefix }}
     {% if label and not page %}
