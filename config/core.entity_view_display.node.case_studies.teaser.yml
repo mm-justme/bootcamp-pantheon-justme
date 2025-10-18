@@ -21,6 +21,7 @@ content:
     weight: 100
     region: content
 hidden:
+  addtoany: true
   field_body: true
   field_photo: true
   field_title_additional: true
