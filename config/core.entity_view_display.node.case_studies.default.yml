@@ -43,5 +43,4 @@ content:
     weight: 0
     region: content
 hidden:
-  addtoany: true
   links: true
