@@ -1,4 +1,4 @@
-uuid: 61eb4fc7-bbdb-4d7f-a406-4f5a56ac82f9
+uuid: b569de99-4c98-44e1-9677-9068d40aecde
 langcode: en
 status: true
 dependencies:
@@ -12,9 +12,9 @@ id: node.posts.field_posts_body
 field_name: field_posts_body
 entity_type: node
 bundle: posts
-label: 'posts body'
+label: posts-body
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

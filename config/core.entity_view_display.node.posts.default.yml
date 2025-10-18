@@ -13,6 +13,7 @@ dependencies:
     - addtoany
     - layout_builder
     - layout_discovery
+    - text
     - user
     - views
 third_party_settings:
@@ -143,12 +144,12 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 5
             additional: {  }
-          8f6cbd0b-d41d-4a06-b4ae-d2bfc6c79b7c:
-            uuid: 8f6cbd0b-d41d-4a06-b4ae-d2bfc6c79b7c
+          d5e892fd-f920-41e5-b4c3-480a6356ffb4:
+            uuid: d5e892fd-f920-41e5-b4c3-480a6356ffb4
             region: first
             configuration:
               id: 'field_block:node:posts:field_posts_body'
-              label: 'posts body'
+              label: posts-body
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -196,6 +197,13 @@ content:
     third_party_settings: {  }
     weight: 102
     region: first
+  field_posts_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: first
   field_title:
     type: string
     label: above
@@ -212,5 +220,4 @@ content:
 hidden:
   addtoany: true
   field_design_tags: true
-  field_posts_body: true
   layout_builder__layout: true

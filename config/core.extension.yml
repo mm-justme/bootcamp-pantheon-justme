@@ -3,7 +3,6 @@ _core:
 module:
   addtoany: 0
   admin_toolbar: 0
-  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   announcements_feed: 0
   automated_cron: 0
@@ -18,7 +17,6 @@ module:
   config_pages: 0
   contact: 0
   contextual: 0
-  custom_reg: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -47,7 +45,6 @@ module:
   responsive_image: 0
   search: 0
   shortcut: 0
-  show_weather: 0
   social_media_links: 0
   social_media_links_field: 0
   system: 0

@@ -1,6 +1,6 @@
-uuid: b817ec8a-2a9a-4edc-9f9c-a37cf435a28a
+uuid: 2f7e14b1-79c5-4abc-b129-061fcf69c941
 langcode: en
-status: false
+status: true
 dependencies:
   theme:
     - home_designer_theme

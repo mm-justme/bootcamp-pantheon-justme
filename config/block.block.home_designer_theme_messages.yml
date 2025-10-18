@@ -11,7 +11,7 @@ _core:
 id: home_designer_theme_messages
 theme: home_designer_theme
 region: content
-weight: -8
+weight: -7
 provider: null
 plugin: system_messages_block
 settings:

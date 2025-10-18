@@ -15,7 +15,7 @@ _core:
 id: home_designer_theme_help_search
 theme: home_designer_theme
 region: none
-weight: -3
+weight: -8
 provider: null
 plugin: search_form_block
 settings:
