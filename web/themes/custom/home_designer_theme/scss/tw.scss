@@ -107,6 +107,9 @@ header {
   }
 }
 
+.custom-regsettings {
+  @apply mt-40 md:mt-32 px-5;
+}
 .grid-card--img_set {
   @apply flex-1 bg-cover bg-center min-h-[320px] sm:min-h-[500px] md:min-h-[200px] lg:min-h-[250px];
 }
