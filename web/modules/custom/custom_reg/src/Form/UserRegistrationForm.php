@@ -191,7 +191,7 @@ final class UserRegistrationForm extends FormBase {
     $user_name = $form_state->getValue('username');
     $password = $form_state->getValue('password');
     $confirm_password = $form_state->getValue('confirm_pass');
-    $age = $form_state->getValue('confirm_pass');
+    $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
 
@@ -277,14 +277,15 @@ final class UserRegistrationForm extends FormBase {
         ->execute();
 
       $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
+      $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
 
     }
     catch (\Exception $e) {
       $txn->rollBack();
       \Drupal::logger('custom_reg')->error($e->getMessage());
+      $this->messenger()->addStatus($this->t('Something went wrong while trying to send the message.'));
     }
 
-    $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
   }
 
 }
