@@ -5,3 +5,11 @@ custom_reg.settings:
     _form: 'Drupal\custom_reg\Form\UserRegistrationForm'
   requirements:
     _permission: 'access content'
+
+custom_reg.login_modal:
+  path: '/login-modal'
+  defaults:
+    _title: 'Custom User Login'
+    _form: 'Drupal\custom_reg\Form\UserLoginForm'
+  requirements:
+    _permission: 'TRUE'
