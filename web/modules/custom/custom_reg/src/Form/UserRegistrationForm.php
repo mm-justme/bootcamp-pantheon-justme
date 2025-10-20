@@ -32,17 +32,20 @@ final class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-
+    // 2–30 characters.Only letters (a–z, A–Z), numbers (0–9), hyphens (-)
+    // and underscores (_). No spaces or other special characters
     $form['username'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Username'),
       '#required' => TRUE,
       '#maxlenght' => 60,
-      '#description' => $this->t("The minimum and maximum number of characters the username should contain is 2 and 60"),
+      '#description' => $this->t("You can use 2-30 characters, (a–z, A–Z), 
+      numbers (0–9). Hyphens (-) and underscores (_). No spaces or other special characters"),
+      '#placeholder' => $this->t('Examples: user-12, User_12'),
     ];
 
     $form['email'] = [
-      '#type' => 'textfield',
+      '#type' => 'email',
       '#title' => $this->t('Email'),
       '#required' => TRUE,
       // Add ajax to the field.
@@ -67,13 +70,16 @@ final class UserRegistrationForm extends FormBase {
     ];
 
     $form['password'] = [
-      '#type' => 'textfield',
+      '#type' => 'password',
       '#title' => $this->t('Password'),
       '#required' => TRUE,
+      '#min_length' => 6,
+      '#description' => $this->t('Min 6 characters. Must contain at least one letter and at least
+     one number. Permitted characters: Latin letters, numbers,@ # % $ ! _ - .'),
     ];
 
     $form['confirm_pass'] = [
-      '#type' => 'textfield',
+      '#type' => 'password',
       '#title' => $this->t('Confirm Password'),
       '#required' => TRUE,
     ];
@@ -189,8 +195,48 @@ final class UserRegistrationForm extends FormBase {
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $form_state->setErrorByName('email', $this->t('Invalid email.Please try again.'));
+    }
+    // 2–30 characters.Only letters (a–z, A–Z), numbers (0–9), hyphens (-)
+    // and underscores (_). No spaces or other special characters
+    if (!preg_match('/^[A-Za-z0-9_-]{2,30}$/', $user_name)) {
+      $form_state->setErrorByName('user_name', $this->t('Invalid username.Please try again.'));
+    }
+    // Minimum 6 characters. Must contain at least one letter and at least
+    // one number.Permitted characters:Latin letters,numbers,@#%$!_-.
+    if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@#%$!_-]{6,}$/', $password)) {
+      $form_state->setErrorByName('password', $this->t('Invalid password.Please read the description of the field and try again.'));
+    }
+    elseif ($password !== $confirm_password) {
+      $form_state->setErrorByName('confirm_pass', $this->t('Passwords do not match.'));
+    }
 
-
+    if ($form_state->getValue('add_info')) {
+      // Only numbers from 2 to 120.
+      if ($age === '' || !preg_match('/^(?:1[01][0-9]|[2-9][0-9]|120)$/',
+          $age)) {
+        $form_state->setErrorByName('age',
+          $this->t('Please enter a valid age between 2 and 120.'));
+      }
+      // Only letters(any case),spaces,hyphens.Minimum 2, maximum 60 characters.
+      if ($country !== '' && !preg_match('/^[A-Za-z\s-]{2,60}$/', $country)) {
+        $form_state->setErrorByName('country',
+          $this->t('Country name must be 2–60 letters (letters, spaces, or hyphens only).'));
+      }
+      // Text up to 500 characters. Must not contain HTML
+      // (we will check it simply at </>).
+      if ($about !== '') {
+        if (strlen($about) > 500) {
+          $form_state->setErrorByName('about',
+            $this->t('About yourself must not exceed 500 characters.'));
+        }
+        elseif (preg_match('/[<>]/', $about)) {
+          $form_state->setErrorByName('about',
+            $this->t('HTML tags are not allowed in the About field.'));
+        }
+      }
+    }
   }
 
   /**
@@ -199,13 +245,19 @@ final class UserRegistrationForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $email = $form_state->getValue('email');
     $user_name = $form_state->getValue('username');
+    $password = $form_state->getValue('password');
+    $confirm_password = $form_state->getValue('confirm_pass');
+    $age = $form_state->getValue('confirm_pass');
+    $country = $form_state->getValue('country');
+    $about = $form_state->getValue('about');
+
     $email_params = [
       'username' => $user_name,
     ];
 
     // Provide sending email by using MailManagerInterface.
     // Look at the custom_reg.module file, which contain different messages.
-    $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
+//    $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
 
     $this->messenger()->addStatus($this->t('The message has been sent.'));
   }
