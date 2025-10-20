@@ -191,7 +191,7 @@ final class UserRegistrationForm extends FormBase {
     $user_name = $form_state->getValue('username');
     $password = $form_state->getValue('password');
     $confirm_password = $form_state->getValue('confirm_pass');
-    $age = $form_state->getValue('confirm_pass');
+    $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
 
