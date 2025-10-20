@@ -168,15 +168,15 @@ final class UserRegistrationForm extends FormBase {
       return $response;
     }
 
-    // @todo needn't update \Drupal::entityQuery('user').
-    // @todo Current check method will be deleted.
-    // Provide search in the DB of the users.
+    // Provides search in the DB custom_reg_users.
     // Return TRUE if we found at least 1 user with corresponding email.
-    $is_email_exists = (bool) \Drupal::entityQuery('user')
-      ->accessCheck(FALSE)
-      ->condition('mail', $email)
+    $is_email_exists = (bool) \Drupal::database()
+      ->select('custom_reg_users', 'c')
+      ->fields('c', ['uid'])
+      ->condition('email', $email)
       ->range(0, 1)
-      ->execute();
+      ->execute()
+      ->fetchField();
 
     $error_message = $is_email_exists ? $message_enum['exists'] : $message_enum['valid'];
     $response->addCommand(new HtmlCommand('#email-status', $error_message));
@@ -246,20 +246,45 @@ final class UserRegistrationForm extends FormBase {
     $email = $form_state->getValue('email');
     $user_name = $form_state->getValue('username');
     $password = $form_state->getValue('password');
-    $confirm_password = $form_state->getValue('confirm_pass');
-    $age = $form_state->getValue('confirm_pass');
+    $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
+
+    // Change empty string to the NULL.
+    $age = $age != '' ? $age : NULL;
+    $country = $country != '' ? $country : NULL;
+    $about = $about != '' ? $about : NULL;
 
     $email_params = [
       'username' => $user_name,
     ];
 
-    // Provide sending email by using MailManagerInterface.
-    // Look at the custom_reg.module file, which contain different messages.
-//    $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
+    // Error Handling.
+    $txn = \Drupal::database()->startTransaction();
 
-    $this->messenger()->addStatus($this->t('The message has been sent.'));
+    try {
+      // Registration a user in to the custom_reg_users table.
+      \Drupal::database()->insert('custom_reg_users')->fields([
+        'username' => $user_name,
+        'email' => $email,
+        'password' => \Drupal::service('password')->hash($password),
+        'age' => $age ?? NULL,
+        'country' => $country ?? NULL,
+        'about' => $about ?? NULL,
+        'created' => \Drupal::time()->getRequestTime(),
+        'updated' => \Drupal::time()->getRequestTime(),
+      ])
+        ->execute();
+
+      $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
+
+    }
+    catch (\Exception $e) {
+      $txn->rollBack();
+      \Drupal::logger('custom_reg')->error($e->getMessage());
+    }
+
+    $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
   }
 
 }
