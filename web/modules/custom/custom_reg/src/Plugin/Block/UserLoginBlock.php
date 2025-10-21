@@ -10,6 +10,7 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -52,12 +53,19 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
    * {@inheritdoc}
    */
   public function build(): array {
-    $build['content'] = [
-      '#markup' => '<a class="use-ajax"
-         data-dialog-type="modal"
-         data-dialog-options=\'{"width":480}\'
-         href="/login-modal">Login</a>',
-      '#attached' => ['library' => ['core/drupal.dialog.ajax']],
+    $build['login'] = [
+      '#type' => 'link',
+      '#title' => new TranslatableMarkup('Login'),
+      '#url' => Url::fromRoute('custom_reg.login_modal'),
+
+      '#attributes' => [
+        'class' => ['use-ajax', 'btn'],
+        'data-dialog-type' => 'modal',
+        'data-dialog-options' => '{"width":480}',
+      ],
+      '#attached' => [
+        'library' => ['core/drupal.dialog.ajax'],
+      ],
     ];
     return $build;
   }
