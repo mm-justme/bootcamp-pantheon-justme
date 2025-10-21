@@ -2,19 +2,29 @@
 
 namespace Drupal\custom_reg\Form;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Utility\EmailValidatorInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Password\PasswordInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Provides a Custom registration user form.
  */
 final class UserRegistrationForm extends FormBase {
   use AutowireTrait;
+
+  /**
+   * The Logger service.
+   */
+  protected LoggerInterface $logger;
 
   /**
    * {@inheritdoc}
@@ -26,7 +36,13 @@ final class UserRegistrationForm extends FormBase {
   public function __construct(
     protected EmailValidatorInterface $emailValidator,
     protected MailManagerInterface $mailManager,
-  ) {}
+    protected PasswordInterface $passwordService,
+    protected TimeInterface $setTime,
+    protected Connection $databaseService,
+    LoggerChannelFactoryInterface $loggerChannelFactory,
+  ) {
+    $this->logger = $loggerChannelFactory->get('custom_reg');
+  }
 
   /**
    * {@inheritdoc}
@@ -102,6 +118,7 @@ final class UserRegistrationForm extends FormBase {
         'required' => $states['add_info'],
       ],
       '#type' => 'number',
+      '#unsigned' => TRUE,
       '#title' => $this->t('Age'),
       '#min' => 20,
       '#description' => $this->t('The age should be between 20 and 120.'),
@@ -174,7 +191,7 @@ final class UserRegistrationForm extends FormBase {
 
     // Provides search in the DB custom_reg_users.
     // Return TRUE if we found at least 1 user with corresponding email.
-    $is_email_exists = (bool) \Drupal::database()
+    $is_email_exists = (bool) $this->databaseService
       ->select('custom_reg_users', 'c')
       ->fields('c', ['uid'])
       ->condition('email', $email)
@@ -197,7 +214,6 @@ final class UserRegistrationForm extends FormBase {
     $confirm_password = $form_state->getValue('confirm_pass');
     $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
-    $about = $form_state->getValue('about');
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $form_state->setErrorByName('email', $this->t('Invalid email.Please try again.'));
@@ -241,48 +257,43 @@ final class UserRegistrationForm extends FormBase {
     $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
+    $time = $this->setTime->getRequestTime();
 
-    // Replace "<" and ">" characters.
+    // Allow to use only ['b', 'i', 'em', 'small', 'strong'] tags.
     if ($about !== '') {
-      $about = preg_replace('/[<,>]/', '', $about);
+      $about = strip_tags($about, ['b', 'i', 'em', 'small', 'strong']);
     }
-    else {
-      $about = NULL;
-    }
-
-    // I think better to save NULL rather than empty string.
-    $country = $country != '' ? $form_state->getValue('country') : NULL;
 
     $email_params = [
       'username' => $user_name,
     ];
 
     // Error Handling.
-    $txn = \Drupal::database()->startTransaction();
+    $txn = $this->databaseService->startTransaction();
 
     try {
       // Registration a user in to the custom_reg_users table.
-      \Drupal::database()->insert('custom_reg_users')->fields([
+      $this->databaseService->insert('custom_reg_users')->fields([
         'username' => $user_name,
         'email' => $email,
-        'password' => \Drupal::service('password')->hash($password),
-        'age' => $age ?? NULL,
-        'country' => $country ?? NULL,
-        'about' => $about ?? NULL,
-        'created' => \Drupal::time()->getRequestTime(),
-        'updated' => \Drupal::time()->getRequestTime(),
+        'password' => $this->passwordService->hash($password),
+        'age' => $age === '' ? NULL : $age,
+        'country' => $country === '' ? NULL : $country,
+        'about' => $about === '' ? NULL : $about,
+        'created' => $time,
+        'updated' => $time,
       ])
         ->execute();
 
       $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
-
+      $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
     }
     catch (\Exception $e) {
       $txn->rollBack();
-      \Drupal::logger('custom_reg')->error($e->getMessage());
+      $this->logger->error($e->getMessage());
+      $this->messenger()->addError($this->t('Something is wrong, please try later. Or check report issues(channel - custom_reg)'));
     }
 
-    $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
   }
 
 }
