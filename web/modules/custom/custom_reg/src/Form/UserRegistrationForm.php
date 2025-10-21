@@ -93,29 +93,33 @@ final class UserRegistrationForm extends FormBase {
     // Display fields age, country and about only
     // if the field add_info is checked.
     $states = [
-      'visible' => [
-        ':input[name="add_info"]' => ['checked' => TRUE],
-      ],
+      'add_info' => [':input[name="add_info"]' => ['checked' => TRUE]],
     ];
 
     $form['age'] = [
-      '#states' => $states,
+      '#states' => [
+        'visible' => $states['add_info'],
+        'required' => $states['add_info'],
+      ],
       '#type' => 'number',
       '#title' => $this->t('Age'),
-      '#min' => 16,
-      '#required' => FALSE,
+      '#min' => 20,
+      '#description' => $this->t('The age should be between 20 and 120.'),
     ];
 
     $form['country'] = [
-      '#states' => $states,
+      '#states' => ['visible' => $states['add_info']],
       '#type' => 'textfield',
       '#title' => $this->t('Country'),
     ];
 
+    // dd($form['country'], $form['age']);.
     $form['about'] = [
-      '#states' => $states,
+      '#states' => ['visible' => $states['add_info']],
       '#type' => 'textfield',
       '#title' => $this->t('About yourself'),
+      '#maxlength' => 500,
+      '#description' => $this->t('The text about yourself. Max characters: 500'),
     ];
 
     $form['actions'] = [
@@ -213,29 +217,17 @@ final class UserRegistrationForm extends FormBase {
     }
 
     if ($form_state->getValue('add_info')) {
-      // Only numbers from 2 to 120.
-      if ($age === '' || !preg_match('/^(?:1[01][0-9]|[2-9][0-9]|120)$/',
-          $age)) {
+      // Only numbers from 20 to 120.
+      if (!preg_match('/^(?:1[01][0-9]|[2-9][0-9]|120)$/', $age)) {
         $form_state->setErrorByName('age',
-          $this->t('Please enter a valid age between 2 and 120.'));
+          $this->t('Please enter a valid age between 20 and 120.'));
       }
       // Only letters(any case),spaces,hyphens.Minimum 2, maximum 60 characters.
       if ($country !== '' && !preg_match('/^[A-Za-z\s-]{2,60}$/', $country)) {
         $form_state->setErrorByName('country',
           $this->t('Country name must be 2–60 letters (letters, spaces, or hyphens only).'));
       }
-      // Text up to 500 characters. Must not contain HTML
-      // (we will check it simply at </>).
-      if ($about !== '') {
-        if (strlen($about) > 500) {
-          $form_state->setErrorByName('about',
-            $this->t('About yourself must not exceed 500 characters.'));
-        }
-        elseif (preg_match('/[<>]/', $about)) {
-          $form_state->setErrorByName('about',
-            $this->t('HTML tags are not allowed in the About field.'));
-        }
-      }
+
     }
   }
 
@@ -250,10 +242,16 @@ final class UserRegistrationForm extends FormBase {
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
 
-    // Change empty string to the NULL.
-    $age = $age != '' ? $age : NULL;
-    $country = $country != '' ? $country : NULL;
-    $about = $about != '' ? $about : NULL;
+    // Replace "<" and ">" characters.
+    if ($about !== '') {
+      $about = preg_replace('/[<,>]/', '', $about);
+    }
+    else {
+      $about = NULL;
+    }
+
+    // I think better to save NULL rather than empty string.
+    $country = $country != '' ? $form_state->getValue('country') : NULL;
 
     $email_params = [
       'username' => $user_name,
