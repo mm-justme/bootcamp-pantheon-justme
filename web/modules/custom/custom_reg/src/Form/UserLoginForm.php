@@ -7,6 +7,9 @@ namespace Drupal\custom_reg\Form;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Ajax\MessageCommand;
+use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -70,13 +73,16 @@ final class UserLoginForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Username'),
       '#required' => TRUE,
-      '#placeholder' => $this->t('dimka-ua'),
+      '#maxlenght' => 60,
+      '#description' => $this->t('You can use 2-60 characters.'),
+      '#placeholder' => $this->t('Examples: user-12, User_12'),
     ];
 
     $form['password'] = [
       '#type' => 'password',
       '#title' => $this->t('Password'),
       '#required' => TRUE,
+      '#description' => $this->t('Min 6 characters.'),
     ];
 
     $form['login-status'] = [
@@ -117,6 +123,7 @@ final class UserLoginForm extends FormBase {
     $response = new AjaxResponse();
     $error_message = $this->t('<p style="color:red">Username or password incorrect.</p>');
 
+    // Show errors in the modal window.
     $errors = $form_state->getErrors();
     if ($errors) {
       $response->addCommand(new HtmlCommand('#login-status', $error_message));
@@ -124,7 +131,8 @@ final class UserLoginForm extends FormBase {
     }
 
     $response->addCommand(new CloseModalDialogCommand());
-
+    // Reload page.
+    $response->addCommand(new RedirectCommand('/'));
     return $response;
   }
 
@@ -134,7 +142,21 @@ final class UserLoginForm extends FormBase {
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     $password = $form_state->getValue('password');
     $username = $form_state->getValue('username');
+    // In the Login form we show only general error message.
     $error_message = $this->t('Username or password incorrect.');
+
+    // 2–30 characters.Only letters (a–z, A–Z), numbers (0–9), hyphens (-)
+    // and underscores (_). No spaces or other special characters
+    if (!preg_match('/^[A-Za-z0-9_-]{2,30}$/', $username)) {
+      $form_state->setErrorByName('user_name', $error_message);
+      return;
+    }
+    // Minimum 6 characters. Must contain at least one letter and at least
+    // one number.Permitted characters:Latin letters,numbers,@#%$!_-.
+    if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@#%$!_-]{6,}$/', $password)) {
+      $form_state->setErrorByName('Login', $error_message);
+      return;
+    }
 
     try {
       $user = $this->databaseService
@@ -168,6 +190,9 @@ final class UserLoginForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    if (!$form_state->getErrors()) {
+      $this->messenger()->addStatus($this->t('Your account has been successfully logged in.'));
+    }
   }
 
 }
