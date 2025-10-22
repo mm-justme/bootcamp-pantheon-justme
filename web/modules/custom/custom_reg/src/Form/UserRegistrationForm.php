@@ -2,13 +2,18 @@
 
 namespace Drupal\custom_reg\Form;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Utility\EmailValidatorInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Password\PasswordInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Provides a Custom registration user form.
@@ -17,16 +22,43 @@ final class UserRegistrationForm extends FormBase {
   use AutowireTrait;
 
   /**
+   * The Logger service.
+   */
+  protected LoggerInterface $logger;
+
+  /**
    * {@inheritdoc}
    */
   public function getFormId(): string {
     return 'custom_reg.settings';
   }
 
+  /**
+   * Constructs a new UserRegistrationForm object.
+   *
+   * @param \Drupal\Component\Utility\EmailValidatorInterface $emailValidator
+   *   The email validator service.
+   * @param \Drupal\Core\Mail\MailManagerInterface $mailManager
+   *   The mail manager service for sending emails.
+   * @param \Drupal\Core\Password\PasswordInterface $passwordService
+   *   The password hashing service.
+   * @param \Drupal\Component\Datetime\TimeInterface $setTime
+   *   The time service used for timestamps.
+   * @param \Drupal\Core\Database\Connection $databaseService
+   *   The database connection for interacting with custom tables.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerChannelFactory
+   *   The logger channel factory used to create a logger instance.
+   */
   public function __construct(
     protected EmailValidatorInterface $emailValidator,
     protected MailManagerInterface $mailManager,
-  ) {}
+    protected PasswordInterface $passwordService,
+    protected TimeInterface $setTime,
+    protected Connection $databaseService,
+    LoggerChannelFactoryInterface $loggerChannelFactory,
+  ) {
+    $this->logger = $loggerChannelFactory->get('custom_reg');
+  }
 
   /**
    * {@inheritdoc}
@@ -93,29 +125,35 @@ final class UserRegistrationForm extends FormBase {
     // Display fields age, country and about only
     // if the field add_info is checked.
     $states = [
-      'visible' => [
-        ':input[name="add_info"]' => ['checked' => TRUE],
-      ],
+      'add_info' => [':input[name="add_info"]' => ['checked' => TRUE]],
     ];
 
     $form['age'] = [
-      '#states' => $states,
+      '#states' => [
+        'visible' => $states['add_info'],
+        'required' => $states['add_info'],
+      ],
       '#type' => 'number',
+      '#unsigned' => TRUE,
       '#title' => $this->t('Age'),
-      '#min' => 16,
-      '#required' => FALSE,
+      '#min' => 20,
+      '#description' => $this->t('The age should be between 20 and 120.'),
+      '#default_value' => 20,
     ];
 
     $form['country'] = [
-      '#states' => $states,
+      '#states' => ['visible' => $states['add_info']],
       '#type' => 'textfield',
       '#title' => $this->t('Country'),
     ];
 
+    // dd($form['country'], $form['age']);.
     $form['about'] = [
-      '#states' => $states,
+      '#states' => ['visible' => $states['add_info']],
       '#type' => 'textfield',
       '#title' => $this->t('About yourself'),
+      '#maxlength' => 500,
+      '#description' => $this->t('The text about yourself. Max characters: 500'),
     ];
 
     $form['actions'] = [
@@ -170,7 +208,7 @@ final class UserRegistrationForm extends FormBase {
 
     // Provides search in the DB custom_reg_users.
     // Return TRUE if we found at least 1 user with corresponding email.
-    $is_email_exists = (bool) \Drupal::database()
+    $is_email_exists = (bool) $this->databaseService
       ->select('custom_reg_users', 'c')
       ->fields('c', ['uid'])
       ->condition('email', $email)
@@ -193,7 +231,6 @@ final class UserRegistrationForm extends FormBase {
     $confirm_password = $form_state->getValue('confirm_pass');
     $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
-    $about = $form_state->getValue('about');
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $form_state->setErrorByName('email', $this->t('Invalid email.Please try again.'));
@@ -213,29 +250,17 @@ final class UserRegistrationForm extends FormBase {
     }
 
     if ($form_state->getValue('add_info')) {
-      // Only numbers from 2 to 120.
-      if ($age === '' || !preg_match('/^(?:1[01][0-9]|[2-9][0-9]|120)$/',
-          $age)) {
+      // Only numbers from 20 to 120.
+      if (!preg_match('/^(?:1[01][0-9]|[2-9][0-9]|120)$/', $age)) {
         $form_state->setErrorByName('age',
-          $this->t('Please enter a valid age between 2 and 120.'));
+          $this->t('Please enter a valid age between 20 and 120.'));
       }
       // Only letters(any case),spaces,hyphens.Minimum 2, maximum 60 characters.
       if ($country !== '' && !preg_match('/^[A-Za-z\s-]{2,60}$/', $country)) {
         $form_state->setErrorByName('country',
           $this->t('Country name must be 2–60 letters (letters, spaces, or hyphens only).'));
       }
-      // Text up to 500 characters. Must not contain HTML
-      // (we will check it simply at </>).
-      if ($about !== '') {
-        if (strlen($about) > 500) {
-          $form_state->setErrorByName('about',
-            $this->t('About yourself must not exceed 500 characters.'));
-        }
-        elseif (preg_match('/[<>]/', $about)) {
-          $form_state->setErrorByName('about',
-            $this->t('HTML tags are not allowed in the About field.'));
-        }
-      }
+
     }
   }
 
@@ -249,43 +274,53 @@ final class UserRegistrationForm extends FormBase {
     $age = $form_state->getValue('age');
     $country = $form_state->getValue('country');
     $about = $form_state->getValue('about');
+    $time = $this->setTime->getRequestTime();
 
-    // Change empty string to the NULL.
-    $age = $age != '' ? $age : NULL;
-    $country = $country != '' ? $country : NULL;
-    $about = $about != '' ? $about : NULL;
+    $user_array = [
+      'username' => $user_name,
+      'email' => $email,
+      'password' => $this->passwordService->hash($password),
+      'age' => $age,
+      'country' => $country,
+      'about' => $about,
+      'created' => $time,
+      'updated' => $time,
+    ];
+
+    // Allow to use only ['b', 'i', 'em', 'small', 'strong'] tags.
+    if (!empty($about)) {
+      $user_array['about'] = strip_tags($about, ['b', 'i', 'em', 'small', 'strong']);
+    }
 
     $email_params = [
       'username' => $user_name,
     ];
 
     // Error Handling.
-    $txn = \Drupal::database()->startTransaction();
+    $txn = $this->databaseService->startTransaction();
 
     try {
-      // Registration a user in to the custom_reg_users table.
-      \Drupal::database()->insert('custom_reg_users')->fields([
-        'username' => $user_name,
-        'email' => $email,
-        'password' => \Drupal::service('password')->hash($password),
-        'age' => $age ?? NULL,
-        'country' => $country ?? NULL,
-        'about' => $about ?? NULL,
-        'created' => \Drupal::time()->getRequestTime(),
-        'updated' => \Drupal::time()->getRequestTime(),
-      ])
+      // Create a user.
+      $this->databaseService->insert('custom_reg_users')
+        ->fields($user_array)
         ->execute();
 
-      $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
-      $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
-
+      $this->mailManager->mail('custom_reg', 'custom_reg.test',
+        $email, 'en',
+        $email_params,
+        $reply = NULL,
+        $send = TRUE);
+      $this->messenger()->addStatus($this->t(
+        'User has been registered. The message has been sent to @email.',
+        ['@email' => $email]));
     }
     catch (\Exception $e) {
+      // Canceling registration of a new user.
       $txn->rollBack();
-      \Drupal::logger('custom_reg')->error($e->getMessage());
-      $this->messenger()->addStatus($this->t('Something went wrong while trying to send the message.'));
+      $this->logger->error($e->getMessage());
+      $this->messenger()->addError($this->t(
+        'Something is wrong, please try later. Or check report issues(channel - custom_reg)'));
     }
-
   }
 
 }
