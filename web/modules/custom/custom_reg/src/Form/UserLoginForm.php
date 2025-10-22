@@ -139,7 +139,7 @@ final class UserLoginForm extends FormBase {
     try {
       $user = $this->databaseService
         ->select('custom_reg_users', 'c')
-        ->fields('c', ['username', 'password'])
+        ->fields('c', ['username', 'password', 'uid'])
         ->condition('username', $username)
         ->range(0, 1)
         ->execute()
@@ -154,6 +154,8 @@ final class UserLoginForm extends FormBase {
         $form_state->setErrorByName('Login', $error_message);
         return;
       }
+
+      setcookie('custom_reg_userId', $user['uid'], time() + 3600 * 3);
 
     }
     catch (\Exception $e) {

@@ -53,20 +53,28 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
    * {@inheritdoc}
    */
   public function build(): array {
-    $build['login'] = [
-      '#type' => 'link',
-      '#title' => new TranslatableMarkup('Login'),
-      '#url' => Url::fromRoute('custom_reg.login_modal'),
+    $user_cookie = $_COOKIE['custom_reg_userId'] ?? '';
 
-      '#attributes' => [
-        'class' => ['use-ajax', 'btn'],
-        'data-dialog-type' => 'modal',
-        'data-dialog-options' => '{"width":480}',
-      ],
-      '#attached' => [
-        'library' => ['core/drupal.dialog.ajax'],
-      ],
-    ];
+    if (!empty($user_cookie)) {
+      $build['login'] = [];
+    }
+    else {
+      $build['login'] = [
+        '#type' => 'link',
+        '#title' => new TranslatableMarkup('Login'),
+        '#url' => Url::fromRoute('custom_reg.login_modal'),
+
+        '#attributes' => [
+          'class' => ['use-ajax', 'btn'],
+          'data-dialog-type' => 'modal',
+          'data-dialog-options' => '{"width":480}',
+        ],
+        '#attached' => [
+          'library' => ['core/drupal.dialog.ajax'],
+        ],
+      ];
+    }
+
     return $build;
   }
 
