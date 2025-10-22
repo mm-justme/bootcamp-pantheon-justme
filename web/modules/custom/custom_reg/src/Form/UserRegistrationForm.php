@@ -33,6 +33,22 @@ final class UserRegistrationForm extends FormBase {
     return 'custom_reg.settings';
   }
 
+  /**
+   * Constructs a new UserRegistrationForm object.
+   *
+   * @param \Drupal\Component\Utility\EmailValidatorInterface $emailValidator
+   *   The email validator service.
+   * @param \Drupal\Core\Mail\MailManagerInterface $mailManager
+   *   The mail manager service for sending emails.
+   * @param \Drupal\Core\Password\PasswordInterface $passwordService
+   *   The password hashing service.
+   * @param \Drupal\Component\Datetime\TimeInterface $setTime
+   *   The time service used for timestamps.
+   * @param \Drupal\Core\Database\Connection $databaseService
+   *   The database connection for interacting with custom tables.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerChannelFactory
+   *   The logger channel factory used to create a logger instance.
+   */
   public function __construct(
     protected EmailValidatorInterface $emailValidator,
     protected MailManagerInterface $mailManager,
@@ -122,6 +138,7 @@ final class UserRegistrationForm extends FormBase {
       '#title' => $this->t('Age'),
       '#min' => 20,
       '#description' => $this->t('The age should be between 20 and 120.'),
+      '#default_value' => 20,
     ];
 
     $form['country'] = [
@@ -259,9 +276,20 @@ final class UserRegistrationForm extends FormBase {
     $about = $form_state->getValue('about');
     $time = $this->setTime->getRequestTime();
 
+    $user_array = [
+      'username' => $user_name,
+      'email' => $email,
+      'password' => $this->passwordService->hash($password),
+      'age' => $age,
+      'country' => $country,
+      'about' => $about,
+      'created' => $time,
+      'updated' => $time,
+    ];
+
     // Allow to use only ['b', 'i', 'em', 'small', 'strong'] tags.
-    if ($about !== '') {
-      $about = strip_tags($about, ['b', 'i', 'em', 'small', 'strong']);
+    if (!empty($about)) {
+      $user_array['about'] = strip_tags($about, ['b', 'i', 'em', 'small', 'strong']);
     }
 
     $email_params = [
@@ -272,28 +300,27 @@ final class UserRegistrationForm extends FormBase {
     $txn = $this->databaseService->startTransaction();
 
     try {
-      // Registration a user in to the custom_reg_users table.
-      $this->databaseService->insert('custom_reg_users')->fields([
-        'username' => $user_name,
-        'email' => $email,
-        'password' => $this->passwordService->hash($password),
-        'age' => $age === '' ? NULL : $age,
-        'country' => $country === '' ? NULL : $country,
-        'about' => $about === '' ? NULL : $about,
-        'created' => $time,
-        'updated' => $time,
-      ])
+      // Create a user.
+      $this->databaseService->insert('custom_reg_users')
+        ->fields($user_array)
         ->execute();
 
-      $this->mailManager->mail('custom_reg', 'custom_reg.test', $email, 'en', $email_params, $reply = NULL, $send = TRUE);
-      $this->messenger()->addStatus($this->t('User has been registered. The message has been sent to @email.', ['@email' => $email]));
+      $this->mailManager->mail('custom_reg', 'custom_reg.test',
+        $email, 'en',
+        $email_params,
+        $reply = NULL,
+        $send = TRUE);
+      $this->messenger()->addStatus($this->t(
+        'User has been registered. The message has been sent to @email.',
+        ['@email' => $email]));
     }
     catch (\Exception $e) {
+      // Canceling registration of a new user.
       $txn->rollBack();
       $this->logger->error($e->getMessage());
-      $this->messenger()->addError($this->t('Something is wrong, please try later. Or check report issues(channel - custom_reg)'));
+      $this->messenger()->addError($this->t(
+        'Something is wrong, please try later. Or check report issues(channel - custom_reg)'));
     }
-
   }
 
 }
