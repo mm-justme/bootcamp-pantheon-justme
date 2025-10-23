@@ -41,7 +41,8 @@
         "drupal/config_ignore": "^3.3"
     },
     "require-dev": {
-        "drupal/core-dev": "^11"
+        "drupal/core-dev": "^11",
+        "phpro/grumphp": "^2.17"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -100,7 +101,8 @@
             "phpstan/extension-installer": true,
             "php-http/discovery": true,
             "tbachert/spi": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "phpro/grumphp": true
         }
     }
 }
