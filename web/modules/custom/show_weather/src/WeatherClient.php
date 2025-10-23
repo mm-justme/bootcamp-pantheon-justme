@@ -113,7 +113,7 @@ class WeatherClient implements WeatherClientInterface {
   /**
    * Determines the user's approximate location based on their IP address.
    */
-  public function getLocationByIP(): ?array {
+  public function getLocationByip(): ?array {
     try {
       $request = $this->httpClient->request('get', 'http://ip-api.com/json');
     }
