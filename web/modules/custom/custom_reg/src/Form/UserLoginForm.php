@@ -7,8 +7,6 @@ namespace Drupal\custom_reg\Form;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
 use Drupal\Core\Ajax\HtmlCommand;
-use Drupal\Core\Ajax\InvokeCommand;
-use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Form\FormBase;
@@ -17,6 +15,7 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Password\PasswordInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Cookie;
 
 /**
  * Provides a custom_reg form.
@@ -120,6 +119,7 @@ final class UserLoginForm extends FormBase {
    *   `#email-status` element with a validation message.
    */
   public function ajaxSubmit(array &$form, FormStateInterface $form_state) {
+    $user = $form_state->getValue('userData');
     $response = new AjaxResponse();
     $error_message = $this->t('<p style="color:red">Username or password incorrect.</p>');
 
@@ -129,7 +129,9 @@ final class UserLoginForm extends FormBase {
       $response->addCommand(new HtmlCommand('#login-status', $error_message));
       return $response;
     }
+    $cookie = Cookie::create('custom_reg_userId', $user['uid'], '+3 hour');
 
+    $response->headers->setCookie($cookie);
     $response->addCommand(new CloseModalDialogCommand());
     // Reload page.
     $response->addCommand(new RedirectCommand('/'));
@@ -176,9 +178,7 @@ final class UserLoginForm extends FormBase {
         $form_state->setErrorByName('Login', $error_message);
         return;
       }
-
-      setcookie('custom_reg_userId', $user['uid'], time() + 3600 * 3);
-
+      $form_state->setValue('userData', $user);
     }
     catch (\Exception $e) {
       $this->logger->error($e->getMessage());

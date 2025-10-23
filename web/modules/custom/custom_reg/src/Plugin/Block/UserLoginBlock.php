@@ -12,6 +12,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Provides an user login block.
@@ -32,6 +33,7 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
     $plugin_definition,
     private readonly LoggerChannelFactoryInterface $loggerFactory,
     private readonly Connection $connection,
+    private Request $request,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
@@ -46,6 +48,7 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
       $plugin_definition,
       $container->get('logger.factory'),
       $container->get('database'),
+      $container->get('request_stack')->getCurrentRequest(),
     );
   }
 
@@ -53,7 +56,7 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
    * {@inheritdoc}
    */
   public function build(): array {
-    $user_cookie = $_COOKIE['custom_reg_userId'] ?? '';
+    $user_cookie = $this->request->cookies->get('custom_reg_userId');
 
     if (!empty($user_cookie)) {
       $build['login'] = [];
@@ -62,7 +65,7 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
       $build['login'] = [
         '#type' => 'link',
         '#title' => new TranslatableMarkup('Login'),
-        '#url' => Url::fromRoute('custom_reg.login_modal'),
+        '#url' => Url::fromRoute('custom_reg.login'),
 
         '#attributes' => [
           'class' => ['use-ajax', 'btn'],

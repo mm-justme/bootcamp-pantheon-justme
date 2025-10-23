@@ -6,8 +6,8 @@ custom_reg.settings:
   requirements:
     _permission: 'access content'
 
-custom_reg.login_modal:
-  path: '/login-modal'
+custom_reg.login:
+  path: '/login'
   defaults:
     _title: 'Custom User Login'
     _form: 'Drupal\custom_reg\Form\UserLoginForm'
