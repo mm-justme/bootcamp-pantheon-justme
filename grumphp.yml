@@ -1,0 +1,8 @@
+# Use DDEV's PHP interpreter for GrumPHP.
+# Copy as grumphp.yml and reinit hooks:
+# ddev exec grumphp git:deinit
+# ddev exec grumphp git:init
+imports: [ { resource: './grumphp.dist.yml' } ]
+grumphp:
+  git_hook_variables:
+    EXEC_GRUMPHP_COMMAND: 'ddev exec php'
