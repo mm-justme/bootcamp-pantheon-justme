@@ -1,0 +1,5 @@
+id: custom_reg_user_login
+theme: home_designer_theme
+region: header
+weight: 100
+plugin: custom_reg_user_login
