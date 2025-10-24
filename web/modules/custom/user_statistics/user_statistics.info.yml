@@ -1,0 +1,7 @@
+name: 'User Statistics'
+type: module
+description: 'Stores stats about user actions on Article nodes (views/edits).'
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
