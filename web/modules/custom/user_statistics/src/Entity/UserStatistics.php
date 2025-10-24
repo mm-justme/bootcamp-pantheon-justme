@@ -13,6 +13,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\user_statistics\UserStatisticsListBuilder;
 
 /**
  * Defines the user stats entity class.
@@ -33,7 +34,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
     'access' => EntityAccessControlHandler::class,
     // Determines how the table with the list of entities looks in the
     // admin panel. Defines columns (buildHeader()) and rows (buildRow()).
-    'list_builder' => EntityListBuilder::class,
+    'list_builder' => UserStatisticsListBuilder::class,
     // Manages CRUD forms for the entity.
     'form' => [
       'default' => ContentEntityForm::class,
@@ -51,11 +52,11 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
   // handlers and entity_keys. They determine: which URLs exist for this entity,
   // and what happens when a user opens them (view/edit/delete/list/add).
   links: [
-    'canonical' => '/user-statistics/{user_statistics}',
-    'add-form' => '/user-statistics/add',
-    'edit-form' => '/user-statistics/{user_statistics}/edit',
-    'delete-form' => '/user-statistics/{user_statistics}/delete',
-    'collection' => '/user-statistics',
+    'canonical' => '/admin/user-statistics/{user_statistics}',
+    'add-form' => '/admin/user-statistics/add',
+    'edit-form' => '/admin/user-statistics/{user_statistics}/edit',
+    'delete-form' => '/admin/user-statistics/{user_statistics}/delete',
+    'collection' => '/admin/user-statistics',
     // We'll use /admin as a start point. Since, it better for UI so for.
   ],
   // This is the name of the permission that Drupal uses for full
@@ -74,9 +75,11 @@ class UserStatistics extends ContentEntityBase {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type,): array {
     $fields = parent::baseFieldDefinitions($entity_type);
 
+    // entity_reference - means connection to user table.
     $fields['uid'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('User'))
       ->setDescription(t('The user who perform the action.'))
+      // Here we set which table we connect.
       ->setSetting('target_type', 'user')
       ->setRequired(TRUE)
       ->setDisplayConfigurable('form', TRUE)
@@ -90,9 +93,11 @@ class UserStatistics extends ContentEntityBase {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    // Means create a list. But only with values we need.
     $fields['action'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('Action'))
       ->setDescription(t('The type of action performed.'))
+      // Described what values we need, only view.
       ->setSettings([
         'allowed_values' => ['view' => 'view', 'edit' => 'edit'],
       ])
