@@ -43,6 +43,9 @@
     @apply font-family-PS leading-tight text-theme-gold text-[36px] lg:text-[50px];
   }
 }
+.tabs{
+  @apply absolute bg-transparent z-30 top-52;
+}
 
 .view-display-id-cases_view_block {
   .row {
