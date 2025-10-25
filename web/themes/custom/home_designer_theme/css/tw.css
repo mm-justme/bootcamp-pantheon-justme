@@ -733,6 +733,12 @@ video {
 .order-4 {
   order: 4;
 }
+.m-0 {
+  margin: 0px;
+}
+.m-auto {
+  margin: auto;
+}
 .\!my-2 {
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
@@ -795,8 +801,8 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
-.mt-28 {
-  margin-top: 7rem;
+.mt-24 {
+  margin-top: 6rem;
 }
 .block {
   display: block;
@@ -877,6 +883,12 @@ video {
 .max-w-lg {
   max-width: 32rem;
 }
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -923,6 +935,9 @@ video {
 .justify-normal {
   justify-content: normal;
 }
+.justify-center {
+  justify-content: center;
+}
 .justify-between {
   justify-content: space-between;
 }
@@ -952,6 +967,9 @@ video {
 }
 .border-b-4 {
   border-bottom-width: 4px;
+}
+.border-t-4 {
+  border-top-width: 4px;
 }
 .border-theme-gold {
   --tw-border-opacity: 1;
@@ -1012,6 +1030,14 @@ video {
 .py-14 {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .\!pb-5 {
   padding-bottom: 1.25rem !important;
@@ -1109,6 +1135,9 @@ video {
 .uppercase {
   text-transform: uppercase;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 .leading-\[1\.1\] {
   line-height: 1.1;
 }
@@ -1169,6 +1198,12 @@ video {
 }
 .duration-100 {
   transition-duration: 100ms;
+}
+.tabs {
+  position: absolute;
+  top: 13rem;
+  z-index: 30;
+  background-color: transparent;
 }
 
 .view-display-id-cases_view_block {
@@ -1323,6 +1358,25 @@ header {
     img {
       max-height: 450px;
     }
+  }
+}
+.case-studies--photo {
+  min-height: 18rem;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 768px) {
+
+  .case-studies--photo {
+    min-height: 400px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .case-studies--photo {
+    min-height: 600px;
   }
 }
 
@@ -2463,11 +2517,6 @@ header {
   display: none;
 }
 
-.hover\:bg-theme-gold1:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:text-theme-gold:hover {
   --tw-text-opacity: 1;
   color: rgb(183 146 89 / var(--tw-text-opacity, 1));
@@ -2568,6 +2617,11 @@ header {
   .md\:px-3 {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+
+  .md\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   .md\:\!pt-0 {
@@ -2687,6 +2741,16 @@ header {
   .lg\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .lg\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .lg\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .lg\:pb-10 {
