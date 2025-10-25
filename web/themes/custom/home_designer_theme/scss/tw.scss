@@ -122,6 +122,9 @@ header {
     @apply w-full max-h-[800px] md:max-h-[550px] lg:max-h-[450px] object-cover;
   }
 }
+.case-studies--photo{
+  @apply w-full bg-cover bg-no-repeat bg-center min-h-72 md:min-h-[400px] lg:min-h-[600px]
+}
 
 .inner_title {
   @apply text-[24px] md:text-[20px] lg:text-[26px] xl:text-[32px] text-theme-white font-family-GD font-normal leading-[1.1]
