@@ -1170,6 +1170,12 @@ video {
 .duration-100 {
   transition-duration: 100ms;
 }
+.tabs {
+  position: absolute;
+  top: 13rem;
+  z-index: 30;
+  background-color: transparent;
+}
 
 .view-display-id-cases_view_block {
   .row {
@@ -2461,11 +2467,6 @@ header {
 
 .last\:hidden:last-child {
   display: none;
-}
-
-.hover\:bg-theme-gold1:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(194 162 93 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-theme-gold:hover {
