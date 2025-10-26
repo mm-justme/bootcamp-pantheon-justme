@@ -1,7 +1,9 @@
 uuid: 5ace700d-9eb8-488a-be08-7c9a8c36f53a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: post_2xl
 label: 'post-2xl 960x600'
 effects:
@@ -11,11 +13,11 @@ effects:
     weight: 2
     data:
       extension: webp
-  dd7aa6ec-85ec-4ddc-aad6-1246b0c15630:
-    uuid: dd7aa6ec-85ec-4ddc-aad6-1246b0c15630
-    id: image_scale_and_crop
+  8b205235-6bb7-46ac-a3f5-7f596ba6e522:
+    uuid: 8b205235-6bb7-46ac-a3f5-7f596ba6e522
+    id: focal_point_scale_and_crop
     weight: 3
     data:
       width: 960
       height: 600
-      anchor: center-center
+      crop_type: focal_point
