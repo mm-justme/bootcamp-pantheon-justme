@@ -39,7 +39,8 @@
         "npm-asset/swiper": "^12.0",
         "drupal/twig_tweak": "^3.4",
         "drupal/config_ignore": "^3.3",
-        "drupal/nomarkup": "^1.0"
+        "drupal/nomarkup": "^1.0",
+        "drupal/focal_point": "^2.1"
     },
     "require-dev": {
         "drupal/core-dev": "^11",
