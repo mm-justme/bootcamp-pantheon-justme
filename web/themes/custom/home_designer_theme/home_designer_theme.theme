@@ -14,8 +14,8 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function home_theme_designer_form_system_theme_settings_alter(
   &$form,
-  FormStateInterface $form_state
-) {
+  FormStateInterface $form_state,
+): void {
   $form['components']['navbar']['bootstrap_navbar_top_background']['#options'] = [
     'bg-primary' => t('Primary'),
     'bg-secondary' => t('Secondary'),
@@ -35,31 +35,31 @@ function home_theme_designer_form_system_theme_settings_alter(
 }
 
 /**
- * preprocess hero_section
+ * Preprocess hero_section.
  */
 function home_designer_theme_preprocess_paragraph__hero_section(
-  array &$variables
-) {
+  array &$variables,
+): void {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
 
   $indicators = [];
 
   if ($paragraph->hasField('field_indicators') && !$paragraph->get('field_indicators')
-      ->isEmpty()) {
+    ->isEmpty()) {
     $terms = $paragraph->get('field_indicators')->referencedEntities();
 
     foreach ($terms as $term) {
       $title = $term->label();
 
       $desc = ($term->hasField('field_description') && !$term->get('field_description')
-          ->isEmpty())
+        ->isEmpty())
         ? $term->get('field_description')->value
         : '';
 
       $img_url = '';
       if ($term->hasField('field_icon') && !$term->get('field_icon')
-          ->isEmpty()) {
+        ->isEmpty()) {
         $file = $term->get('field_icon')->entity;
         if ($file) {
           $file_url = \Drupal::service('file_url_generator');

@@ -1,0 +1,5 @@
+# Create basic permission. Note that tha name 'administer all user statistic'
+# is equal to the UserStatistics.php attribute value of the admin_permission.
+administer all user statistics:
+  title: 'Administer all user statistics'
+  description: 'View, add, edit, delete any user statistic record and access the listing.'

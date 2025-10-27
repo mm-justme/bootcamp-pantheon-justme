@@ -28,7 +28,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
    *
    * @var string
    */
-  protected $city_by_ip;
+  protected $cityByIp;
   private const SETTINGS = 'show_weather.settings';
 
   /**
@@ -111,8 +111,8 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
     }
 
     if ($auto_location) {
-      $response = $this->weatherClient->getLocationByIP();
-      $city = $this->city_by_ip = $response['city'];
+      $response = $this->weatherClient->getLocationByip();
+      $city = $this->cityByIp = $response['city'];
     }
     $city_checked = $this->weatherClient->getGeoData($city);
 
@@ -142,7 +142,7 @@ class ShowWeatherSettingsForm extends ConfigFormBase {
     $auto_location = $form_state->getValue('location');
 
     if ($auto_location) {
-      $city = $this->city_by_ip;
+      $city = $this->cityByIp;
     }
 
     $this->configFactory->getEditable(self::SETTINGS)
