@@ -66,7 +66,7 @@ class UserStatisticsListBuilder extends EntityListBuilder {
   /**
    * {@inheritdoc}
    */
-  public function buildRow(EntityInterface $entity) {
+  public function buildRow(EntityInterface $entity):array {
     /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
     $row['id'] = $entity->id();
 
