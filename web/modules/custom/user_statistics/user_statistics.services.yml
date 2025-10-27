@@ -1,0 +1,11 @@
+services:
+  user_statistics.subscriber.article_view:
+    class: Drupal\user_statistics\EventSubscriber\ArticleViewSubscriber
+    arguments:
+      - '@entity_type.manager'
+      - '@current_user'
+      - '@current_route_match'
+    # Execrably here(tags) Drupal(symphony) knows about event. It means - this class is
+    # an event listener; connect its methods to the event system.
+    tags:
+      - { name: event_subscriber }
