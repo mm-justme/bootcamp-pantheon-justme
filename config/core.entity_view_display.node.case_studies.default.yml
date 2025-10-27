@@ -9,8 +9,14 @@ dependencies:
     - node.type.case_studies
   module:
     - image
+    - layout_builder
+    - nomarkup
     - text
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 id: node.case_studies.default
 targetEntityType: node
 bundle: case_studies
@@ -18,9 +24,13 @@ mode: default
 content:
   field_body:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
     weight: 2
     region: content
   field_photo:
@@ -31,16 +41,25 @@ content:
       image_style: ''
       image_loading:
         attribute: lazy
-    third_party_settings: {  }
-    weight: 1
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+    weight: 0
     region: content
   field_title_additional:
     type: string
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+    weight: 1
     region: content
 hidden:
+  addtoany: true
   links: true
