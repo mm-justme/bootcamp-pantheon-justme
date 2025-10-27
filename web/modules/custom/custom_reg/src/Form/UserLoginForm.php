@@ -55,7 +55,7 @@ final class UserLoginForm extends FormBase {
   /**
    * {@inheritDoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container): self {
     return new self(
       $container->get('database'),
       $container->get('logger.factory'),
@@ -66,7 +66,7 @@ final class UserLoginForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state): array {
+  public function buildForm(array $form, FormStateInterface $form_state) {
 
     $form['username'] = [
       '#type' => 'textfield',

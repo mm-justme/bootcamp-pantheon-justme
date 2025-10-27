@@ -55,7 +55,7 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
   /**
    * {@inheritdoc}
    */
-  public function build(): array {
+  public function build() {
     $user_cookie = $this->request->cookies->get('custom_reg_userId');
 
     if (!empty($user_cookie)) {
@@ -64,7 +64,7 @@ final class UserLoginBlock extends BlockBase implements ContainerFactoryPluginIn
     else {
       $build['login'] = [
         '#type' => 'link',
-        '#title' => new TranslatableMarkup('Login'),
+        '#title' => $this->t('Login'),
         '#url' => Url::fromRoute('custom_reg.login'),
 
         '#attributes' => [
