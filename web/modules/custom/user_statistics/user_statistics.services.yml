@@ -5,6 +5,7 @@ services:
       - '@entity_type.manager'
       - '@current_user'
       - '@current_route_match'
+      - '@logger.factory'
     # Execrably here(tags) Drupal(symphony) knows about event. It means - this class is
     # an event listener; connect its methods to the event system.
     tags:
