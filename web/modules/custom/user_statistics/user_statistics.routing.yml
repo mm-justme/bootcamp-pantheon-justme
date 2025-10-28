@@ -1,0 +1,9 @@
+user_statistics.clear_all:
+  path: '/admin/user-statistics/clear-all'
+  defaults:
+    _form: '\Drupal\user_statistics\Form\ClearAllStatisticsForm'
+    _title: 'Clear all user statistics'
+  requirements:
+    _permission: 'clear all statistics'
+  options:
+    _admin_route: TRUE

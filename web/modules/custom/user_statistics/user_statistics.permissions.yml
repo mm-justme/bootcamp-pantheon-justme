@@ -3,3 +3,7 @@
 administer all user statistics:
   title: 'Administer all user statistics'
   description: 'View, add, edit, delete any user statistic record and access the listing.'
+  
+clear all statistics:
+  title: 'Clear all users statistics'
+  description: 'Delete all records about users statistics'
