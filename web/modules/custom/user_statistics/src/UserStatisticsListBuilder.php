@@ -2,6 +2,7 @@
 
 namespace Drupal\user_statistics;
 
+use Drupal\user\UserInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -53,6 +54,9 @@ class UserStatisticsListBuilder extends EntityListBuilder {
 
   /**
    * {@inheritdoc}
+   *
+   * @return array<string, mixed>
+   *   Return array
    */
   public function buildHeader():array {
     $header['id'] = $this->t('ID');
@@ -65,8 +69,11 @@ class UserStatisticsListBuilder extends EntityListBuilder {
 
   /**
    * {@inheritdoc}
+   *
+   * @return array<string, mixed>
+   *   Return array
    */
-  protected function getEntityIds() {
+  protected function getEntityIds(): array {
     $query = $this->getStorage()->getQuery()
       ->accessCheck(TRUE)
       ->sort($this->entityType->getKey('id'), 'DESC');
@@ -79,14 +86,23 @@ class UserStatisticsListBuilder extends EntityListBuilder {
 
   /**
    * {@inheritdoc}
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   *
+   * @return array<string, mixed>
+   *   Return array
    */
   public function buildRow(EntityInterface $entity):array {
     /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
     $row['id'] = $entity->id();
 
     $user = $entity->get('uid')->entity;
-    $row['uid'] = $user ? $user->toLink($user->getDisplayName()) : $this->t('Anonymous');
-
+    if ($user instanceof UserInterface) {
+      $row['uid'] = $user->toLink($user->getDisplayName());
+    }
+    else {
+      $row['uid'] = $this->t('Anonymous');
+    }
     $node = $entity->get('nid')->entity;
     $row['nid'] = $node ? $node->toLink($node->label()) : $this->t('Missing Node');
 

@@ -27,7 +27,7 @@ class UserStatisticsAccessControlHandler extends EntityAccessControlHandler {
     }
 
     if ($operation === 'view') {
-      $is_owner = $entity->getOwnerId() === $account->id();
+      $is_owner = $account->id() === $account->id();
       return AccessResult::allowedIf($is_owner)
         ->cachePerUser()
         ->addCacheableDependency($entity);
