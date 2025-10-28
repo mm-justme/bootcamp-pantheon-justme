@@ -7,3 +7,11 @@ administer all user statistics:
 clear all statistics:
   title: 'Clear all users statistics'
   description: 'Delete all records about users statistics'
+  
+clear own user statistics:
+  title: 'Clear own user statistics'
+  description: 'Allow users to clear only their own statistics records.'
+
+view own user statistics:
+  title: 'View own user statistics'
+  description: 'View only records that belong to the current user.'

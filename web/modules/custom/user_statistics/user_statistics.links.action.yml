@@ -4,3 +4,11 @@ user_statistics.clear_all_action:
   title: 'Clear All'
   appears_on:
     - entity.user_statistics.collection
+    
+user_statistics.clear_own_action:
+  route_name: user_statistics.clear_own
+  title: 'Clear my records'
+  appears_on:
+    - entity.user_statistics.collection
+    - user_statistics.collection.own
+  weight: 5

@@ -14,7 +14,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Provides a method to delete all users statistic records.
  */
-class ClearAllStatisticsForm extends ConfirmFormBase implements ContainerInjectionInterface {
+class ClearAllStatisticsConfirmForm extends ConfirmFormBase implements ContainerInjectionInterface {
+
+  /**
+   * The logger service variable.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
   protected LoggerInterface $logger;
 
   /**
@@ -36,18 +42,26 @@ class ClearAllStatisticsForm extends ConfirmFormBase implements ContainerInjecti
    * {@inheritDoc}
    */
   public function getFormId(): string {
-    return 'user_statistics_clear_all';
+    return 'user_statistics_clear_all_confirm';
   }
 
+  /**
+   * Constructs of a ClearAllStatisticsConfirmForm object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerChannelFactory
+   *   The logger factory service.
+   */
   public function __construct(
-    private EntityTypeManagerInterface $entityTypeManager,
+    private readonly EntityTypeManagerInterface $entityTypeManager,
     LoggerChannelFactoryInterface $loggerChannelFactory,
   ) {
     $this->logger = $loggerChannelFactory->get('user_statistics');
   }
 
   /**
-   *
+   * {@inheritDoc}
    */
   public static function create(ContainerInterface $container): static {
     return new static(
