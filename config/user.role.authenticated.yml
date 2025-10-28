@@ -33,3 +33,4 @@ permissions:
   - 'use text format basic_html'
   - 'view media'
   - 'view own user statistics'
+  - 'view the administration theme'
