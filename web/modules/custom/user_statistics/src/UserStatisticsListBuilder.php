@@ -66,6 +66,20 @@ class UserStatisticsListBuilder extends EntityListBuilder {
   /**
    * {@inheritdoc}
    */
+  protected function getEntityIds() {
+    $query = $this->getStorage()->getQuery()
+      ->accessCheck(TRUE)
+      ->sort($this->entityType->getKey('id'), 'DESC');
+
+    if (!$this->currentUser->hasPermission('administer all user statistics')) {
+      $query->condition('uid', $this->currentUser->id());
+    }
+    return $query->execute();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function buildRow(EntityInterface $entity):array {
     /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
     $row['id'] = $entity->id();
