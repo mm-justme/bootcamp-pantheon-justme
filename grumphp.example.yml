@@ -5,5 +5,4 @@
 imports: [ { resource: './grumphp.dist.yml' } ]
 grumphp:
   git_hook_variables:
-#    EXEC_GRUMPHP_COMMAND: 'ddev exec php'
-    EXEC_GRUMPHP_COMMAND: './scripts/grumphp.sh'
+    EXEC_GRUMPHP_COMMAND: 'ddev exec php'
