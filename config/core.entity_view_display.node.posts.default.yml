@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.posts.field_custom_italic
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_photo_main
     - field.field.node.posts.field_posts_body
@@ -58,7 +59,7 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 0
+            weight: 1
             additional: {  }
           c18de583-eb3c-4aa2-be93-d8ce4810ff8e:
             uuid: c18de583-eb3c-4aa2-be93-d8ce4810ff8e
@@ -77,7 +78,7 @@ third_party_settings:
                 settings:
                   link: true
                 third_party_settings: {  }
-            weight: 1
+            weight: 2
             additional: {  }
           14753f45-5bdc-4bcf-b54c-7d41658889b5:
             uuid: 14753f45-5bdc-4bcf-b54c-7d41658889b5
@@ -108,7 +109,7 @@ third_party_settings:
                     refresh: 60
                     description: ''
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
           e8213b74-0bec-4606-9863-b4e7bffc7424:
             uuid: e8213b74-0bec-4606-9863-b4e7bffc7424
@@ -123,7 +124,25 @@ third_party_settings:
               addtoany_html: ''
               link_url: ''
               link_title: ''
-            weight: 7
+            weight: 6
+            additional: {  }
+          d5e892fd-f920-41e5-b4c3-480a6356ffb4:
+            uuid: d5e892fd-f920-41e5-b4c3-480a6356ffb4
+            region: first
+            configuration:
+              id: 'field_block:node:posts:field_posts_body'
+              label: posts-body
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
           aed7fd2f-ed41-4cb9-b9af-d0d741f00c8f:
             uuid: aed7fd2f-ed41-4cb9-b9af-d0d741f00c8f
@@ -142,14 +161,14 @@ third_party_settings:
                 settings:
                   view_mode: responsive_main
                 third_party_settings: {  }
-            weight: 5
+            weight: 4
             additional: {  }
-          d5e892fd-f920-41e5-b4c3-480a6356ffb4:
-            uuid: d5e892fd-f920-41e5-b4c3-480a6356ffb4
+          a8718744-6456-41af-9ecf-696b65ccc801:
+            uuid: a8718744-6456-41af-9ecf-696b65ccc801
             region: first
             configuration:
-              id: 'field_block:node:posts:field_posts_body'
-              label: posts-body
+              id: 'field_block:node:posts:field_custom_italic'
+              label: 'Custom Italic'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -159,8 +178,12 @@ third_party_settings:
                 type: text_default
                 label: hidden
                 settings: {  }
-                third_party_settings: {  }
-            weight: 6
+                third_party_settings:
+                  nomarkup:
+                    enabled: false
+                    separator: '|'
+                    referenced_entity: ''
+            weight: 0
             additional: {  }
         third_party_settings: {  }
       -

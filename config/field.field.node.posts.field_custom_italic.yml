@@ -1,0 +1,24 @@
+uuid: 9e756eab-885a-42cc-a81e-e25ef0ec9fcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_custom_italic
+    - filter.format.italic_only
+    - node.type.posts
+  module:
+    - text
+id: node.posts.field_custom_italic
+field_name: field_custom_italic
+entity_type: node
+bundle: posts
+label: 'Custom Italic'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - italic_only
+field_type: text_long
