@@ -1910,11 +1910,11 @@ header {
 
     .layout__region--first {
 
-      .block-field-blocknodepoststitle {
+      .block-field-blocknodepoststitle,.block-field-blocknodepostsfield-custom-italic {
         margin-bottom: 1.25rem;
       }
 
-      .block-field-blocknodepoststitle {
+      .block-field-blocknodepoststitle,.block-field-blocknodepostsfield-custom-italic {
 
         .field--name-title {
           font-family: Gilda Display;

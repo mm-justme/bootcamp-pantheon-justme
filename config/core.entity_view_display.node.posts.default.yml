@@ -144,29 +144,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 6
             additional: {  }
-          2efe580c-1252-4fa7-9546-0c840642f061:
-            uuid: 2efe580c-1252-4fa7-9546-0c840642f061
-            region: first
-            configuration:
-              id: 'field_block:node:posts:title'
-              label: Title
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings:
-                  nomarkup:
-                    enabled: false
-                    separator: '|'
-                    referenced_entity: ''
-            weight: 3
-            additional: {  }
           1590ebc8-1cff-488e-96b4-3ac092b1e2ff:
             uuid: 1590ebc8-1cff-488e-96b4-3ac092b1e2ff
             region: first
