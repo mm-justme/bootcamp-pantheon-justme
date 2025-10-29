@@ -22,4 +22,3 @@ parameters:
 rules:
   - PHPStan\Rules\Functions\MissingFunctionReturnTypehintRule
   - PHPStan\Rules\Functions\MissingFunctionParameterTypehintRule
-  - PHPStan\Rules\Methods\MissingMethodReturnTypehintRule
