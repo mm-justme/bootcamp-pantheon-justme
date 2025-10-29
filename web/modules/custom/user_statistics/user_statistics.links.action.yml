@@ -1,0 +1,14 @@
+user_statistics.clear_all_action:
+  # Here we say where does the button lead -> user_statistics.routing.yml
+  route_name: user_statistics.clear_all
+  title: 'Clear All'
+  appears_on:
+    - entity.user_statistics.collection
+    
+user_statistics.clear_own_action:
+  route_name: user_statistics.clear_own
+  title: 'Clear my records'
+  appears_on:
+    - entity.user_statistics.collection
+    - user_statistics.collection.own
+  weight: 5

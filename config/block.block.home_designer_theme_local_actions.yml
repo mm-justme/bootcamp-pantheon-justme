@@ -8,8 +8,8 @@ _core:
   default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
 id: home_designer_theme_local_actions
 theme: home_designer_theme
-region: none
-weight: -7
+region: content
+weight: -8
 provider: null
 plugin: local_actions_block
 settings:

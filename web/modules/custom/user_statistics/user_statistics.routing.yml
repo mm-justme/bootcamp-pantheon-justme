@@ -1,0 +1,29 @@
+user_statistics.clear_all:
+  path: '/admin/user-statistics/clear-all'
+  defaults:
+    _form: '\Drupal\user_statistics\Form\ClearAllStatisticsConfirmForm'
+    _title: 'Clear all user statistics'
+  requirements:
+    _permission: 'clear all statistics'
+  options:
+    _admin_route: TRUE
+    
+  
+user_statistics.clear_own:
+  path: '/admin/user-statistics/clear-my'
+  defaults:
+    _form: '\Drupal\user_statistics\Form\ClearOwnStatisticsConfirmForm'
+    _title: 'Clear my user statistics'
+  requirements:
+    _permission: 'clear own user statistics'
+
+
+user_statistics.collection.own:
+  path: '/user-statistics'
+  defaults:
+    _entity_list: 'user_statistics'
+    _title: 'My user statistics'
+  requirements:
+    _permission: 'view own user statistics'
+  options:
+    _admin_route: TRUE

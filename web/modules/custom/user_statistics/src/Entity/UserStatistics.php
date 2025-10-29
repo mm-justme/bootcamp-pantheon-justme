@@ -6,12 +6,12 @@ use Drupal\Core\Entity\Attribute\ContentEntityType;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\ContentEntityDeleteForm;
 use Drupal\Core\Entity\ContentEntityForm;
-use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\user_statistics\UserStatisticsAccessControlHandler;
 use Drupal\user_statistics\UserStatisticsListBuilder;
 
 /**
@@ -30,7 +30,7 @@ use Drupal\user_statistics\UserStatisticsListBuilder;
   ],
   handlers: [
     // Controls who has the right to view, create, edit, and delete entities.
-    'access' => EntityAccessControlHandler::class,
+    'access' => UserStatisticsAccessControlHandler::class,
     // Determines how the table with the list of entities looks in the
     // admin panel. Defines columns (buildHeader()) and rows (buildRow()).
     'list_builder' => UserStatisticsListBuilder::class,
