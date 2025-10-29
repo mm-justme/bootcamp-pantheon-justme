@@ -1,5 +1,5 @@
-name: 'custom_reg'
+name: 'Custom User Registration'
 type: module
-description: 'User Registration Form'
+description: 'Custom User Registration and Login Form'
 package: Custom
 core_version_requirement: ^11
