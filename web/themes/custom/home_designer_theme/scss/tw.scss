@@ -218,7 +218,7 @@ header {
     .layout__region--first {
       @apply md:px-3 px-5 lg:px-5 xl:px-6;
 
-      .block-field-blocknodepoststitle {
+      .block-field-blocknodepoststitle,.block-field-blocknodepostsfield-custom-italic {
         @apply mb-5;
 
         .field--name-title {

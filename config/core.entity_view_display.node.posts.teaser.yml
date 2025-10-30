@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.posts.field_custom_italic
     - field.field.node.posts.field_design_tags
     - field.field.node.posts.field_photo_main
     - field.field.node.posts.field_posts_body
@@ -17,6 +18,7 @@ mode: teaser
 content: {  }
 hidden:
   addtoany: true
+  field_custom_italic: true
   field_design_tags: true
   field_photo_main: true
   field_posts_body: true

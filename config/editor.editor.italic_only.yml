@@ -1,0 +1,17 @@
+uuid: 2600c272-4cd6-4834-8d8b-a6dcf973146e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.italic_only
+  module:
+    - ckeditor5
+format: italic_only
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - italic
+  plugins: {  }
+image_upload:
+  status: false
